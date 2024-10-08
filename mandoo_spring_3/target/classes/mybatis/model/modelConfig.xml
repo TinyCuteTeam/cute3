@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<!-- tag(또는 node)의 순서에 주의 -->
+
+	<!-- 전달인자로 null 줄 수 있음 -->
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL" />
+	</settings>
+
+	<!-- mapper에서 사용할 타입이 길어서 짧게 별칭 지정 -->
+	<typeAliases>
+    <typeAlias type="kr.co.mandoo.dto.AccountDTO" alias="accountDTO" />
+    <typeAlias type="kr.co.mandoo.dto.BoardDetailDTO" alias="boardDetailDTO" />
+    <typeAlias type="kr.co.mandoo.dto.BoardDTO" alias="boardDTO" />
+    <typeAlias type="kr.co.mandoo.dto.BomAddDTO" alias="bomAddDTO" />
+    <typeAlias type="kr.co.mandoo.dto.BOMDTO" alias="bomDTO" />
+    <typeAlias type="kr.co.mandoo.dto.ClientDTO" alias="clientDTO" />
+    <typeAlias type="kr.co.mandoo.dto.ErrorDTO" alias="errorDTO" />
+    <typeAlias type="kr.co.mandoo.dto.FaultyDTO" alias="faultyDTO" />
+    <typeAlias type="kr.co.mandoo.dto.InventoryDTO" alias="inventoryDTO" />
+    <typeAlias type="kr.co.mandoo.dto.ItemDTO" alias="itemDTO" />
+    <typeAlias type="kr.co.mandoo.dto.MaterialStockDTO" alias="materialStockDTO" />
+    <typeAlias type="kr.co.mandoo.dto.MyPageDTO" alias="myPageDTO" />
+    <typeAlias type="kr.co.mandoo.dto.OrderInfoDTO" alias="orderInfoDTO" />
+    <typeAlias type="kr.co.mandoo.dto.ProductionOrderDTO" alias="productionOrderDTO" />
+    <typeAlias type="kr.co.mandoo.dto.ProductionPlanDTO" alias="productionPlanDTO" />
+    <typeAlias type="kr.co.mandoo.dto.ProductionstatusDTO" alias="productionstatusDTO" />
+    <typeAlias type="kr.co.mandoo.dto.RawMaterialStockDTO" alias="rawMaterialStockDTO" />
+    <typeAlias type="kr.co.mandoo.dto.ShipmentDTO" alias="shipmentDTO" />
+    <typeAlias type="kr.co.mandoo.dto.StockDTO" alias="stockDTO" />
+    <typeAlias type="kr.co.mandoo.dto.TodoDTO" alias="todoDTO" />
+    <typeAlias type="kr.co.mandoo.dto.UserDTO" alias="userDTO" />
+    <typeAlias type="kr.co.mandoo.dto.WorkDTO" alias="workDTO" />
+</typeAliases>
+
+</configuration>
