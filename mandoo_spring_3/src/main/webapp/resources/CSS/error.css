@@ -1,0 +1,102 @@
+@charset "UTF-8";
+.content {
+    margin-left: 120px;
+    text-align: center;
+    width: 65%;
+}
+
+.errorfloat {
+    width: 100%;
+    text-align: right;
+    margin-left: auto;
+}
+
+/*품목추가 버튼*/
+.plus:hover {
+    background-color: #0085FF;
+    color: white;
+}
+
+.plus {
+    width: 100px;
+    height: 50px;
+    padding: 5px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e6e6e6;
+    font-size: 15px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+/*    수정, 삭제버튼 css */
+.editBtn {
+    background-color:rgba(0, 0, 0, 0);
+    border: none;
+    text-decoration: underline;
+	text-decoration-thickness: 1px;
+    cursor: pointer;
+}
+
+.editBtn:hover {
+    color:#0085FF;
+    font-weight: bold;
+}
+
+th {
+    background-color: #e6e6e6;
+    height: 50px;
+}
+
+.thwidth {
+    width: 140px;
+}
+
+tr {
+    height: 50px;
+}
+
+/* 테이블 */
+.errortable {
+    border: solid #e6e6e6 1px;
+    border-collapse: collapse;
+    /*    width: 100%; */
+    width: 1280px;
+}
+
+.errorexplain {
+    width: 500px;
+}
+
+.text {
+    font-size: 30px;
+    text-align: center;
+}
+
+.pagination {
+    display: inline-block;
+    margin-top: 20px;
+
+}
+
+.pagination a {
+    color: black;
+    border-radius: 5px;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+}
+
+.pagination a.active {
+    background-color: #0085FF;
+    color: white;
+    border: 1px solid #0085FF;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}

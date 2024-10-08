@@ -1,0 +1,23 @@
+package kr.co.mandoo.dao;
+
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class BOMDAOImpl implements BOMDAO {
+
+	@Autowired
+	SqlSession sqlSession;
+	
+	@Override
+	public List selectBOM() {
+		List list = sqlSession.selectList("mapper.dto.selectBOM");
+		System.out.println(list);
+		return list;
+	}
+	
+	
+}
