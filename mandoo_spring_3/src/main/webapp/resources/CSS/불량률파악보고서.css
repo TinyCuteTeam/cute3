@@ -1,0 +1,94 @@
+﻿.defect-content {
+    /* height: 843px; */
+    width: 80%; /* 전체 너비를 사용 */
+    display: flex; /* 플렉스 레이아웃 사용 */
+    flex-direction: row; /* 수평 정렬 */
+    justify-content: space-between; /* 두 요소 사이에 공간을 자동으로 배치 */
+    padding: 20px; /* 여백 추가 */
+    box-sizing: border-box; /* 패딩을 너비와 높이에 포함 */
+    margin-left : 270px;
+    margin-top: 50px;
+}
+
+.defect-table-container {
+    width: 50%;
+    margin-right: 50px; /* 테이블과 차트 사이에 여백 추가 */
+}
+
+.defect {
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%; /* 테이블 컨테이너의 너비에 맞춤 */
+}
+
+.defect-table {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+}
+
+.defect-table th, .defect-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.defect-table th {
+    background-color: #f2f2f2;
+}
+
+#line-chart {
+    width: 100% !important;
+    height: 500px !important;
+    margin-top: 50px;
+}
+
+#chart-container {
+    flex: 1; /* 나머지 공간을 차지하도록 설정 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.defect-summary-row {
+    font-weight: bold;
+}
+
+
+
+
+/* 페이징 컨테이너 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+/* 각 페이징 링크 스타일 */
+.pagination a {
+    display: block;
+    padding: 10px 15px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* 현재 페이지 강조 */
+.pagination a.active {
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #007bff;
+    font-weight: bold;
+}
+
+/* 링크 hover 스타일 */
+.pagination a:hover {
+    background-color: #e9ecef;
+    color: #007bff;
+    border-color: #007bff;
+}
+
+

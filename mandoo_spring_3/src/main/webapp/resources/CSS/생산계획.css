@@ -1,0 +1,189 @@
+.content {
+	margin-left: 370px;
+}
+
+.mho {
+	text-decoration: underline;
+}
+
+.mho:hover {
+	padding: 5px 5px;
+	border-radius: 3px;
+	text-decoration: underline;
+}
+
+.flex {
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+	margin-top: 10px;
+	width: 800px;
+	height: 50px;
+	line-height: 50px;
+}
+
+.mfont div {
+	font-size: 14px;
+}
+
+.flex > div {
+	flex: 1;
+	text-align: center;
+	line-height: 50px;
+}
+
+.round {
+	border: 1px solid black;
+	border-radius: 15px;
+	margin-bottom: 30px;
+}
+
+.srTh {
+	background-color: #e6e6e6;
+	font-weight: bold;
+	border-radius: 15px;
+	margin-bottom: 20px;
+}
+
+
+/* 검색창을 상단 중앙에 고정 */
+.search-container {
+	position: fixed; /* 위치를 고정 */
+	top: 800px; /* 페이지 상단에서 20px 떨어진 위치 */
+	left: 47%; /* 페이지 중앙에서 왼쪽으로 이동 */
+	transform: translateX(-50%); /* 페이지 중앙에 정확히 위치하도록 조정 */
+	display: flex; /* 검색창과 버튼을 수평으로 배치 */
+	align-items: center; /* 세로 중앙 정렬 */
+	background-color: white; /* 배경색 설정 */
+	padding: 10px; /* 여백 설정 */
+	border-radius: 5px; /* 모서리 둥글게 설정 */
+	margin-left: 200px;
+}
+
+#search-input {
+	width: 300px;
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	font-size: 16px;
+	margin-right: 10px;
+}
+
+#search-button, #cancel-button {
+	padding: 10px 20px;
+	border-radius: 5px;
+	border: 1px solid #e6e6e6; 
+	background-color : #e6e6e6;
+	color: black;
+	font-size: 16px;
+	cursor: pointer;
+	margin-right: 10px;
+	background-color: #e6e6e6;
+}
+
+#search-button:hover {
+	background-color: #0085FF;
+	color: white;
+}
+
+#cancel-button:hover {
+	background-color: #ff5252;
+	color: white;
+}
+
+/* 팝업창 스타일 */
+.popup {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+}
+
+.popup-content {
+	background: white;
+	padding: 20px;
+	border-radius: 5px;
+	width: 400px;
+	position: relative;
+}
+
+.close-popup {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	font-size: 25px;
+	cursor: pointer;
+}
+
+#popup h2 {
+	margin-top: 0;
+}
+
+/* 등록, 삭제 버튼 스타일 */
+.action-buttons {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+.action-buttons button {
+	padding: 10px 15px;
+	border: none;
+	border-radius: 5px;
+	margin: 0 5px;
+	color: white;
+	cursor: pointer;
+}
+
+#add-button, #delete-button {
+	background-color: #e6e6e6;
+	color: black;
+}
+
+#add-button {
+	margin-left: 200px;
+}
+
+/* 호버가 안들어감 */
+#add-button:hover {
+	background-color: #0085FF;
+	color: white;
+}
+
+#delete-button:hover {
+	background-color: #ff5252;
+	color: white;
+}
+
+.pagination {
+	display: inline-block;
+	margin-top: 20px;
+	margin-left: 20%;
+}
+
+.pagination a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	transition: background-color .3s;
+	border: 1px solid #ddd;
+	margin: 0 4px;
+	border-radius: 5px;
+}
+
+.pagination a.active {
+	background-color: #0085FF;
+	color: white;
+	border: 1px solid #0085FF;
+}
+
+.pagination a:hover:not(.active) {
+	background-color: #ddd;
+}

@@ -1,0 +1,380 @@
+@charset "EUC-KR";
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+
+
+.content {
+    width: 1620px;
+}
+
+.scroll {
+    margin: 20px 0;
+    /* ���� ���鸸 ����� �¿� ���� ���� */
+    max-height: 650px;
+    overflow-y: auto;
+    /* ���� ��ũ�� Ȱ��ȭ */
+    padding-right: 0;
+    /* ������ �е� ���� */
+    box-sizing: border-box;
+    /* �׵θ��� �е��� �����Ͽ� ũ�� ��� */
+}
+
+/* ��ũ�ѹ� ��ü */
+.scroll::-webkit-scrollbar {
+    width: 12px;
+    /* ��ũ�ѹ� �ʺ� */
+}
+
+/* ��ũ�ѹ� Ʈ�� */
+.scroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* Ʈ�� ���� */
+    border-radius: 5px;
+    /* Ʈ�� �𼭸� �ձ۰� */
+}
+
+/* ��ũ�ѹ� �ڵ� */
+.scroll::-webkit-scrollbar-thumb {
+    background: #888;
+    /* �ڵ� ���� */
+    border-radius: 5px;
+    /* �ڵ� �𼭸� �ձ۰� */
+}
+
+/* ��ũ�ѹ� �ڵ� ȣ�� */
+.scroll::-webkit-scrollbar-thumb:hover {
+    background: #007bff;
+    /* �ڵ� ȣ�� ���� */
+}
+
+
+#modalTitle {
+    margin-left: 12px;
+}
+
+#calendar {
+    width: 1300px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin-left: 120px;
+}
+
+.day {
+    position: relative;
+    /* ��� ��ġ ���� */
+    min-height: 130px;
+    /* �ּ� ���� ���� (�ʿ信 ���� ����) */
+    border: 1px solid #ccc;
+    /* �׵θ� ���� */
+    padding: 5px;
+    /* �е� ���� */
+}
+
+.event {
+    display: flex;
+    /* �÷��� �ڽ� ��� */
+    flex-direction: column;
+    /* ���� �������� ��ġ */
+    max-height: 100px;
+    /* �ִ� ���� ���� */
+    overflow: hidden;
+    /* ��ġ�� ���� ���� */
+    background-color: #0085FF;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 3px;
+}
+
+.event div {
+    overflow: hidden;
+    /* ��ġ�� ���� ���� */
+    white-space: nowrap;
+    /* �� �ٲ� ���� */
+    text-overflow: ellipsis;
+    /* ��ġ�� �κ� ... ǥ�� */
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 400px;
+    /* �ʺ� ���� */
+    height: 600px;
+    /* ���� �ڵ� ���� */
+    border-radius: 10px;
+}
+
+#eventListContainer {
+    flex-grow: 1;
+    /* ���� ���� ���� */
+    overflow-y: auto;
+    /* ���� ��ũ�� ���� */
+    margin-bottom: 10px;
+    /* �Ʒ��� ���� */
+    width: 100%;
+    /* ��� ���̿� ���� */
+}
+
+.modal-content h2 {
+    text-align: center;
+    /* ���� �߾� ���� */
+}
+
+#modalDate {
+    text-align: center;
+    /* ��¥ �߾� ���� */
+    margin-bottom: 20px;
+    /* ��¥�� �Է�â ������ ���� */
+}
+
+
+#addEventContainer {
+    display: flex;
+    flex-direction: column; /* ���� �������� ���� */
+    align-items: center; /* ��� ���� */
+    margin: 20px; /* �ܺ� ���� �߰� */
+}
+
+
+
+#eventTitle {
+    display: block;
+    width: 90%;
+    /* �ʺ� ���� */
+    height: 40px;
+    /* ���� �Է¶� ���� */
+    padding: 10px;
+    /* �е� �߰� */
+    font-weight: bold;
+}
+
+#eventInput {
+    display:block;
+    width: 90%;
+    /* �ʺ� ���� */
+    height: 300px;
+    /* �� ���� �Է¶� ���� */
+    padding: 10px;
+    /* �е� �߰� */
+}
+
+
+
+.eventList {
+    background-color: rgba(108, 150, 255, 0.364);
+    /* ���� �׸� ��� ���� */
+    padding: 10px;
+    /* �е� �߰� */
+    margin: 5px 0;
+    /* ���Ʒ� ���� �߰� */
+    border-radius: 4px;
+    /* �𼭸� �ձ۰� */
+    font-weight: bold;
+}
+
+.separator {
+    height: 1px;
+    /* ���м��� ���� */
+    background-color: #ccc;
+    /* ���м� ���� */
+    margin: 5px 0;
+    /* ���Ʒ� ���� �߰� */
+}
+
+
+#addEventButton {
+    position: absolute;
+    display: block;
+    border: none;
+    /* �׵θ� ���� */
+    background: none;
+    /* ��� ���� */
+    cursor: pointer;
+    /* Ŀ�� �����ͷ� ���� */
+    padding: 10px 20px;
+    /* �е� ���� */
+    margin-left: 360px;
+    padding-right: 10px;
+}
+
+.write1,
+.write2,
+.edit1, .edit2 {
+    width: 22px;
+    /* �̹��� ũ�� ���� (�ʿ信 ���� ����) */
+    height: auto;
+    /* ���� ���� */
+    transition: opacity 0.3s ease;
+    /* �ε巯�� ��ȯ ȿ�� */
+}
+
+
+
+#eventList {
+    margin-top: 20px;
+    /* ���� ��ϰ� �Է�â ������ ���� */
+}
+
+.button-container {
+    display: flex;
+    /* �÷��� �ڽ� ��� */
+    justify-content: space-between;
+    /* ���� ���� ��ġ */
+    align-items: center;
+    /* ���� �߾� ���� */
+    margin-bottom: 20px;
+    /* �Ʒ��� ���� �߰� */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    /* Ŀ�� �����ͷ� ���� */
+    margin: 0;
+    display: flex;
+    margin-bottom: 100px;
+}
+
+.close>img {
+    width: 20px;
+}
+
+.today {
+    background-color: rgba(195, 195, 195, 0.364);
+    /* ���� ��¥ ���� ���� */
+}
+
+
+#backButton {
+    border: none;
+    /* �׵θ� ���� */
+    background: none;
+    /* ��� ���� */
+    margin: 0;
+    cursor: pointer;
+    /* Ŀ�� �����ͷ� ���� */
+    position: absolute;
+    display: flex;
+}
+
+#backButton>img {
+    width: 20px;
+}
+
+#eventList {
+    height: 414px;
+}
+
+
+#submitEventButton {
+    border: none;
+    width: 350px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+}
+
+#submitEventButton:hover {
+    background-color: #0056b3; /* ���콺 ���� �� ���� ���� */
+}
+
+
+.details-text {
+    padding: 10px;
+    height: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.close-detail {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.close-detail:hover {
+    background-color: #0056b3; /* ���콺 ���� �� ���� ���� */
+}
+
+
+/* ���� */
+.event-header {
+    display: flex; /* �÷����ڽ��� ����Ͽ� ���� */
+    align-items:end; /* ���� �߾� ���� */
+}
+
+.edit-event {
+    border: none;
+    background: none;
+    display: inline-block;
+    position: relative;
+    margin-left: 3px; /* ����� ��ư ���̿� ���� �߰� */
+}
+
+#detailsTitle {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+
+#editEventButton {
+    position: relative;
+    top: 3px;
+}
+
+
+#generateCalendarButton {
+    background-color: #e6e6e6;
+    border: none;
+    border-radius: 5px;
+    width: 100px;
+    padding: 5px;
+    font-size: 13px;
+    height: 30px;
+}
+
+#generateCalendarButton:hover {
+    background-color: #0085FF;
+    color: white;
+}
+
+
+.todo-select>select {
+    width: 100px;
+    border: solid 1px #e6e6e6;
+    padding: 5px;
+    font-size: 13px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
