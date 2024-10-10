@@ -20,6 +20,7 @@ public class BOMController {
 	public String listBOM(Model model) {
 		
 		List<BOMDTO> bomList = bomService.listBOM();
+	
 		System.out.println("BOM list: "+bomList);
 		model.addAttribute("list",bomList);
 		

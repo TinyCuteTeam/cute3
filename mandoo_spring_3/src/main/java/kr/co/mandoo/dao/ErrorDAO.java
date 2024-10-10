@@ -6,11 +6,8 @@ import kr.co.mandoo.dto.ErrorDTO;
 
 public interface ErrorDAO {
 
-//	List<ErrorDTO> selectEmp();
-//	public int insertEmp(ErrorDTO errorDTO);
-//	ErrorDTO selectError(int errorId);
-//	int updateError(ErrorDTO errorDTO);
-//	public int deleteError(ErrorDTO errorDTO);
 	
-	List selectError(); 
+	List selectError(); // select 조회  
+	 
+	public int deleteError(ErrorDTO errorDTO); // delete 삭제
 }

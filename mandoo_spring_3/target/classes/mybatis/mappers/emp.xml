@@ -112,9 +112,9 @@
 <!--       UPDATE error SET errorMessage = #{errorMessage} -->
 <!--       WHERE errorId = #{errorId} -->
 <!--    </update> -->
-<!--    <delete id="deleteError" parameterType="errorDTO"> -->
-<!--       DELETE FROM error WHERE errorId = #{errorId} -->
-<!--    </delete> -->
+   <delete id="deleteError" parameterType="errorDTO">
+      DELETE FROM error WHERE error_Id = #{error_Id}
+   </delete>
 
    <!-- FaultyDTO -->
    <select id="selectFaulty" resultType="faultyDTO">
@@ -152,17 +152,17 @@
    <select id="selectItem" resultType="itemDTO">
       select * from item
    </select>
-   <insert id="insertItem" parameterType="itemDTO">
-      INSERT INTO item(itemId, itemName, price)
-      VALUES (#{itemId}, #{itemName}, #{price})
-   </insert>
-   <update id="updateItem" parameterType="itemDTO">
-      UPDATE item SET itemName = #{itemName}, price = #{price}
-      WHERE itemId = #{itemId}
-   </update>
-   <delete id="deleteItem" parameterType="itemDTO">
-      DELETE FROM item WHERE itemId = #{itemId}
-   </delete>
+<!--    <insert id="insertItem" parameterType="itemDTO"> -->
+<!--       INSERT INTO item(itemId, itemName, price) -->
+<!--       VALUES (#{itemId}, #{itemName}, #{price}) -->
+<!--    </insert> -->
+<!--    <update id="updateItem" parameterType="itemDTO"> -->
+<!--       UPDATE item SET itemName = #{itemName}, price = #{price} -->
+<!--       WHERE itemId = #{itemId} -->
+<!--    </update> -->
+<!--    <delete id="deleteItem" parameterType="itemDTO"> -->
+<!--       DELETE FROM item WHERE itemId = #{itemId} -->
+<!--    </delete> -->
 
    <!-- MaterialStockDTO -->
    <select id="selectMaterialStock" resultType="materialStockDTO">

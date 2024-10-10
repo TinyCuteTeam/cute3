@@ -99,7 +99,9 @@
 
       <!-- 제품 레시피 선택 -->
       <div class="srPlus">
-         <form method="get" action="${pageContext.request.contextPath}/BOM">
+<%--          <form method="get" action="${pageContext.request.contextPath}/BOM"> --%>
+         <form method="get" action="/WEB-INF/views/bom.jsp"> 
+<!--          ?? 여기 이 위에 질문 -->
             <select id="recipeSelect" name="bomId" onchange="this.form.submit()">
                <c:forEach var="bomId" items="${bomIds}">
                   <option value="${bomId}"
@@ -128,7 +130,7 @@
                <th class="srTh thwidth">수정</th>
                <th class="srTh thwidth">삭제</th>
             </tr>
-            <c:forEach var="bom" items="${bomList}">
+            <c:forEach var="bom" items="${list}">
                <tr>
                   <td>${bom.item_Code}</td>
                   <td>${bom.item_Name}</td>
@@ -136,8 +138,8 @@
                   <td>${bom.bom_Unit}</td>
                   <td>
                      <button type="button" class="editBtn" data-bomid="${bom.bom_Id}"
-                        data-itemcode="${bom.itemCode}" data-itemname="${bom.item_Name}"
-                        data-bomcount="${bom.bomCount}" data-bomunit="${bom.bom_Unit}">수정</button>
+                        data-itemcode="${bom.item_Code}" data-itemname="${bom.item_Name}"
+                        data-bomcount="${bom.bom_Count}" data-bomunit="${bom.bom_Unit}">수정</button>
                   </td>
                   <td>
                      <button class="editBtn" type="submit" name="action"

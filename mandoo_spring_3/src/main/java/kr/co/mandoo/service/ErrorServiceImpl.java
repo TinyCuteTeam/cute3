@@ -20,4 +20,10 @@ public class ErrorServiceImpl implements ErrorService {
 		
 		return list;
 	}
+
+	@Override
+	public int deleteError(ErrorDTO errorDTO) {
+		// TODO Auto-generated method stub
+		return errorDAO.deleteError(errorDTO);
+	}
 }

@@ -91,7 +91,7 @@
 	<div class="content">
 		<h1>품목 코드 조회</h1>
 
-		<!-- 추가 버튼 -->
+		<!-- 품목 추가 모달창 오픈 버튼 -->
 		<div class="srPlus">
 			<button class="plus addBtn" onclick="openAddModal()">품목추가</button>
 		</div>
@@ -105,22 +105,24 @@
 				<th class="srTh">수정</th>
 				<th class="srTh">삭제</th>
 			</tr>
-			<c:forEach var="item" items="${itemList}">
+			<c:forEach var="item" items="${list}">
 				<tr>
-					<td>${item.itemCode}</td>
-					<td>${item.itemName}</td>
+					<td>${item.item_Code}</td>
+					<td>${item.item_Name}</td>
 					<td><img class="ingre"
-						src="${pageContext.request.contextPath}/image/${item.itemCode}.jpg"></td>
+						src="resources/image/${item.item_Code}.jpg"></td>
 					<td>
 						<button class="pen editButton"
-							onclick="openEditModal('${item.itemCode}', '${item.itemName}')">
+							onclick="openEditModal('${item.item_Code}', '${item.item_Name}')">
 							수정</button>
 					</td>
 					<td>
-						<form action="${pageContext.request.contextPath}/Item"
+<%-- 						<form action="${pageContext.request.contextPath}/Item" --%>
+<!-- 							method="post"> -->
+						<form action="/WEB-INF/views/item" 
 							method="post">
 							<input type="hidden" name="action" value="delete"> <input
-								type="hidden" name="itemCode" value="${item.itemCode}">
+								type="hidden" name="itemCode" value="${item.item_Code}">
 							<button class="editButton" type="submit">삭제</button>
 						</form>
 					</td>
