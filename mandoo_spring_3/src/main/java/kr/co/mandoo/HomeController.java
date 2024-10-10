@@ -1,24 +1,28 @@
 package kr.co.mandoo;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
+import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import kr.co.mandoo.Service.BoardService;
+import kr.co.mandoo.dto.BoardDTO;
+
 
 @Controller
 public class HomeController {
 	
+	@Autowired
+	BoardService boardService;
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String home(Model model) {
-	
+        List<BoardDTO> posts = boardService.getAllPosts();
+        
+        model.addAttribute("posts", posts);
 		
 		return "index";
 	}

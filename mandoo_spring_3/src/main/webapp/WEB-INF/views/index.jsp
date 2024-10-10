@@ -1,4 +1,7 @@
 ﻿<%@ page contentType="text/html; charset=UTF-8" language="java"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -7,9 +10,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mandoo</title>
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/WEB-INF/resources/CSS/style.css">
+	href="${pageContext.request.contextPath}/resources/CSS/style.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/WEB-INF/resources//CSS/board-style.css">
+	href="${pageContext.request.contextPath}/resources/CSS/board-style.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <style>
@@ -150,17 +153,17 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="post" items="${posts}">
+				<c:forEach var="post" items="${posts}" begin="0" end="2">
 					<tr>
-						<td>${fn:substring(post.boardId, 1, fn:length(post.boardId))}</td>
+						<td>${fn:substring(post.bord_Id, 1, fn:length(post.bord_Id))}</td>
 						<td><a
-							href="${pageContext.request.contextPath}/boardDetail?postId=${post.boardId}">${post.boardTitle}</a>
-						</td>
-						<td><fmt:formatDate value="${post.boardDate}"
+							href="${pageContext.request.contextPath}/boardDetail?postId=${post.bord_Id}">${post.board_Title}</a></td>
+						<td><fmt:formatDate value="${post.board_Date}"
 								pattern="yyyy-MM-dd" /></td>
-						<td>${post.userName}</td>
+						<td>${post.user_Name}</td>
 					</tr>
 				</c:forEach>
+
 			</tbody>
 		</table>
 	</div>

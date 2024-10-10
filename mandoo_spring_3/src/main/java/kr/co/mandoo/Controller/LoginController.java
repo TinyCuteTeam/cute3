@@ -77,16 +77,7 @@ public class LoginController {
         }
     }
 
-    // GET 요청 시 인덱스 페이지로 이동
-    @GetMapping("/index")
-    public String showIndexPage(HttpSession session, Model model) {
-        UserDTO user = (UserDTO) session.getAttribute("user");
-        if (user == null) {
-            return "redirect:/login";
-        }
-        model.addAttribute("user", user);
-        return "index"; // /WEB-INF/views/index.jsp
-    }
+
 
    
 

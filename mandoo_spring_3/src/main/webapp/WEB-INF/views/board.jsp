@@ -38,7 +38,7 @@
 					<tr>
 						<td>${fn:substring(post.bord_Id, 1, fn:length(post.bord_Id))}</td>
 						<td><a
-							href="${pageContext.request.contextPath}/boardDetail?postId=${post.bord_Id}">${post.board_Title}</a></td>
+							href="${pageContext.request.contextPath}/board/detail?bord_id=${post.bord_Id}">${post.board_Title}</a></td>
 						<td><fmt:formatDate value="${post.board_Date}"
 								pattern="yyyy-MM-dd" /></td>
 						<td>${post.user_Name}</td>

@@ -34,7 +34,7 @@ public class BoardController {
         
         model.addAttribute("posts", posts);
 
-        return "board"; // /WEB-INF/views/board.jsp
+        return "board"; 
     }
 
 }
