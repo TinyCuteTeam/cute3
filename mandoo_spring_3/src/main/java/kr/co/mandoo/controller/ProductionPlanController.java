@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.mandoo.dto.ProductionPlanDTO;
 import kr.co.mandoo.service.ProductionPlanService;
@@ -39,6 +39,20 @@ public class ProductionPlanController {
 		model.addAttribute("result", result);
 
 		System.out.println("insert 실행 : " + result);
+
+		return "redirect:/ProductionPlan";
+	}
+
+	@RequestMapping(value = "/deleteProductionPlan", method = RequestMethod.POST)
+	public String delete(@RequestParam("plan_id") String plan_id) {
+
+		System.out.println(plan_id);
+		ProductionPlanDTO productionPlanDTO = new ProductionPlanDTO();
+		productionPlanDTO.setPlan_id(plan_id);
+
+		int result = ProductionPlanService.deleteProductionPlan(productionPlanDTO);
+
+		System.out.println("delete 실행 : " + result);
 
 		return "redirect:/ProductionPlan";
 	}

@@ -9,4 +9,6 @@ public interface ProductionPlanDAO {
 	List selectProductionPlan();
 
 	int insertProductionPlan(ProductionPlanDTO dto);
+
+	int deleteProductionPlan(ProductionPlanDTO dto);
 }

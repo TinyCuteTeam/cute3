@@ -28,4 +28,17 @@ public class ProductionPlanImpl implements ProductionPlanDAO {
 		return result;
 	}
 
+	@Override
+	public int deleteProductionPlan(ProductionPlanDTO dto) {
+		int result = -1;
+
+		try {
+			result = sqlSession.delete("mapper.dto.deleteProductionPlan", dto);
+		} catch (Exception e) {
+			sqlSession.rollback();
+		}
+
+		return result;
+	}
+
 }

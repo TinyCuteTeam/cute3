@@ -98,37 +98,42 @@
 			<button id="cancel-button">취소</button>
 		</div>
 
-		<!-- 생산계획 버튼들 -->
-		<div class="wrap">
+		<!-- 		<!-- 생산계획 버튼들 -->
+		<!-- 		<div class="wrap"> -->
+		<!-- 			<div class="action-buttons"> -->
+		<!-- 				<button id="add-button">등록</button> -->
+		<!-- 				<form id="delete-form" method="post" action="deleteProductionPlan" -->
+		<!-- 					style="display: inline;"> -->
+		<!-- 					<input type="hidden" name="plan_id" value="plan_id"> -->
+		<!-- 					<button type="submit" id="delete-button">삭제</button> -->
+		<!-- 				</form> -->
+		<!-- 			</div> -->
+		<!-- 		</div> -->
+
+
+
+
+
+		<form id="plan-list-form" method="post" action="deleteProductionPlan">
 			<div class="action-buttons">
-				<button id="add-button">등록</button>
-				<form id="delete-form" method="post" action="/mandoo/ProductPlan"
-					style="display: inline;">
-					<input type="hidden" name="action" value="delete">
-					<button type="submit" id="delete-button">삭제</button>
-				</form>
+				<input type="button" id="add-button" value="등록">
+				<button type="submit" id="delete-button">삭제</button>
 			</div>
-		</div>
-
-		<div class="flex round srTh" style="border: 0px;">
-			<div>선택</div>
-			<div>계획 ID</div>
-			<div>계획 이름</div>
-			<div>계획 시작일</div>
-			<div>계획 종료일</div>
-			<div>계획 수량</div>
-			<div>계획 내용</div>
-
-		</div>
-
-		<!-- 계획 리스트 -->
-		<form id="plan-list-form" method="post" action="/mandoo/ProductPlan">
+			<div class="flex round srTh" style="border: 0px;">
+				<div>선택</div>
+				<div>계획 ID</div>
+				<div>계획 이름</div>
+				<div>계획 시작일</div>
+				<div>계획 종료일</div>
+				<div>계획 수량</div>
+				<div>계획 내용</div>
+			</div>
 			<input type="hidden" name="action" value="delete">
 			<div id="data-container">
 				<c:forEach var="plan" items="${list}">
 					<div class="flex round">
 						<div>
-							<input type="checkbox" class="item-checkbox" name="selectedPlans"
+							<input type="checkbox" class="item-checkbox" name="plan_id"
 								value="${plan.plan_id}">
 						</div>
 						<div>${plan.plan_id}</div>
@@ -146,6 +151,7 @@
 				</c:forEach>
 			</div>
 		</form>
+
 
 		<!-- 페이징 -->
 		<div class="pagination">
@@ -196,6 +202,7 @@
 					placeholder="생산 수량" required><br> <label for="status">생산계획
 					이름:</label><br> <input type="text" id="status" name="plan_name"
 					placeholder="생산계획 이름" required><br> <br>
+
 				<button type="submit">등록</button>
 			</form>
 		</div>

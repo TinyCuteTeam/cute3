@@ -1,6 +1,6 @@
 package kr.co.mandoo.dto;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class WorkDTO {
 	private String workId;

@@ -234,7 +234,7 @@
 
 	<!-- ProductionPlanDTO -->
 	<select id="selectProductionPlan" resultType="productionPlanDTO">
-		select * from production_Plan
+		select * from production_Plan order by plan_id desc
 	</select>
 	<insert id="insertProductionPlan" parameterType="productionPlanDTO">
 		INSERT INTO production_Plan(plan_id, plan_contents, plan_date, plan_end_date, plan_count, plan_name)
@@ -244,9 +244,9 @@
 <!-- 		UPDATE productionPlan SET productId = #{productId}, startDate = #{startDate} -->
 <!-- 		WHERE planId = #{planId} -->
 <!-- 	</update> -->
-<!-- 	<delete id="deleteProductionPlan" parameterType="productionPlanDTO"> -->
-<!-- 		DELETE FROM productionPlan WHERE planId = #{planId} -->
-<!-- 	</delete> -->
+	<delete id="deleteProductionPlan" parameterType="productionPlanDTO">
+		DELETE FROM production_Plan WHERE plan_id = #{plan_id}
+	</delete>
 
 	<!-- ProductionstatusDTO -->
 	<select id="selectProductionstatus" resultType="productionstatusDTO">

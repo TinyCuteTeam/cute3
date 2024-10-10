@@ -12,12 +12,12 @@ import kr.co.mandoo.dto.ProductionPlanDTO;
 public class ProductionPlanServiceImpl implements ProductionPlanService {
 
 	@Autowired
-	ProductionPlanDAO ProductionPlanDAO;
+	ProductionPlanDAO productionPlanDAO;
 
 	@Override
 	public List listProductionPlan() {
 
-		List<ProductionPlanDTO> list = ProductionPlanDAO.selectProductionPlan();
+		List<ProductionPlanDTO> list = productionPlanDAO.selectProductionPlan();
 
 		return list;
 	}
@@ -25,8 +25,12 @@ public class ProductionPlanServiceImpl implements ProductionPlanService {
 	@Override
 	public int insertProductionPlan(ProductionPlanDTO dto) {
 		int result = -1;
-		result = ProductionPlanDAO.insertProductionPlan(dto);
+		result = productionPlanDAO.insertProductionPlan(dto);
 		return result;
 	}
 
+	@Override
+	public int deleteProductionPlan(ProductionPlanDTO dto) {
+		return productionPlanDAO.deleteProductionPlan(dto);
+	}
 }

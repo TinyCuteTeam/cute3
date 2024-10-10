@@ -10,4 +10,6 @@ public interface ProductionPlanService {
 
 	int insertProductionPlan(ProductionPlanDTO dto);
 
+	int deleteProductionPlan(ProductionPlanDTO dto);
+
 }
