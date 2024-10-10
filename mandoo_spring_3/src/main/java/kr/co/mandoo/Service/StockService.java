@@ -7,9 +7,9 @@ import kr.co.mandoo.dto.StockDTO;
 public interface StockService {
 	
 	public List stockList();
-	public StockDTO stockListOne(String stock);
+	public List stockListOne(String stock);
+	public int updateCountStock(StockDTO stockDTO);
 	public int deleteStock(StockDTO stockDTO);
-	public int insertStock(StockDTO stockDTO);
 	public int updateStock(StockDTO stockDTO);
 	
 	

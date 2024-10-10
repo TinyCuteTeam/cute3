@@ -27,9 +27,9 @@ public class StockDAOImpl implements StockDAO {
 	
 	// 재고 검색
 	@Override
-	public StockDTO getStockOneList(String stock){
+	public List getStockOneList(String stock){
 		
-		StockDTO list = sqlSession.selectOne("mapper.dto.selectStockById" , stock);
+		List list = sqlSession.selectList("mapper.dto.selectStockById" , stock);
 		System.out.println("DAO : " + list);
 		
 		return list;
@@ -49,18 +49,18 @@ public class StockDAOImpl implements StockDAO {
 	
 	// 재고 추가
 	@Override
-	public int insertStock(StockDTO stockDTO) {
+	public int updateCountStock(StockDTO stockDTO) {
 		int result = -1;
-		result = sqlSession.insert("mapper.emp.insertStock" , stockDTO);
-		
-		return 1;
+		result = sqlSession.update("mapper.dto.updateOneStock" , stockDTO);
+		System.out.println("updateCountStock 실행 : " + result);
+		return result;
 	}
 	
 	// 제고 삭제
 	@Override
 	public int deleteStock(StockDTO stockDTO) {
 		int result = -1;
-		result = sqlSession.delete("mapper.emp.deleteStock" , stockDTO);
+		result = sqlSession.delete("mapper.dto.deleteStock" , stockDTO);
 		
 		return result;
 	}
@@ -69,7 +69,7 @@ public class StockDAOImpl implements StockDAO {
 	@Override
 	public int updateStock(StockDTO stockDTO) {
 		int result = -1;
-		result = sqlSession.update("mapper.emp.updateStock" , stockDTO);
+		result = sqlSession.update("mapper.dto.updateStock" , stockDTO);
 		
 		return result;
 	}

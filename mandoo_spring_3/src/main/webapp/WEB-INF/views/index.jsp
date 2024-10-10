@@ -176,13 +176,13 @@
 		<div class="main-container">
 			<div class="chart-grid">
 				<!-- 6개의 라인 차트 출력 -->
-				<c:forEach begin="1" end="6" var="lineNo">
-					<c:if
-						test="${productionLines[lineNo-1] != null && !empty productionLines[lineNo-1].works}">
+				<c:forEach var="status" items="${list}">
+					<c:if test="${status != null && !empty status.work_do}">
 						<div class="chart-item">
-							<div class="progress-label">${lineNo}번라인</div>
-							<canvas id="chart-line-${lineNo}" width="150" height="150"></canvas>
-							<div class="chart-text" id="percentage-text-${lineNo}">0%</div>
+							<div class="progress-label">${status.line_no}번라인</div>
+							<canvas id="chart-line-${status.line_no}" width="150"
+								height="150"></canvas>
+							<div class="chart-text" id="percentage-text-${status.line_no}">%</div>
 						</div>
 					</c:if>
 				</c:forEach>
@@ -245,27 +245,25 @@
 		src="${pageContext.request.contextPath}/WEB-INF/resources//JS/script.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/WEB-INF/resources//JS/Todo.js"></script>
-	<script>
+<script>
                 // 도넛 차트를 생성하는 함수
-                function createDoughnutChart(canvasId, completedQty, totalQty, lineNo) {
+                function createDoughnutChart(canvasId, completedQty, totalQty, line_no) {
                     let ctx = document.getElementById(canvasId).getContext('2d');
                     let percentage = (completedQty / totalQty) * 100;
 
-                    // 만약 totalQty가 0이라면 비가동 상태로 처리
                     if (totalQty === 0) {
                         completedQty = 0;
-                        totalQty = 1; // 차트를 그리기 위해 1로 설정 (실제로 비가동 상태를 나타냄)
+                        totalQty = 1;
                         percentage = 0;
                     }
 
-                    // 차트 생성
                     new Chart(ctx, {
                         type: 'doughnut',
                         data: {
                             labels: ['생산 완료', '남은 작업'],
                             datasets: [{
                                 data: [completedQty, totalQty - completedQty],
-                                backgroundColor: ['#007bff', '#e0e0e0'], // 완료와 미완료 색상
+                                backgroundColor: ['#007bff', '#e0e0e0'],
                                 borderColor: ['#007bff', '#e0e0e0'],
                                 borderWidth: 1
                             }]
@@ -281,20 +279,18 @@
                                     }
                                 }
                             },
-                            cutout: '70%', // 도넛 차트 구멍 크기
-                            rotation: -90, // 시작 각도
+                            cutout: '70%',
+                            rotation: -90,
                         }
                     });
 
-                    // 중앙에 퍼센트 표시
-                    document.getElementById('percentage-text-' + lineNo).innerText = Math.round(percentage) + '%';
+                    document.getElementById('percentage-text-' + line_no).innerText = Math.round(percentage) + '%';
                 }
 
-
                 // 6개의 차트 생성
-                <c:forEach begin="1" end="6" var="lineNo">
-                    <c:if test="${productionLines[lineNo-1] != null && !empty productionLines[lineNo-1].works}">
-                        createDoughnutChart('chart-line-${lineNo}', ${productionLines[lineNo - 1].productionCompletedQty}, ${productionLines[lineNo - 1].productionQty}, ${lineNo});
+                <c:forEach var="status" items="${list}">
+                    <c:if test="${status != null && !empty status.work_do}">
+                        createDoughnutChart('chart-line-${status.line_no}', ${status.production_Completed_Qty}, ${status.production_qty}, ${status.line_no});
                     </c:if>
                 </c:forEach>
             </script>

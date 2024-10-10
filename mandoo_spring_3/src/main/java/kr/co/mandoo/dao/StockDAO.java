@@ -10,11 +10,12 @@ import kr.co.mandoo.dto.StockDTO;
 public interface StockDAO {
 	
 	public List<StockDTO> getStockList();
-	public StockDTO getStockOneList(String stock);
+	public List getStockOneList(String stock);
 	public int getTotalStockCount();
-	public int insertStock(StockDTO stockDTO);
+	public int updateCountStock(StockDTO stockDTO);
 	public int deleteStock(StockDTO stockDTO);
 	public int updateStock(StockDTO stockDTO);
+	
 	
 
 }

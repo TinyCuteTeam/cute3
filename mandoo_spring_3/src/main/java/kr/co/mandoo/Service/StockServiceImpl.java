@@ -24,11 +24,19 @@ public class StockServiceImpl implements StockService {
 	}
 	
 	@Override
-	public StockDTO stockListOne(String stock){
+	public List stockListOne(String stock){
 		
-		StockDTO list = stockDAO.getStockOneList(stock);
+		List list = stockDAO.getStockOneList(stock);
 		System.out.println("Service : " + list);
 		return list;
+	}
+	
+	@Override
+	public int updateCountStock(StockDTO stockDTO) {
+		int result = -1;
+		result = stockDAO.updateCountStock(stockDTO);
+		
+		return result;
 	}
 	
 	@Override
@@ -39,13 +47,7 @@ public class StockServiceImpl implements StockService {
 		return result;
 	}
 	
-	@Override
-	public int insertStock(StockDTO stockDTO) {
-		int result = -1;
-		result = stockDAO.insertStock(stockDTO);
-		
-		return result;
-	}
+	
 	
 	@Override
 	public int updateStock(StockDTO stockDTO) {

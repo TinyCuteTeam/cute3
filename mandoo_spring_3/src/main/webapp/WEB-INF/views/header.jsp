@@ -54,7 +54,7 @@ span {
             <div class="category-item">
                <a href="/mandoo/StockInventory" class="category-link">재고관리</a>
                <div class="_category">
-                  <a href="/mandoo/StockInventory" class="category-link">재고현황</a>
+                  <a href="/mandoo/Stock" class="category-link">재고현황</a>
                </div>
             </div>
 
