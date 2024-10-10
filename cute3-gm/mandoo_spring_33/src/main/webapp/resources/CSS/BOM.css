@@ -1,0 +1,124 @@
+﻿#bomForm {
+    margin-left: -50px;
+}
+
+.content {
+    max-height: 800px;
+    overflow-y: auto;
+    /* 세로 스크롤 활성화 */
+    /* 가로 스크롤 비활성화 */
+    text-align: center;
+    /*    width: 1000px; */
+    width: 84.4%;
+    overflow-x: hidden;
+}
+
+/* 품목추가 버튼 오른쪽에 붙이기  */
+.srPlus {
+    text-align: right;
+    height: 90px;
+    width: 1248px;
+    margin-left: 180px;
+}
+
+/*BOM, 행추가 버튼*/
+.plus:hover {
+    background-color: #0085FF;
+    color: white;
+}
+
+.plus {
+    width: 100px;
+    height: 50px;
+    padding: 5px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e6e6e6;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+/*    수정, 삭제버튼 css */
+.editBtn {
+	border: 0px;
+    background-color:rgba(0, 0, 0, 0);
+	width: 40px;
+	cursor: pointer;
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+}
+
+.editBtn:hover {
+	color: #0085FF;
+    font-weight: bold;
+}
+
+/* select, 제품추가, 제품삭제 */
+#recipeSelect {
+    width: 100px;
+    height: 50px;
+    margin: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+/* 김치만두, 고기만두 테이블에 적용되는 css */
+.sr_bom {
+    /*    width: 100%; */
+    width: 1280px;
+    border-collapse: collapse;
+    text-align: center;
+    border: solid 1px #e6e6e6;
+}
+
+/* 테이블헤드 색상, 크기 설정 */
+.srTh {
+    background-color: #e6e6e6;
+    height: 50px;
+}
+
+.thwidth {
+    width: 150px;
+}
+
+td {
+    height: 50px;
+}
+
+.itemcode {
+    width: 200px;
+}
+
+.meat {
+    display: none;
+}
+
+/*   ũ ѹ    ü */
+.content::-webkit-scrollbar {
+    width: 12px;
+    /*   ũ ѹ   ʺ  */
+}
+
+/*   ũ ѹ  Ʈ   */
+.content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* Ʈ        */
+    border-radius: 5px;
+    /* Ʈ    𼭸   ձ۰  */
+}
+
+/*   ũ ѹ   ڵ  */
+.content::-webkit-scrollbar-thumb {
+    background: #888;
+    /*  ڵ       */
+    border-radius: 5px;
+    /*  ڵ   𼭸   ձ۰  */
+}
+
+/*   ũ ѹ   ڵ  ȣ   */
+.content::-webkit-scrollbar-thumb:hover {
+    background: #0085FF;
+    /*  ڵ  ȣ        */
+}

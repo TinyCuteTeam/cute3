@@ -1,0 +1,93 @@
+/* 실적마감.css */
+
+.select {
+    position: absolute;
+    top: 20px; /* 상단에서의 위치 조정 */
+    left: 20px; /* 왼쪽에서의 위치 조정 */
+    z-index: 1; /* 셀렉트 박스가 차트 위에 있도록 설정 */
+}
+
+._select {
+    width: 120px;
+    height: 30px;
+    text-align: center;
+}
+
+.chart-container {
+    display: inline-block;
+    width: 45%; /* 차트 컨테이너의 너비를 48%로 설정하여 두 차트 사이의 간격을 조정 */
+    height: 400px; /* 차트의 높이를 400px로 고정 */
+    margin: 1%; /* 좌우 간격 조정 */
+    position: relative;
+    top: 150px; /* 상단에서의 위치 조정 */
+}
+
+.chart-container canvas {
+    width: 100% !important; /* canvas의 너비를 컨테이너에 맞추기 */
+    height: 100% !important; /* canvas의 높이를 컨테이너에 맞추기 */
+}
+
+
+.content-display {
+    display: flex;
+    justify-content: space-between;
+}
+
+.table-container {
+    width: 45%; /* 테이블의 너비를 조절 */
+}
+
+.chart-container {
+    width: 50%; /* 차트의 너비를 조절 */
+}
+
+.production-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+}
+
+.production-table th, .production-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+.production-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.production-table tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.production-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.production-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.production-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.chart-container {
+    width: 45%; /* 차트의 너비 조절 */
+    height: 500px; /* 차트의 높이 조절 */
+    position: relative; /* 차트의 위치 조정 */
+}
+
+#line-chart {
+        height: 500px; /* 원하는 높이 설정 */
+        width: 100%; /* 너비는 100%로 설정 */
+}
+
+.chart-container canvas {
+    margin-top: -165px;
+}

@@ -1,0 +1,187 @@
+﻿.flex {
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    height: 80px;
+    align-items: center; /* 수직 중앙 정렬 */
+    box-sizing: border-box;
+}
+
+.flex.header {
+    font-weight: bold;
+}
+
+.flex>div {
+    text-align: center;
+    overflow: hidden; /* 텍스트가 넘칠 경우 숨기기 */
+    text-overflow: ellipsis; /* 넘친 텍스트 생략 표시(...) */
+    white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+}
+
+.flex>div:nth-child(1) { /* 체크박스 */
+    flex: 0 0 5%;
+}
+
+.flex>div:nth-child(2) { /* 사번 */
+    flex: 0 0 10%;
+}
+
+.flex>div:nth-child(3) { /* 이름 */
+    flex: 0 0 10%;
+}
+
+.flex>div:nth-child(4) { /* 연락처 */
+    flex: 0 0 15%;
+}
+
+.flex>div:nth-child(5) { /* 주소 */
+    flex: 0 0 30%;
+}
+
+.flex>div:nth-child(6) { /* 이메일 */
+    flex: 0 0 20%;
+}
+
+.flex>div:nth-child(7) { /* 직책 */
+    flex: 0 0 10%;
+}
+
+.round {
+    border: 1px solid black;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+span {
+    font-size: 10px;
+}
+
+.btn1 {
+    border: none;
+    background-color: #e6e6e6;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    position: absolute;
+    right: 450px;
+    top: 20px;
+}
+
+.btn2 {
+    border: none;
+    background-color: #e6e6e6;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    position: absolute;
+    right: 330px;
+    top: 20px;
+}
+
+.btn1:hover {
+    background-color: #0085FF;
+    color: white;
+}
+.btn2:hover {
+    background-color: #ff5252;
+    color: white;
+}
+
+.chk {
+    width: 20px;
+    height: 20
+    px;
+}
+.content{
+    top: 170px;
+    overflow-y: auto;
+    max-height: 800px;
+    width: 1620px;
+    
+}
+
+#content-display {
+    width: 1000px;
+    margin-left: 19%;
+}
+
+
+.main {
+    margin-top: 70px;
+}
+
+.pagination {
+	display: inline-block;
+	margin-top: 20px;
+    margin-left: 30%;
+}
+
+.pagination a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	transition: background-color .3s;
+	border: 1px solid #ddd;
+	margin: 0 4px;
+	border-radius: 5px;
+}
+
+.pagination a.active {
+	background-color: #0085FF;
+	color: white;
+	border: 1px solid #0085FF;
+}
+
+.pagination a:hover:not(.active) {
+	background-color: #ddd;
+}
+
+.scroll {
+    margin: 20px 0;
+    /* ���� ���鸸 ����� �¿� ���� ���� */
+    max-height: 650px;
+    overflow-y: auto;
+    /* ���� ��ũ�� Ȱ��ȭ */
+    padding-right: 0;
+    /* ������ �е� ���� */
+    box-sizing: border-box;
+    /* �׵θ��� �е��� �����Ͽ� ũ�� ��� */
+}
+
+/* ��ũ�ѹ� ��ü */
+.scroll::-webkit-scrollbar {
+    width: 12px;
+    /* ��ũ�ѹ� �ʺ� */
+}
+
+/* ��ũ�ѹ� Ʈ�� */
+.scroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* Ʈ�� ���� */
+    border-radius: 5px;
+    /* Ʈ�� �𼭸� �ձ۰� */
+}
+
+/* ��ũ�ѹ� �ڵ� */
+.scroll::-webkit-scrollbar-thumb {
+    background: #888;
+    /* �ڵ� ���� */
+    border-radius: 5px;
+    /* �ڵ� �𼭸� �ձ۰� */
+}
+
+/* ��ũ�ѹ� �ڵ� ȣ�� */
+.scroll::-webkit-scrollbar-thumb:hover {
+    background: #007bff;
+    /* �ڵ� ȣ�� ���� */
+}
+
+
+.srTh {
+	background-color: #e6e6e6;
+	font-weight: bold;
+	border-radius: 15px;
+	margin-bottom: 20px;
+	margin-top: 90px;
+}
