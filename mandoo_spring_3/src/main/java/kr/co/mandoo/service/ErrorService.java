@@ -8,5 +8,9 @@ public interface ErrorService {
 
 	List listError(); // select
 	
-	public int deleteError(ErrorDTO errorDTO);
+	public int deleteError(ErrorDTO errorDTO); //delete
+	
+	public int insertError(ErrorDTO errorDTO); // insert 
+	
+	public int updateError(ErrorDTO errorDTO); //update
 }

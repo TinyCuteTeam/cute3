@@ -23,7 +23,22 @@ public class ErrorServiceImpl implements ErrorService {
 
 	@Override
 	public int deleteError(ErrorDTO errorDTO) {
-		// TODO Auto-generated method stub
-		return errorDAO.deleteError(errorDTO);
+		int result = -1;
+		result = errorDAO.deleteError(errorDTO);
+		return result;
+	}
+
+	@Override //insert 
+	public int insertError(ErrorDTO errorDTO) {
+		int result = -1;
+		result = errorDAO.insertError(errorDTO);
+		return result;
+	}
+
+	@Override
+	public int updateError(ErrorDTO errorDTO) {
+		int result = -1;
+		result = errorDAO.updateError(errorDTO);
+		return result;
 	}
 }

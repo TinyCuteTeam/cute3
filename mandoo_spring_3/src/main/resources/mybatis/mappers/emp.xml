@@ -104,14 +104,14 @@
    <select id="selectError" resultType="errorDTO">
       select * from error
    </select>
-<!--    <insert id="insertError" parameterType="errorDTO"> -->
-<!--       INSERT INTO error(errorId, errorMessage) -->
-<!--       VALUES (#{errorId}, #{errorMessage}) -->
-<!--    </insert> -->
-<!--    <update id="updateError" parameterType="errorDTO"> -->
-<!--       UPDATE error SET errorMessage = #{errorMessage} -->
-<!--       WHERE errorId = #{errorId} -->
-<!--    </update> -->
+   <insert id="insertError" parameterType="errorDTO">
+      INSERT INTO error(error_Id, error_Name, error_Contents)
+      VALUES (#{error_Id}, #{error_Name}, #{error_Contents})
+   </insert>
+   <update id="updateError" parameterType="errorDTO">
+      UPDATE error SET error_Contents = #{error_Contents}
+      WHERE error_Id = #{error_Id}
+   </update>
    <delete id="deleteError" parameterType="errorDTO">
       DELETE FROM error WHERE error_Id = #{error_Id}
    </delete>

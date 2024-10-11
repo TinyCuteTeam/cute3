@@ -22,6 +22,7 @@ public class ErrorDAOImpl implements ErrorDAO{
 		return list;
 	}
 
+	// 에러 삭제 
 	@Override
 	public int deleteError(ErrorDTO errorDTO) {
 
@@ -52,6 +53,32 @@ public class ErrorDAOImpl implements ErrorDAO{
 		
 		return result;
 	}
+
+	// 에러 추가
+	@Override
+	public int insertError(ErrorDTO errorDTO) {
+		int result = -1;
+		
+		result = sqlSession.insert("mapper.dto.insertError", errorDTO); 
+				
+		return result;
+	}
+
+	//에러 수정
+	@Override
+	public int updateError(ErrorDTO errorDTO) {
+		int result = -1;
+		
+		try {
+			result = sqlSession.update("mapper.dto.updateError", errorDTO);
+		} catch (Exception e) {
+			sqlSession.rollback();
+		} 
+		return result;
+	}
+	
+	
+	
 	
 
 }

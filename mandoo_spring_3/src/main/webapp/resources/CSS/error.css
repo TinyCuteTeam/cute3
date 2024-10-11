@@ -3,6 +3,8 @@
     margin-left: 120px;
     text-align: center;
     width: 65%;
+    height: 750px;
+    overflow: auto;
 }
 
 .errorfloat {
