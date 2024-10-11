@@ -1,4 +1,4 @@
-package kr.co.mandoo.controller;
+package kr.co.mandoo.Controller;
 
 import java.util.List;
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import kr.co.mandoo.Service.ProductionPlanService;
 import kr.co.mandoo.dto.ProductionPlanDTO;
-import kr.co.mandoo.service.ProductionPlanService;
 
 @Controller
 public class ProductionPlanController {

@@ -7,8 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>생산 계획 관리</title>
-<link rel="stylesheet" href="resources/CSS/style.css">
-<link rel="stylesheet" href="resources/CSS/productionPlan.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/CSS/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/CSS/productionPlan.css">
 <style>
 .popup {
 	display: none;
@@ -183,28 +183,29 @@
 		<div class="popup-content">
 			<span id="close-popup" class="close-popup">&times;</span>
 			<h2>생산계획 등록</h2>
-			<form id="registration-form" method="post"
-				action="insertProductionPlan">
-				<input type="hidden" name="action" value="add"> <label
-					for="plan-number">생산계획 ID:</label><br> <input type="text"
-					id="plan-number" name="plan_id" placeholder="생산계획 ID" required><br>
-
-				<label for="item-name">생산계획 내용:</label><br> <input type="text"
-					id="item-name" name="plan_contents" placeholder="생산계획 내용" required><br>
-
-				<label for="plan-date">생산계획 날짜:</label><br> <input type="date"
-					id="plan-date" name="plan_date" required><br> <label
-					for="plan-end-date">종료 날짜:</label><br> <input type="date"
-					id="plan-end-date" name="plan_end_date" required><br>
-
-				<label for="production-quantity">생산 수량:</label><br> <input
-					type="number" id="production-quantity" name="plan_count"
-					placeholder="생산 수량" required><br> <label for="status">생산계획
-					이름:</label><br> <input type="text" id="status" name="plan_name"
-					placeholder="생산계획 이름" required><br> <br>
-
-				<button type="submit">등록</button>
-			</form>
+			<form id="registration-form" method="post" action="insertProductionPlan">
+			    <input type="hidden" name="action" value="add">
+			
+			    <label for="plan-number">생산계획 ID:</label><br>
+			    <input type="text" id="plan-number" name="plan_id" placeholder="생산계획 ID" required><br>
+			
+			    <label for="item-name">생산계획 내용:</label><br>
+			    <input type="text" id="item-name" name="plan_contents" placeholder="생산계획 내용" required><br>
+			
+			    <label for="plan-date">생산계획 날짜:</label><br>
+			    <input type="date" id="plan-date" name="plan_date" required><br>
+			
+			    <label for="plan-end-date">종료 날짜:</label><br>
+			    <input type="date" id="plan-end-date" name="plan_end_date" required><br>
+			
+			    <label for="production-quantity">생산 수량:</label><br>
+			    <input type="number" id="production-quantity" name="plan_count" placeholder="생산 수량" required><br>
+			
+			    <label for="status">생산계획 이름:</label><br>
+			    <input type="text" id="status" name="plan_name" placeholder="생산계획 이름" required><br><br>
+			
+			    <button type="submit">등록</button>
+			</form>	
 		</div>
 	</div>
 

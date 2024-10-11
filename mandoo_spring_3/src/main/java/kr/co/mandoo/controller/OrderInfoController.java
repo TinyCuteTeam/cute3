@@ -1,20 +1,14 @@
-package kr.co.mandoo.controller;
+package kr.co.mandoo.Controller;
 
-import java.io.IOException;
 import java.util.List;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
+import kr.co.mandoo.Service.OrderInfoService;
 import kr.co.mandoo.dto.OrderInfoDTO;
-import kr.co.mandoo.service.OrderInfoService;
 
 @Controller
 public class OrderInfoController {

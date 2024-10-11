@@ -1,50 +1,42 @@
 package kr.co.mandoo.dto;
 
 public class UserDTO {
-    private String userId;
-    private String userPw;
-    private int userAccess;
-    private String userName;
-    private String userEmail;
+    private String user_Id;
+    private String user_Pw;
+    private int user_Access;
+    private String user_Name;
+    private String user_Email;
+	public String getUser_Id() {
+		return user_Id;
+	}
+	public void setUser_Id(String user_Id) {
+		this.user_Id = user_Id;
+	}
+	public String getUser_Pw() {
+		return user_Pw;
+	}
+	public void setUser_Pw(String user_Pw) {
+		this.user_Pw = user_Pw;
+	}
+	public int getUser_Access() {
+		return user_Access;
+	}
+	public void setUser_Access(int user_Access) {
+		this.user_Access = user_Access;
+	}
+	public String getUser_Name() {
+		return user_Name;
+	}
+	public void setUser_Name(String user_Name) {
+		this.user_Name = user_Name;
+	}
+	public String getUser_Email() {
+		return user_Email;
+	}
+	public void setUser_Email(String user_Email) {
+		this.user_Email = user_Email;
+	}
 
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getUserPw() {
-        return userPw;
-    }
-
-    public void setUserPw(String userPw) {
-        this.userPw = userPw;
-    }
-
-    public int getUserAccess() {
-        return userAccess;
-    }
-
-    public void setUserAccess(int userAccess) {
-        this.userAccess = userAccess;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getUserEmail() {
-        return userEmail;
-    }
-
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
-    }
+    
 }
 

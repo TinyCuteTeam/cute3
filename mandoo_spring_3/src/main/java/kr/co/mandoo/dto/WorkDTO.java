@@ -3,95 +3,103 @@ package kr.co.mandoo.dto;
 import java.sql.Date;
 
 public class WorkDTO {
-	private String workId;
-	private String userId;
-	private String itemCode;
-	private Date workWrite;
-	private Date workEndate;
-	private String workName;
-	private String workDo;
-	private int productionQty;
-	private int productionCompletedQty;
-	private String lineNo;
+	private String work_id;
+	private String user_id;
+	private String item_code;
+	private Date work_write;
+	private Date work_endate;
+	private String work_name;
+	private String work_do;
+	private int production_qty;
+	private int production_completed_qty;
+	private String line_no;
 
-	// Getters and Setters
-	public String getWorkId() {
-		return workId;
+	public String getWork_id() {
+		return work_id;
 	}
 
-	public void setWorkId(String workId) {
-		this.workId = workId;
+	public void setWork_id(String work_id) {
+		this.work_id = work_id;
 	}
 
-	public String getUserId() {
-		return userId;
+	public String getUser_id() {
+		return user_id;
 	}
 
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
 
-	public String getItemCode() {
-		return itemCode;
+	public String getItem_code() {
+		return item_code;
 	}
 
-	public void setItemCode(String itemCode) {
-		this.itemCode = itemCode;
+	public void setItem_code(String item_code) {
+		this.item_code = item_code;
 	}
 
-	public Date getWorkWrite() {
-		return workWrite;
+	public Date getWork_write() {
+		return work_write;
 	}
 
-	public void setWorkWrite(Date workWrite) {
-		this.workWrite = workWrite;
+	public void setWork_write(Date work_write) {
+		this.work_write = work_write;
 	}
 
-	public Date getWorkEndate() {
-		return workEndate;
+	public Date getWork_endate() {
+		return work_endate;
 	}
 
-	public void setWorkEndate(Date workEndate) {
-		this.workEndate = workEndate;
+	public void setWork_endate(Date work_endate) {
+		this.work_endate = work_endate;
 	}
 
-	public String getWorkName() {
-		return workName;
+	public String getWork_name() {
+		return work_name;
 	}
 
-	public void setWorkName(String workName) {
-		this.workName = workName;
+	public void setWork_name(String work_name) {
+		this.work_name = work_name;
 	}
 
-	public String getWorkDo() {
-		return workDo;
+	public String getWork_do() {
+		return work_do;
 	}
 
-	public void setWorkDo(String workDo) {
-		this.workDo = workDo;
+	public void setWork_do(String work_do) {
+		this.work_do = work_do;
 	}
 
-	public int getProductionQty() {
-		return productionQty;
+	public int getProduction_qty() {
+		return production_qty;
 	}
 
-	public void setProductionQty(int productionQty) {
-		this.productionQty = productionQty;
+	public void setProduction_qty(int production_qty) {
+		this.production_qty = production_qty;
 	}
 
-	public int getProductionCompletedQty() {
-		return productionCompletedQty;
+	public int getProduction_completed_qty() {
+		return production_completed_qty;
 	}
 
-	public void setProductionCompletedQty(int productionCompletedQty) {
-		this.productionCompletedQty = productionCompletedQty;
+	public void setProduction_completed_qty(int production_completed_qty) {
+		this.production_completed_qty = production_completed_qty;
 	}
 
-	public String getLineNo() {
-		return lineNo;
+	public String getLine_no() {
+		return line_no;
 	}
 
-	public void setLineNo(String lineNo) {
-		this.lineNo = lineNo;
+	public void setLine_no(String line_no) {
+		this.line_no = line_no;
 	}
+
+	@Override
+	public String toString() {
+		return "WorkDTO [work_id=" + work_id + ", user_id=" + user_id + ", item_code=" + item_code + ", work_write="
+				+ work_write + ", work_endate=" + work_endate + ", work_name=" + work_name + ", work_do=" + work_do
+				+ ", production_qty=" + production_qty + ", production_completed_qty=" + production_completed_qty
+				+ ", line_no=" + line_no + "]";
+	}
+
 }

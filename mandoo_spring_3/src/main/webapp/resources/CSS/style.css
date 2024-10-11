@@ -1,6 +1,4 @@
-@charset "UTF-8";
-
-﻿body {
+﻿﻿body {
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
@@ -167,3 +165,6 @@ span {
 .sidebar ul>li {
 	padding-bottom: 10px;
 }
+
+
+
