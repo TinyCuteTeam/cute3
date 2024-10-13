@@ -152,7 +152,7 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus
 		<div class="modal-content">
 			<span class="close" onclick="closeRegisterModal()">&times;</span>
 			<h2>회원가입</h2>
-			<form action="${pageContext.request.contextPath}/register"
+			<form action="${pageContext.request.contextPath}/account/register"
 				method="post" onsubmit="return validateForm();">
 				<label for="register_user_id">아이디:</label> <input type="text"
 					name="account_Id" id="register_user_id" required><br>

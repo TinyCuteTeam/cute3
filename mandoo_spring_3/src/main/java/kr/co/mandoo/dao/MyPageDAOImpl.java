@@ -8,15 +8,13 @@ import kr.co.mandoo.dto.MyPageDTO;
 
 @Repository
 public class MyPageDAOImpl implements MyPageDAO {
-	@Autowired
-	SqlSession sqlSession;
+    @Autowired
+    SqlSession sqlSession;
 
-	@Override
-	public MyPageDTO myPageRead() {
-
-		MyPageDTO list = sqlSession.selectOne("mapper.dto.selectMyPage");
-		System.out.println("dao list : " + list);
-		return list;
-
-	}
+    @Override
+    public MyPageDTO myPageRead(String userId) {
+        MyPageDTO mypageDTO = sqlSession.selectOne("mapper.dto.selectMyPage", userId);
+        System.out.println("dao mypageDTO : " + mypageDTO);
+        return mypageDTO;
+    }
 }

@@ -62,9 +62,9 @@ span {
     width: 100px;
     height: 40px;
     border-radius: 5px;
-    position: absolute;
+/*     position: absolute;
     right: 450px;
-    top: 20px;
+    top: 20px; */
 }
 
 .btn2 {
@@ -73,9 +73,9 @@ span {
     width: 100px;
     height: 40px;
     border-radius: 5px;
-    position: absolute;
+/*     position: absolute;
     right: 330px;
-    top: 20px;
+    top: 20px; */
 }
 
 .btn1:hover {

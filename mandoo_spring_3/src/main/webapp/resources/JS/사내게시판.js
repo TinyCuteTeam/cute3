@@ -8,9 +8,9 @@
     const id = document.getElementById("id");
 
     if (userInfo) {
-        console.log(`로그인 사용자: ${userInfo.username}`);
+        console.log(`로그인 사용자: ${userInfo.user_Name}`);
         if (id) {
-            id.innerText = `${userInfo.username}님`;
+            id.innerText = `${userInfo.user_Name}님`;
         }
     } else {
         console.log("사용자가 로그인하지 않았습니다.");

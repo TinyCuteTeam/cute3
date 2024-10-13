@@ -6,7 +6,7 @@ import kr.co.mandoo.dto.MyPageDTO;
 
 @Service
 public interface MyPageService {
-	public MyPageDTO myPageRead();
+	public MyPageDTO myPageRead(String userId);
 	
 	
 }

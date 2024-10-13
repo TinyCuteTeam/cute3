@@ -35,6 +35,7 @@ public class UserService {
 
     // 사용자 추가 메서드
     public void insertUser(UserDTO user) {
+    	System.out.println("서비스 실행");
         userDAO.insertUser(user);
     }
 

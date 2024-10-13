@@ -31,7 +31,7 @@ public class BoardDAOImpl implements BoardDAO {
 
     @Override
     public void insertPost(BoardDTO boardDTO) {
-        sqlSession.insert("kr.co.mandoo.dao.BoardDAO.insertPost", boardDTO);
+        sqlSession.insert("kr.co.mandoo.dao.BoardDetailDAO.insertPost", boardDTO);
     }
 
 

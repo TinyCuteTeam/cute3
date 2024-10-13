@@ -20,13 +20,13 @@ span {
    <div class="category">
       <div class="menu-icon">
          <img class="menu-icon"
-            src="resources/image/menu.png">
+            src="${pageContext.request.contextPath}/resources/image/menu.png">
       </div>
 
       <div class="category-item logo-item">
          <a href="/mandoo/index" class="category-link"> <img
             class="logo-icon"
-            src="resources/image/logo.png">
+            src="${pageContext.request.contextPath}/resources/image/logo.png">
          </a>
       </div>
 
@@ -46,7 +46,7 @@ span {
                <a href="/mandoo/OrderInfo" class="category-link">생산계획</a>
                <div class="_category">
                   <a href="/mandoo/OrderInfo" class="category-link">발주확인</a><br>
-                  <a href="/mandoo/ProductPlan" class="category-link">생산계획</a><br>
+                  <a href="/mandoo/ProductionPlan" class="category-link">생산계획</a><br>
                   <a href="/mandoo/Work" class="category-link">작업지시서 확인</a><br>
                </div>
             </div>

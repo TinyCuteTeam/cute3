@@ -12,7 +12,7 @@ import kr.co.mandoo.dto.UserDTO;
 public class UserDAO {
 
     private final SqlSession sqlSession;
-    private static final String NAMESPACE = "mandoo.mapper.UserMapper."; // 점 포함
+    private static final String NAMESPACE = "mandoo.mapper.UserMapper.";
 
     @Autowired
     public UserDAO(SqlSession sqlSession) {
