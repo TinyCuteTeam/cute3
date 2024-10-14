@@ -20,4 +20,25 @@ public class ItemServiceImpl implements ItemService {
 		return list;
 	}
 
+	@Override
+	public int deleteItem(ItemDTO itemDTO) {
+		int result = -1;
+		result = itemDAO.deleteItem(itemDTO);
+		return result;
+	}
+
+	@Override
+	public int insertItem(ItemDTO itemDTO) {
+		int result = -1;
+		result = itemDAO.insertItem(itemDTO);
+		return result;
+	}
+
+	@Override
+	public int updateItem(ItemDTO itemDTO) {
+		int result = -1;
+		result = itemDAO.updateItem(itemDTO);
+		return result;
+	}
+
 }

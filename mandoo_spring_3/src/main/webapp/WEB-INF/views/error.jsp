@@ -165,7 +165,7 @@
 	<div id="popup" class="popup">
 		<div class="popup-content">
 			<span class="close-popup" id="close-popup">&times;</span> 
-			<h2>에러 코드 등록/수정</h2>
+			<h2>에러 코드 등록</h2>
 			<form id="errorForm" method="post" action="insert">
 			
 				<input type="hidden" name="action" id="action" value="add">
@@ -192,7 +192,7 @@
 	<div id="popup_update" class="popup">
 		<div class="popup-content">
 			<span class="close-popup" id="close-popup">&times;</span> 
-			<h2>에러 코드 등록/수정</h2>
+			<h2>에러 코드 수정</h2>
 			<form id="error_editForm" method="post" action="update">
 			
 				<input type="hidden" name="action" id="actionEdit" value="add">

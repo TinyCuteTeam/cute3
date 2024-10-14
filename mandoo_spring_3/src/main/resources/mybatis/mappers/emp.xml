@@ -88,17 +88,17 @@
    <select id="selectClient" resultType="clientDTO">
       select * from client
    </select>
-<!--    <insert id="insertClient" parameterType="clientDTO"> -->
-<!--       INSERT INTO client(clientId, clientName, contact) -->
-<!--       VALUES (#{clientId}, #{clientName}, #{contact}) -->
-<!--    </insert> -->
-<!--    <update id="updateClient" parameterType="clientDTO"> -->
-<!--       UPDATE client SET clientName = #{clientName}, contact = #{contact} -->
-<!--       WHERE clientId = #{clientId} -->
-<!--    </update> -->
-<!--    <delete id="deleteClient" parameterType="clientDTO"> -->
-<!--       DELETE FROM client WHERE clientId = #{clientId} -->
-<!--    </delete> -->
+   <insert id="insertClient" parameterType="clientDTO">
+      INSERT INTO client(client_Id, client_Name, client_Boss,client_Tel, client_Address, client_Email, client_Number)
+      VALUES (#{client_Id}, #{client_Name}, #{client_Boss}, #{client_Tel}, #{client_Address}, #{client_Email}, #{client_Number})
+   </insert>
+   <update id="updateClient" parameterType="clientDTO">
+      UPDATE client SET clientName = #{clientName}, contact = #{contact}
+      WHERE clientId = #{clientId}
+   </update>
+   <delete id="deleteClient" parameterType="clientDTO">
+      DELETE FROM client WHERE clientId = #{clientId}
+   </delete>
 
    <!-- ErrorDTO -->
    <select id="selectError" resultType="errorDTO">
@@ -152,17 +152,20 @@
    <select id="selectItem" resultType="itemDTO">
       select * from item
    </select>
+   <insert id="insertItem" parameterType="itemDTO">
+      INSERT INTO item(item_Code, item_Name, type)
+      VALUES (#{item_Code}, #{item_Name},#{type})
 <!--    <insert id="insertItem" parameterType="itemDTO"> -->
-<!--       INSERT INTO item(itemId, itemName, price) -->
+<!--       INSERT INTO item(item_Id, item_Name, type) -->
 <!--       VALUES (#{itemId}, #{itemName}, #{price}) -->
-<!--    </insert> -->
-<!--    <update id="updateItem" parameterType="itemDTO"> -->
-<!--       UPDATE item SET itemName = #{itemName}, price = #{price} -->
-<!--       WHERE itemId = #{itemId} -->
-<!--    </update> -->
-<!--    <delete id="deleteItem" parameterType="itemDTO"> -->
-<!--       DELETE FROM item WHERE itemId = #{itemId} -->
-<!--    </delete> -->
+   </insert>
+   <update id="updateItem" parameterType="itemDTO">
+      UPDATE item SET item_Name = #{item_Name}, type = #{type}
+      WHERE item_Code = #{item_Code}
+   </update>
+   <delete id="deleteItem" parameterType="itemDTO">
+      DELETE FROM item WHERE item_Code = #{item_Code}
+   </delete>
 
    <!-- MaterialStockDTO -->
    <select id="selectMaterialStock" resultType="materialStockDTO">

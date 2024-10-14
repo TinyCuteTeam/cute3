@@ -22,4 +22,11 @@ public class ClientServiceImpl implements ClientService {
 		return list;
 	}
 
+	@Override
+	public int insertClient(ClientDTO clientDTO) {
+		int result = -1;
+		result = clientDAO.insertClient(clientDTO);
+		return result;
+	}
+
 }

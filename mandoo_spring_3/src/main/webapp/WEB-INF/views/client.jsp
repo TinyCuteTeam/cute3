@@ -98,6 +98,7 @@
          <!-- 거래처정보 카테고리 -->
          <div>
             <div class="flex srTh">
+               <div>거래처 코드</div>
                <div>거래처</div>
                <div>대표명</div>
                <div>연락처</div>
@@ -111,6 +112,7 @@
 <!--             <form method="post" action="/mandoo/client"> -->
                <c:forEach var="client" items="${list}">
                   <div class="flex round">
+                     <div class="srEl">${client.client_Id}</div>
                      <div class="srEl">
                         <blue>${client.client_Name}</blue>
                      </div>
@@ -148,34 +150,38 @@
                <div class="modal-content">
                   <span class="close">&times;</span>
                   <h2>거래처 추가</h2>
-                  <form method="post" action="/mandoo/client">
+                  <form method="post" action="insertClient">
                      <input type="hidden" name="action" value="add">
                      <div>
+                        거래처 코드: <br>
+                        <input type="text" name="client_Id">
+                     </div>
+                     <div>
                         거래처: <br>
-                        <input type="text" name="clientName">
+                        <input type="text" name="client_Name">
                      </div>
                      <div>
                         대표명: <br>
-                        <input type="text" name="clientBoss">
+                        <input type="text" name="client_Boss">
                      </div>
                      <div>
                         연락처: <br>
-                        <input type="text" name="clientTel">
+                        <input type="text" name="client_Tel">
                      </div>
                      <div>
                         주소: <br>
-                        <input type="text" name="clientAddress">
+                        <input type="text" name="client_Address">
                      </div>
                      <div>
                         이메일: <br>
-                        <input type="text" name="clientEmail">
+                        <input type="text" name="client_Email">
                      </div>
                      <div>
                         담당자: <br>
-                        <input type="text" name="clientBoss">
+                        <input type="text" name="client_Boss">
                      </div>
                      <div>
-                        사업자등록증: <br> <input type="text" name="clientNumber">
+                        사업자등록증: <br> <input type="text" name="client_Number">
                      </div>
                      <div>
                         <button type="submit">등록</button>

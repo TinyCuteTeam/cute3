@@ -3,6 +3,8 @@ package kr.co.mandoo.dto;
 public class ItemDTO {
 	private String item_Code;
 	private String item_Name;
+	private String type;
+	
 	
 	public String getItem_Code() {
 		return item_Code;
@@ -16,6 +18,12 @@ public class ItemDTO {
 	public void setItem_Name(String item_Name) {
 		this.item_Name = item_Name;
 	}
-
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	
 
 }

@@ -6,6 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.co.mandoo.dto.ItemDTO;
+
 @Repository
 public class ItemDAOImpl implements ItemDAO {
 
@@ -16,5 +18,29 @@ public class ItemDAOImpl implements ItemDAO {
 	public List selectItem() {
 		List list = sqlSession.selectList("mapper.dto.selectItem");
 		return list;
+	}
+
+	@Override
+	public int deleteItem(ItemDTO itemDTO) {
+		int result = -1;
+		result = sqlSession.delete("mapper.dto.deleteItem", itemDTO);
+				
+		return result;
+	}
+
+	@Override
+	public int insertItem(ItemDTO itemDTO) {
+		int result = -1;
+		
+		result = sqlSession.delete("mapper.dto.insertItem", itemDTO);
+				
+		return result;
+	}
+
+	@Override
+	public int updateItem(ItemDTO itemDTO) {
+		int result = -1; 
+		result = sqlSession.update("mapper.dto.updateItem", itemDTO);
+		return result;
 	}
 }
