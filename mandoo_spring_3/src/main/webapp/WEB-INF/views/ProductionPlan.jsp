@@ -128,11 +128,11 @@
 		<!-- 페이징 -->
 		<div class="pagination">
 			<c:if test="${currentPage > 1}">
-				<a href="/mandoo/ProductPlan?page=${currentPage - 1}">이전</a>
+				<a href="/mandoo/ProductionPlan?page=${currentPage - 1}">이전</a>
 			</c:if>
 
 			<c:forEach var="i" begin="1" end="${totalPages}">
-				<a href="/mandoo/ProductPlan?page=${i}" class="${i == currentPage ? 'active' : ''}">${i}</a>
+				<a href="/mandoo/ProductionPlan?page=${i}" class="${i == currentPage ? 'active' : ''}">${i}</a>
 			</c:forEach>
 
 			<c:if test="${currentPage < totalPages}">

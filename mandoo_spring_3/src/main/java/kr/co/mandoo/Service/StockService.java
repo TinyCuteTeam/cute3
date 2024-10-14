@@ -3,6 +3,7 @@ package kr.co.mandoo.Service;
 import java.util.List;
 
 import kr.co.mandoo.dto.StockDTO;
+import kr.co.mandoo.dto.StockOrderDTO;
 
 public interface StockService {
 	
@@ -12,6 +13,16 @@ public interface StockService {
 	public int deleteStock(StockDTO stockDTO);
 	public int updateStock(StockDTO stockDTO);
 	
+	// sub
+	public List stocksubList();
+	public List substockListOne(String stock);
 	
+	// og
+	public List stockogList();
+	public List ogstockListOne(String stock);
+	
+	// stockorder
+	public int insertStockOrder(StockOrderDTO dto);
+
 
 }

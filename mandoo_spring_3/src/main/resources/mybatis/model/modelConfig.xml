@@ -35,6 +35,7 @@
     <typeAlias type="kr.co.mandoo.dto.TodoDTO" alias="todoDTO" />
     <typeAlias type="kr.co.mandoo.dto.UserDTO" alias="userDTO" />
     <typeAlias type="kr.co.mandoo.dto.WorkDTO" alias="workDTO" />
+    <typeAlias type="kr.co.mandoo.dto.StockOrderDTO" alias="stockorderDTO" />
 </typeAliases>
 
 </configuration>
