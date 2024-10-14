@@ -60,7 +60,7 @@
                 <c:forEach var="i" begin="1" end="${totalPages}">
                     <c:choose>
                         <c:when test="${i == currentPage}">
-                            <span>${i}</span>
+                            <a href="#" class="active">${i}</a> <!-- 현재 페이지 -->
                         </c:when>
                         <c:otherwise>
                             <a href="${pageContext.request.contextPath}/shipment?page=${i}">${i}</a>

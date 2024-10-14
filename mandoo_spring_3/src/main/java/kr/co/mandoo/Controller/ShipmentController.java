@@ -22,7 +22,7 @@ public class ShipmentController {
     @GetMapping("/shipment")
     public String getShipments(
             @RequestParam(value = "page", defaultValue = "1") int page,
-            @RequestParam(value = "size", defaultValue = "5") int size, 
+            @RequestParam(value = "size", defaultValue = "4") int size, 
             Model model) throws Exception {
         // 전체 출하 목록을 가져옵니다.
         List<ShipmentDTO> shipments = shipmentService.getAllShipments();

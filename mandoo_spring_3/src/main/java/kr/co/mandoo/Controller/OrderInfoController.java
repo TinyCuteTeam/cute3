@@ -23,7 +23,7 @@ public class OrderInfoController {
         List<OrderInfoDTO> list = orderInfoService.listOrderInfo(); // 전체 주문 목록 조회
 
         // 페이징 처리 로직
-        int pageSize = 4; // 페이지당 주문 수
+        int pageSize = 5; // 페이지당 주문 수
         int totalItems = list.size(); // 전체 주문 수
         int totalPages = (totalItems + pageSize - 1) / pageSize; // 전체 페이지 수
 
