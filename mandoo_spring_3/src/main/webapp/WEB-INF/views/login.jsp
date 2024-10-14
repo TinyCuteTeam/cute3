@@ -147,29 +147,33 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus
 		%>
 	</div>
 
-	<!-- 회원가입 모달 -->
-	<div id="registerModal" class="modal">
-		<div class="modal-content">
-			<span class="close" onclick="closeRegisterModal()">&times;</span>
-			<h2>회원가입</h2>
-			<form action="${pageContext.request.contextPath}/account/register"
-				method="post" onsubmit="return validateForm();">
-				<label for="register_user_id">아이디:</label> <input type="text"
-					name="account_Id" id="register_user_id" required><br>
-				<label for="register_user_pw">비밀번호:</label> <input type="password"
-					name="account_Pw" id="register_user_pw" required><br>
-				<label for="register_user_pw_check">비밀번호 확인:</label> <input
-					type="password" name="user_pw_check" id="register_user_pw_check"
-					required><br> <label for="register_user_name">이름:</label>
-				<input type="text" name="account_Name" id="register_user_name"
-					required><br> <label for="register_user_email">이메일:</label>
-				<input type="email" name="account_Email" id="register_user_email"
-					required><br>
+<!-- 회원가입 모달 -->
+<div id="registerModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeRegisterModal()">&times;</span>
+        <h2>회원가입</h2>
+        <form action="${pageContext.request.contextPath}/account/register" method="post" onsubmit="return validateForm();">
+            <label for="register_user_id">아이디:</label>
+            <input type="text" name="account_Id" id="register_user_id" required><br>
 
-				<button type="submit">가입 신청</button>
-			</form>
-		</div>
-	</div>
+            <label for="register_user_pw">비밀번호:</label>
+            <input type="password" name="account_Pw" id="register_user_pw" required>
+            <small id="passwordHelp" style="color: red;">비밀번호는 8자 이상이어야 합니다.</small><br>
+
+            <label for="register_user_pw_check">비밀번호 확인:</label>
+            <input type="password" name="user_pw_check" id="register_user_pw_check" required>
+            <small id="passwordMatchHelp" style="color: red; display: none;">비밀번호가 일치하지 않습니다.</small><br>
+
+            <label for="register_user_name">이름:</label>
+            <input type="text" name="account_Name" id="register_user_name" required><br>
+
+            <label for="register_user_email">이메일:</label>
+            <input type="email" name="account_Email" id="register_user_email" required><br>
+
+            <button type="submit">가입 신청</button>
+        </form>
+    </div>
+</div>
 
 	<!-- 로그인 성공 모달 -->
 	<div id="successModal" class="modal">
@@ -206,6 +210,32 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus
 			}
 		}
 	</script>
+	<script>
+    // 폼 유효성 검사 함수
+    function validateForm() {
+        var password = document.getElementById("register_user_pw").value;
+        var confirmPassword = document.getElementById("register_user_pw_check").value;
+
+        // 비밀번호 8자 이상인지 확인
+        if (password.length < 8) {
+            document.getElementById("passwordHelp").style.display = 'block';
+            return false; // 폼 제출 중단
+        } else {
+            document.getElementById("passwordHelp").style.display = 'none';
+        }
+
+        // 비밀번호 확인이 일치하는지 확인
+        if (password !== confirmPassword) {
+            document.getElementById("passwordMatchHelp").style.display = 'block';
+            return false; // 폼 제출 중단
+        } else {
+            document.getElementById("passwordMatchHelp").style.display = 'none';
+        }
+
+        return true; // 폼 제출 진행
+    }
+</script>
 </body>
 
 </html>
+

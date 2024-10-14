@@ -71,3 +71,32 @@ blue {
     margin-bottom: 20px;
     margin-top: 40px;
 }
+
+
+/* 페이징 네비게이션 스타일 */
+.pagination {
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 30%;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+    border-radius: 5px;
+}
+
+.pagination a.active {
+    background-color: #0085FF;
+    color: white;
+    border: 1px solid #0085FF;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}

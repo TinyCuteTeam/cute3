@@ -24,25 +24,25 @@
                 onsubmit="return confirmShipment();">
                 <div class="flex srTh">
                     <div>선택</div>
-                    <div>주문 ID</div>
                     <div>거래처 ID</div>
                     <div>상품명</div>
-                    <div>출하일</div>
                     <div>수량</div>
+                    <div>금액</div>
+                    <div>주문일</div>
                 </div>
 
-                <c:forEach var="shipment" items="${shipments}">
+                <c:forEach var="shipment" items="${pagedShipments}">
                     <div class="flex round">
                         <div>
-                            <input type="checkbox" name="shipmentIds" value="${shipment.shipmentId}" />
+                            <input type="checkbox" name="shipmentIds" value="${shipment.shipment_Id}" />
                         </div>
-                        <div>${shipment.orderId}</div>
                         <div>
-                            <a href="/mandoo/client">${shipment.clientId}</a>
+                            <a href="/mandoo/client">${shipment.client_Id}</a>
                         </div>
-                        <div>${shipment.productName}</div>
-                        <div>${shipment.shipmentDate}</div>
-                        <div>${shipment.shipmentQuantity}</div>
+                        <div>${shipment.product_Name}</div>
+                        <div>${shipment.order_Count}</div>
+                        <div>${shipment.order_Price}</div>
+                        <div>${shipment.order_Enddate}</div>
                     </div>
                 </c:forEach>
 
@@ -50,6 +50,28 @@
                     <button type="submit" class="btn">출고</button>
                 </div>
             </form>
+
+            <!-- 페이징 영역 -->
+            <div class="pagination">
+                <c:if test="${currentPage > 1}">
+                    <a href="${pageContext.request.contextPath}/shipment?page=${currentPage - 1}">&laquo; 이전</a>
+                </c:if>
+                
+                <c:forEach var="i" begin="1" end="${totalPages}">
+                    <c:choose>
+                        <c:when test="${i == currentPage}">
+                            <span>${i}</span>
+                        </c:when>
+                        <c:otherwise>
+                            <a href="${pageContext.request.contextPath}/shipment?page=${i}">${i}</a>
+                        </c:otherwise>
+                    </c:choose>
+                </c:forEach>
+
+                <c:if test="${currentPage < totalPages}">
+                    <a href="${pageContext.request.contextPath}/shipment?page=${currentPage + 1}">다음 &raquo;</a>
+                </c:if>
+            </div>
         </div>
     </div>
 

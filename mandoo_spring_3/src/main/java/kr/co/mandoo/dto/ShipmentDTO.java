@@ -1,59 +1,62 @@
 package kr.co.mandoo.dto;
 
 public class ShipmentDTO {
-	private String shipmentId;
-	private String orderId;
-	private String clientId;
-	private String productName; // 상품명 필드 추가
-	private String shipmentDate;
-	private int shipmentQuantity;
-
-	// Getters and Setters
-	public String getShipmentId() {
-		return shipmentId;
+	private String shipment_Id;
+	private String order_Id;
+	private String client_Id;
+	private String product_Name; // 상품명 필드 추가
+	private String order_Enddate;
+	private int order_Count;
+	private int order_Price;
+	public int getOrder_Price() {
+		return order_Price;
 	}
-
-	public void setShipmentId(String shipmentId) {
-		this.shipmentId = shipmentId;
+	public void setOrder_Price(int order_Price) {
+		this.order_Price = order_Price;
 	}
-
-	public String getOrderId() {
-		return orderId;
+	public String getShipment_Id() {
+		return shipment_Id;
 	}
-
-	public void setOrderId(String orderId) {
-		this.orderId = orderId;
+	public void setShipment_Id(String shipment_Id) {
+		this.shipment_Id = shipment_Id;
 	}
-
-	public String getClientId() {
-		return clientId;
+	public String getOrder_Id() {
+		return order_Id;
 	}
-
-	public void setClientId(String clientId) {
-		this.clientId = clientId;
+	public void setOrder_Id(String order_Id) {
+		this.order_Id = order_Id;
 	}
-
-	public String getProductName() { // 상품명 Getter
-		return productName;
+	public String getClient_Id() {
+		return client_Id;
 	}
-
-	public void setProductName(String productName) { // 상품명 Setter
-		this.productName = productName;
+	public void setClient_Id(String client_Id) {
+		this.client_Id = client_Id;
 	}
-
-	public String getShipmentDate() {
-		return shipmentDate;
+	public String getProduct_Name() {
+		return product_Name;
 	}
-
-	public void setShipmentDate(String shipmentDate) {
-		this.shipmentDate = shipmentDate;
+	public void setProduct_Name(String product_Name) {
+		this.product_Name = product_Name;
 	}
-
-	public int getShipmentQuantity() {
-		return shipmentQuantity;
+	public String getOrder_Enddate() {
+		return order_Enddate;
 	}
-
-	public void setShipmentQuantity(int shipmentQuantity) {
-		this.shipmentQuantity = shipmentQuantity;
+	public void setOrder_Enddate(String order_Enddate) {
+		this.order_Enddate = order_Enddate;
 	}
+	public int getorder_Count() {
+		return order_Count;
+	}
+	public void setorder_Count(int order_Count) {
+		this.order_Count = order_Count;
+	}
+	@Override
+	public String toString() {
+		return "ShipmentDTO [shipment_Id=" + shipment_Id + ", order_Id=" + order_Id + ", client_Id=" + client_Id
+				+ ", product_Name=" + product_Name + ", order_Enddate=" + order_Enddate + ", order_Count="
+				+ order_Count + "]";
+	}
+	
+	
+
 }
