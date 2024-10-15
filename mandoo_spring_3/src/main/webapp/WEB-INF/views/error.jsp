@@ -101,7 +101,7 @@
 		<div>
     <table border="1" class="errortable" id="errorTable">
         <tr>
-            <th class="thwidth">오류코드</th>
+            <th class="thwidth">에러코드</th>
             <th class="thwidth">이름</th>
             <th class="errorexplain">내용</th>
             <th class="thwidth">수정</th>
@@ -170,14 +170,14 @@
 			
 				<input type="hidden" name="action" id="action" value="add">
 				
-				<label for="errorId">오류 코드:</label><br> 
-				<input type="text" name="error_Id" id="error_Id"  placeholder="오류 코드" required><br> 
+				<label for="error_Id">에러 코드:</label><br> 
+				<input type="text" name="error_Id" id="error_Id"  placeholder="에러 코드" required><br> 
 		
-				<label for="errorName">에러 이름:</label><br> 
-				<input type="text" name="error_Name" id="errorName" placeholder="에러 이름" required><br>
+				<label for="error_Name">에러 이름:</label><br> 
+				<input type="text" name="error_Name" id="error_Name" placeholder="에러 이름" required><br>
 				
-				<label for="errorContents">에러 내용:</label><br>
-				<textarea id="errorContents" name="error_Contents" value="error_Contents" 
+				<label for="error_Contents">에러 내용:</label><br>
+				<textarea name="error_Contents" id="error_Contents" value="error_Contents" 
 					placeholder="에러 내용" required></textarea>
 				<br> <br>
 				
@@ -191,24 +191,24 @@
 <!-- 수정용 모달창 -->
 	<div id="popup_update" class="popup">
 		<div class="popup-content">
-			<span class="close-popup" id="close-popup">&times;</span> 
+			<span class="close-popup" id="updateClose">&times;</span> 
 			<h2>에러 코드 수정</h2>
 			<form id="error_editForm" method="post" action="update">
 			
 				<input type="hidden" name="action" id="actionEdit" value="add">
 				
-				<label for="errorId">오류 코드:</label><br> 
-				<input type="text" name="error_Id" id="error_editId"  placeholder="오류 코드" required><br> 
+				<label for="error_editId">에러 코드:</label><br> 
+				<input type="text" name="error_Id" id="error_editId"  placeholder="에러 코드" required><br> 
 		
-				<label for="errorName">에러 이름:</label><br> 
+				<label for="error_editName">에러 이름:</label><br> 
 				<input type="text" name="error_Name" id="error_editName" placeholder="에러 이름" required><br>
 				
-				<label for="errorContents">에러 내용:</label><br>
-				<textarea id="error_editContents" name="error_Contents" value="error_Contents" 
+				<label for="error_editContents">에러 내용:</label><br>
+				<textarea name="error_Contents" id="error_editContents" value="error_Contents" 
 					placeholder="에러 내용" required></textarea>
 				<br> <br>
 				
-				<button type="submit">저장</button>
+				<button type="submit" id="errorSubmit">저장</button>
 				
 			</form>
 		</div>

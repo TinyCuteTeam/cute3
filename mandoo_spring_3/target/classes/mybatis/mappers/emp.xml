@@ -73,8 +73,8 @@
       select * from bom
    </select>
 <!--    <insert id="insertBOM" parameterType="bomDTO"> -->
-<!--       INSERT INTO bom(bomId, bomName) -->
-<!--       VALUES (#{bomId}, #{bomName}) -->
+<!--       INSERT INTO bom(bom_Id, bom_Name) -->
+<!--       VALUES (#{bom_Id}, #{bom_Name}) -->
 <!--    </insert> -->
 <!--    <update id="updateBOM" parameterType="bomDTO"> -->
 <!--       UPDATE bom SET bomName = #{bomName} -->

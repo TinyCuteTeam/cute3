@@ -175,7 +175,7 @@
 				<input type="text" id="itemType" name="type" placeholder="종류"><br> 
 				이미지추가: <br> 
 				<input type="file" id="itemImage" name="itemImage" accept="image/*"><br>
-
+						
 				<button type="submit" id="saveItem">저장</button>
 
 			</form>
@@ -191,8 +191,8 @@
 
 				<input type="hidden" name="action" id="actionEdit" value="update">
 
-				품목 코드: <br> 
-				<input type="text" id="edit_itemCode" name="item_Code" placeholder="품목코드"><br> 
+<!-- 				품목 코드: <br>  -->
+				<input type="hidden" id="edit_itemCode" name="item_Code" placeholder="품목코드"><br> 
 				품 목 명: <br> 
 				<input type="text" id="edit_itemName" name="item_Name" placeholder="품목명"><br>
 				종 류: <br> 
