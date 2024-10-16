@@ -39,7 +39,7 @@
 }
 
 /* 입력 필드 스타일 */
-#popup input[type="text"], #popup textarea {
+.modalStyle input[type="text"], .modalStyle textarea {
 	width: 100%;
 	padding: 10px;
 	margin: 8px 0;
@@ -50,7 +50,7 @@
 }
 
 /* 저장 버튼 스타일 */
-#popup button {
+.modalStyle button {
 	width: 100%;
 	background-color: #e6e6e6;
 	padding: 14px 20px;
@@ -60,7 +60,7 @@
 	cursor: pointer;
 }
 
-#popup button:hover {
+.modalStyle button:hover {
 	background-color: #0085FF;
 	color: white;
 }
@@ -82,6 +82,7 @@
 </head>
 
 <body>
+
 	<!-- 헤더 포함 -->
 	<jsp:include page="/WEB-INF/views/header.jsp" />
 	<!-- 사이드바 -->
@@ -93,7 +94,6 @@
 		<!-- 품목 추가 모달창 오픈 버튼 -->
 		<div class="srPlus">
 			<button class="plus" id="addButton">품목추가</button>
-
 		</div>
 
 		<!-- 품목코드표 테이블 -->
@@ -101,8 +101,8 @@
 			<tr>
 				<th class="srTh">품목코드</th>
 				<th class="srTh">품목명</th>
-				<th class="srTh">품목종류</th>
-				<th class="srTh">이미지</th>
+<!-- 				<th class="srTh">품목종류</th> -->
+<!-- 				<th class="srTh">이미지</th> -->
 				<th class="srTh">수정</th>
 				<th class="srTh">삭제</th>
 			</tr>
@@ -110,9 +110,10 @@
 				<tr>
 					<td>${item.item_Code}</td>
 					<td>${item.item_Name}</td>
-					<td>${item.type}</td>
-					<td><img class="ingre"
-						src="resources/image/${item.item_Code}.jpg"></td>
+<%-- 					<td>${item.type}</td> --%>
+<!-- 					이미지 나오는 부분 -->
+<!-- 					<td><img class="ingre" -->
+<%-- 						src="resources/image/${item.item_Code}.jpg"></td> --%>
 						
 <!-- 						이게 원래 수정 코드  -->
 <!-- 					<td><button class="pen editButton"> 수정</button></td> -->
@@ -158,7 +159,7 @@
 	</div>
 
 	<!-- 모달 창 -->
-	<div id="popup" class="popup">
+	<div id="popup" class="popup modalStyle">
 		<div class="popup-content">
 			<span class="close-popup" id="close-popup">&times;</span>
 			<h2>품목 추가</h2>
@@ -173,8 +174,8 @@
 				<input type="text" id="itemName" name="item_Name" placeholder="품목명"><br>
 				종 류: <br> 
 				<input type="text" id="itemType" name="type" placeholder="종류"><br> 
-				이미지추가: <br> 
-				<input type="file" id="itemImage" name="itemImage" accept="image/*"><br>
+<!-- 				이미지추가: <br>  -->
+<!-- 				<input type="file" id="itemImage" name="itemImage" accept="image/*"><br> -->
 						
 				<button type="submit" id="saveItem">저장</button>
 
@@ -183,7 +184,7 @@
 	</div>
 
 	<!-- 수정용 모달창 -->
-	<div id="popup_update" class="popup">
+	<div id="popup_update" class="popup modalStyle">
 		<div class="popup-content">
 			<span class="close-popup" id="updateClose">&times;</span>
 			<h2>품목 수정</h2>
@@ -200,7 +201,7 @@
 <!-- 				이미지추가: <br>  -->
 <!-- 				<input type="file" id="edit_itemImage" name="itemImage" accept="image/*"><br> -->
 
-				<button type="submit">저장</button>
+				<button type="submit" id="saveUpdate">저장</button>
 
 			</form>
 		</div>

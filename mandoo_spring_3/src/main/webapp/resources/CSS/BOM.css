@@ -3,15 +3,23 @@
 }
 
 .content {
+	overflow: auto;
+	margin-left: 150px;
+	text-align: center;
+	width: 65%;
+	height: 750px;
+	padding-right: 272px;
+}
+
+/*
+.content {
     max-height: 800px;
     overflow-y: auto;
-    /* 세로 스크롤 활성화 */
-    /* 가로 스크롤 비활성화 */
     text-align: center;
-    /*    width: 1000px; */
     width: 84.4%;
     overflow-x: hidden;
 }
+*/
 
 /* 품목추가 버튼 오른쪽에 붙이기  */
 .srPlus {
@@ -24,6 +32,7 @@
 /*BOM, 행추가 버튼*/
 .plus:hover {
     background-color: #0085FF;
+    cursor: pointer;
     color: white;
 }
 
@@ -66,7 +75,7 @@
 
 /* 김치만두, 고기만두 테이블에 적용되는 css */
 .sr_bom {
-    /*    width: 100%; */
+/*        width: 100%; */
     width: 1280px;
     border-collapse: collapse;
     text-align: center;
@@ -95,30 +104,3 @@ td {
     display: none;
 }
 
-/*   ũ ѹ    ü */
-.content::-webkit-scrollbar {
-    width: 12px;
-    /*   ũ ѹ   ʺ  */
-}
-
-/*   ũ ѹ  Ʈ   */
-.content::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    /* Ʈ        */
-    border-radius: 5px;
-    /* Ʈ    𼭸   ձ۰  */
-}
-
-/*   ũ ѹ   ڵ  */
-.content::-webkit-scrollbar-thumb {
-    background: #888;
-    /*  ڵ       */
-    border-radius: 5px;
-    /*  ڵ   𼭸   ձ۰  */
-}
-
-/*   ũ ѹ   ڵ  ȣ   */
-.content::-webkit-scrollbar-thumb:hover {
-    background: #0085FF;
-    /*  ڵ  ȣ        */
-}

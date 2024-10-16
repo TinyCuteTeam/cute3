@@ -1,10 +1,20 @@
 @charset "UTF-8";
+/*
 .content {
     margin-left: 120px;
     text-align: center;
     width: 65%;
     height: 750px;
     overflow: auto;
+}
+*/
+.content {
+	overflow: auto;
+	margin-left: 150px;
+	text-align: center;
+	width: 65%;
+	height: 750px;
+	padding-right: 272px;
 }
 
 .errorfloat {

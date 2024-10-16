@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById('itemCode').value = '';
         document.getElementById('itemName').value = '';
         document.getElementById('itemType').value = '';
-        document.getElementById('itemImage').value = ''; 
+       // document.getElementById('itemImage').value = ''; 
     });
     
     // 모달창 닫기

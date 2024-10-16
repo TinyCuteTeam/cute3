@@ -20,4 +20,9 @@ public class BOMServiceImpl implements BOMService {
 		
 		return list;
 	}
+
+	@Override
+	public List<BOMDTO> getBOMById(String bom_Id) {
+		return bomDAO.selectBOMById(bom_Id);
+	}
 }

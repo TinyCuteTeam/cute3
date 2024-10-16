@@ -99,39 +99,26 @@
 
       <!-- 제품 레시피 선택 -->
       <div class="srPlus">
-         <form method="get" action="bom"> 
+<%--          <form method="get" action="${pageContext.request.contextPath}/BOM"> --%>
+         <form method="get" action="/WEB-INF/views/BOM.jsp"> 
             <select id="recipeSelect" name="bom_Id" onchange="this.form.submit()">
-            	<option value="A00001" <c:if test="${param.bom_Id == 'A00001'}">selected</c:if>>A0001</option>
-            	<option value="A00002" <c:if test="${param.bom_Id == 'A00002'}">selected</c:if>>A0002</option>
-			</select>
-            
-<%--                <c:forEach var="bomSelect" items="${list}"> --%>
-<%--                   <option value="${bomSelect.bom_Id}" --%>
-<%--                      ${param.bom_Id == bomSelect.bom_Id || (empty param.bom_Id && bomSelect.bom_Id == 'A0001') ? 'selected' : ''}> --%>
-<%--                       ${bomSelect.bom_Id} --%>
-<!--                   </option> -->
-<%--                </c:forEach> --%>
-
-            
+               <c:forEach var="bomId" items="${bom_Id}">
+                  <option value="${bom_Id}"
+                     ${param.bom_Id == bom_Id || (empty param.bom_Id && bom_Id == 'A0001') ? 'selected' : ''}>${bom_Id}</option>
+               </c:forEach>
+            </select>
             <!-- BOM추가 버튼 -->
-            <a href="/mandoo/BOMAdd">
-            	<button type="button" class="mho plus" id="addNewBomBtn">
-            	BOM 추가
-           		</button>
-            </a>
-            
+            <a href="/mandoo/BOMAdd"><button type="button" class="mho plus"
+                  id="addNewBomBtn">BOM 추가</button></a>
             <!-- 행 추가 버튼 -->
-            <button type="button" class="mho plus" id="addRowBtn">
-            행 추가
-            </button>
-            
+            <button type="button" class="mho plus" id="addRowBtn">행 추가</button>
          </form>
       </div>
 
       <!-- 선택한 BOM ID에 대한 상세 정보 표시 테이블 -->
-      <form id="bomForm" action="BOM" method="post">
+      <form id="bomForm" action="${pageContext.request.contextPath}/BOM" method="post">
          <input type="hidden" name="action" id="actionType"> 
-         <input type="hidden" name="bom_Id" id="bomId" value="${param.bom_Id}">
+         <input type="hidden" name="bomId" id="bomId" value="${param.bom_Id}">
          
          <table id="table" class="sr_bom" border="solid black 1px;">
             <tr>
@@ -149,17 +136,18 @@
                   <td>${bom.bom_Count}</td>
                   <td>${bom.bom_Unit}</td>
                   <td>
-                     <button type="button" class="editBtn" data-bomid="${bom.bom_Id}" 
+                     <button type="button" class="editBtn" data-bomid="${bom.bom_Id}"
                         data-itemcode="${bom.item_Code}" data-itemname="${bom.item_Name}"
-                        data-bomcount="${bom.bom_Count}" data-bomunit="${bom.bom_Unit}">수정
-                     </button>
+                        data-bomcount="${bom.bom_Count}" data-bomunit="${bom.bom_Unit}">수정</button>
                   </td>
                   <td>
-                     <button class="editBtn" type="submit" name="action" value="delete">삭제</button>
+                     <button class="editBtn" type="submit" name="action"
+                        value="delete">삭제</button>
                   </td>
                </tr>
             </c:forEach>
          </table>
+         
       </form>
 
    </div>

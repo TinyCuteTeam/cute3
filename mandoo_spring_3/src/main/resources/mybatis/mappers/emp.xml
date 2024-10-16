@@ -72,6 +72,9 @@
    <select id="selectBOM" resultType="bomDTO">
       select * from bom
    </select>
+   <select id="selectBOMById" parameterType="bomDTO" resultType="bomDTO">
+    SELECT * FROM BOM WHERE bom_Id = #{bom_Id}
+   </select>
 <!--    <insert id="insertBOM" parameterType="bomDTO"> -->
 <!--       INSERT INTO bom(bom_Id, bom_Name) -->
 <!--       VALUES (#{bom_Id}, #{bom_Name}) -->
@@ -80,7 +83,7 @@
 <!--       UPDATE bom SET bomName = #{bomName} -->
 <!--       WHERE bomId = #{bomId} -->
 <!--    </update> -->
-<!--    <delete id="deleteBOM" parameterType="bomDTO"> -->
+<!--    <delete id="adeleteBOM" parameterType="bomDTO"> -->
 <!--       DELETE FROM bom WHERE bomId = #{bomId} -->
 <!--    </delete> -->
 
@@ -109,7 +112,7 @@
       VALUES (#{error_Id}, #{error_Name}, #{error_Contents})
    </insert>
    <update id="updateError" parameterType="errorDTO">
-      UPDATE error SET error_Contents = #{error_Contents}
+      UPDATE error SET error_Name = #{error_Name}, error_Contents = #{error_Contents} 
       WHERE error_Id = #{error_Id}
    </update>
    <delete id="deleteError" parameterType="errorDTO">
@@ -155,9 +158,6 @@
    <insert id="insertItem" parameterType="itemDTO">
       INSERT INTO item(item_Code, item_Name, type)
       VALUES (#{item_Code}, #{item_Name},#{type})
-<!--    <insert id="insertItem" parameterType="itemDTO"> -->
-<!--       INSERT INTO item(item_Id, item_Name, type) -->
-<!--       VALUES (#{itemId}, #{itemName}, #{price}) -->
    </insert>
    <update id="updateItem" parameterType="itemDTO">
       UPDATE item SET item_Name = #{item_Name}, type = #{type}

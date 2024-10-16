@@ -37,7 +37,7 @@
 }
 
 /* 입력 필드 스타일 */
-#popup input[type="text"], #popup textarea {
+.modalStyle input[type="text"], .modalStyle textarea {
 	width: 100%;
 	padding: 10px;
 	margin: 8px 0;
@@ -48,7 +48,7 @@
 }
 
 /* 저장 버튼 스타일 */
-#popup button {
+.modalStyle button {
 	width: 100%;
 	background-color: #e6e6e6;
 	padding: 14px 20px;
@@ -58,7 +58,7 @@
 	cursor: pointer;
 }
 
-#popup button:hover {
+.modalStyle button:hover {
 	background-color: #0085FF;
 	color: white;
 }
@@ -162,7 +162,7 @@
 	</div>
 
 	<!-- 모달 창 -->
-	<div id="popup" class="popup">
+	<div id="popup" class="popup modalStyle">
 		<div class="popup-content">
 			<span class="close-popup" id="close-popup">&times;</span> 
 			<h2>에러 코드 등록</h2>
@@ -189,7 +189,7 @@
 	</div>
 
 <!-- 수정용 모달창 -->
-	<div id="popup_update" class="popup">
+	<div id="popup_update" class="popup modalStyle">
 		<div class="popup-content">
 			<span class="close-popup" id="updateClose">&times;</span> 
 			<h2>에러 코드 수정</h2>
@@ -197,8 +197,8 @@
 			
 				<input type="hidden" name="action" id="actionEdit" value="add">
 				
-				<label for="error_editId">에러 코드:</label><br> 
-				<input type="text" name="error_Id" id="error_editId"  placeholder="에러 코드" required><br> 
+<!-- 				<label for="error_editId">에러 코드:</label><br>  -->
+				<input type="hidden" name="error_Id" id="error_editId"  placeholder="에러 코드" required><br> 
 		
 				<label for="error_editName">에러 이름:</label><br> 
 				<input type="text" name="error_Name" id="error_editName" placeholder="에러 이름" required><br>
