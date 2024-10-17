@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shipment List</title>
+    <title>Mandoo</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/CSS/style.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/CSS/출하확인.css">
 </head>

@@ -1,27 +1,29 @@
 package kr.co.mandoo.dto;
 
 public class ItemDTO {
-	private String itemCode;
-	private String itemName;
-
-	public ItemDTO(String itemCode, String itemName) {
-		this.itemCode = itemCode;
-		this.itemName = itemName;
+	private String item_Code;
+	private String item_Name;
+	private String type;
+	
+	
+	public String getItem_Code() {
+		return item_Code;
 	}
-
-	public String getItemCode() {
-		return itemCode;
+	public void setItem_Code(String item_Code) {
+		this.item_Code = item_Code;
 	}
-
-	public void setItemCode(String itemCode) {
-		this.itemCode = itemCode;
+	public String getItem_Name() {
+		return item_Name;
 	}
-
-	public String getItemName() {
-		return itemName;
+	public void setItem_Name(String item_Name) {
+		this.item_Name = item_Name;
 	}
-
-	public void setItemName(String itemName) {
-		this.itemName = itemName;
+	public String getType() {
+		return type;
 	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	
+
 }
