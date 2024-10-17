@@ -7,5 +7,5 @@ import kr.co.mandoo.dto.MyPageDTO;
 @Repository
 public interface MyPageDAO {
 
-	public MyPageDTO myPageRead();
+	public MyPageDTO myPageRead(String userId);
 }

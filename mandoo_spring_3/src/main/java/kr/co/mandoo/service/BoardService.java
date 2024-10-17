@@ -33,10 +33,6 @@ public class BoardService {
     }
 
     public void createPost(BoardDTO boardDTO) {
-        try {
-            boardDAO.insertPost(boardDTO);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    	boardDAO.insertPost(boardDTO);
     }
 }

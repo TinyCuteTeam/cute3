@@ -81,26 +81,21 @@ public class LoginController {
 
    
 
-    @PostMapping("/register")
-    public String register(@ModelAttribute AccountDTO user,
-                           @RequestParam("user_pw_check") String userPwCheck,
-                           RedirectAttributes redirectAttributes) {
-        // 비밀번호 일치 여부 확인
-        if (!user.getAccount_Pw().equals(userPwCheck)) {
-            redirectAttributes.addFlashAttribute("errorMessage", "비밀번호가 일치하지 않습니다.");
-            return "redirect:/login"; // 오류 시 회원가입 페이지로 리다이렉트
-        }
-
-        try {
-            // 계정 추가
-            accountService.addAccount(user);
-            redirectAttributes.addAttribute("success", "true");
-            return "redirect:/login"; // 성공 시 로그인 페이지로 리다이렉트
-        } catch (Exception e) {
-            e.printStackTrace();
-            redirectAttributes.addFlashAttribute("errorMessage", "회원가입 중 오류가 발생했습니다.");
-            return "redirect:/login"; // 오류 발생 시 회원가입 페이지로 리다이렉트
-        }
-    }
+	/*
+	 * @PostMapping("/register") public String register(@ModelAttribute AccountDTO
+	 * user,
+	 * 
+	 * @RequestParam("user_pw_check") String userPwCheck, RedirectAttributes
+	 * redirectAttributes) { // 비밀번호 일치 여부 확인 if
+	 * (!user.getAccount_Pw().equals(userPwCheck)) {
+	 * redirectAttributes.addFlashAttribute("errorMessage", "비밀번호가 일치하지 않습니다.");
+	 * return "redirect:/login"; // 오류 시 회원가입 페이지로 리다이렉트 }
+	 * 
+	 * try { // 계정 추가 accountService.addAccount(user);
+	 * redirectAttributes.addAttribute("success", "true"); return "redirect:/login";
+	 * // 성공 시 로그인 페이지로 리다이렉트 } catch (Exception e) { e.printStackTrace();
+	 * redirectAttributes.addFlashAttribute("errorMessage", "회원가입 중 오류가 발생했습니다.");
+	 * return "redirect:/login"; // 오류 발생 시 회원가입 페이지로 리다이렉트 } }
+	 */
 
 }

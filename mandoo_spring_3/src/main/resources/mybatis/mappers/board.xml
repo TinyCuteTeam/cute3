@@ -7,13 +7,17 @@
 
 	<!-- 전체 게시글 목록 가져오기 -->
 	<select id="getAllPosts" resultType="BoardDTO">
-		SELECT * FROM board ORDER BY bord_id DESC
+		SELECT b.*, u.USER_NAME
+		FROM board b
+		JOIN users u ON b.USER_ID = u.USER_ID
+		ORDER BY b.BORD_ID DESC
 	</select>
 
 
 	<!-- 총 게시글 수 가져오기 -->
 	<select id="getTotalPostsCount" resultType="int">
-		SELECT COUNT(*) FROM board
+		SELECT COUNT(*) FROM
+		board
 	</select>
 
 	<!-- 게시글 추가 -->

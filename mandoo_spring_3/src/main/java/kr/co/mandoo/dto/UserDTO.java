@@ -36,6 +36,11 @@ public class UserDTO {
 	public void setUser_Email(String user_Email) {
 		this.user_Email = user_Email;
 	}
+	@Override
+	public String toString() {
+		return "UserDTO [user_Id=" + user_Id + ", user_Pw=" + user_Pw + ", user_Access=" + user_Access + ", user_Name="
+				+ user_Name + ", user_Email=" + user_Email + "]";
+	}
 
     
 }

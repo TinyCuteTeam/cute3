@@ -4,380 +4,509 @@
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.dto">
 
-   <!-- AccountDTO -->
-   <select id="selectAccount" resultType="accountDTO">
-      select * from account
-   </select>
-   <insert id="insertAccount" parameterType="accountDTO">
-      INSERT INTO account(accountId, accountName, balance)
-      VALUES (#{accountId}, #{accountName}, #{balance})
-   </insert>
-   <update id="updateAccount" parameterType="accountDTO">
-      UPDATE account SET accountName = #{accountName}, balance = #{balance}
-      WHERE accountId = #{accountId}
-   </update>
-   <delete id="deleteAccount" parameterType="accountDTO">
-      DELETE FROM account WHERE accountId = #{accountId}
-   </delete>
+	<!-- AccountDTO -->
+	<select id="selectAccount" resultType="accountDTO">
+		select * from account
+	</select>
+	<insert id="insertAccount" parameterType="accountDTO">
+		INSERT INTO
+		account(accountId, accountName, balance)
+		VALUES (#{accountId},
+		#{accountName}, #{balance})
+	</insert>
+	<update id="updateAccount" parameterType="accountDTO">
+		UPDATE account SET
+		accountName = #{accountName}, balance = #{balance}
+		WHERE accountId =
+		#{accountId}
+	</update>
+	<delete id="deleteAccount" parameterType="accountDTO">
+		DELETE FROM account
+		WHERE accountId = #{accountId}
+	</delete>
 
-   <!-- BoardDetailDTO -->
-   <select id="selectBoardDetail" resultType="boardDetailDTO">
-      select * from boardDetail
-   </select>
-   <insert id="insertBoardDetail" parameterType="boardDetailDTO">
-      INSERT INTO boardDetail(boardId, detail)
-      VALUES (#{boardId}, #{detail})
-   </insert>
-   <update id="updateBoardDetail" parameterType="boardDetailDTO">
-      UPDATE boardDetail SET detail = #{detail}
-      WHERE boardId = #{boardId}
-   </update>
-   <delete id="deleteBoardDetail" parameterType="boardDetailDTO">
-      DELETE FROM boardDetail WHERE boardId = #{boardId}
-   </delete>
+	<!-- BoardDetailDTO -->
+	<select id="selectBoardDetail" resultType="boardDetailDTO">
+		select * from
+		boardDetail
+	</select>
+	<insert id="insertBoardDetail" parameterType="boardDetailDTO">
+		INSERT INTO
+		boardDetail(boardId, detail)
+		VALUES (#{boardId}, #{detail})
+	</insert>
+	<update id="updateBoardDetail" parameterType="boardDetailDTO">
+		UPDATE boardDetail
+		SET detail = #{detail}
+		WHERE boardId = #{boardId}
+	</update>
+	<delete id="deleteBoardDetail" parameterType="boardDetailDTO">
+		DELETE FROM
+		boardDetail WHERE boardId = #{boardId}
+	</delete>
 
-   <!-- BoardDTO -->
-   <select id="selectBoard" resultType="boardDTO">
-      select * from board
-   </select>
-   <insert id="insertBoard" parameterType="boardDTO">
-      INSERT INTO board(boardId, boardName)
-      VALUES (#{boardId}, #{boardName})
-   </insert>
-   <update id="updateBoard" parameterType="boardDTO">
-      UPDATE board SET boardName = #{boardName}
-      WHERE boardId = #{boardId}
-   </update>
-   <delete id="deleteBoard" parameterType="boardDTO">
-      DELETE FROM board WHERE boardId = #{boardId}
-   </delete>
+	<!-- BoardDTO -->
+	<select id="selectBoard" resultType="boardDTO">
+		select * from board
+	</select>
+	<insert id="insertBoard" parameterType="boardDTO">
+		INSERT INTO
+		board(boardId, boardName)
+		VALUES (#{boardId}, #{boardName})
+	</insert>
+	<update id="updateBoard" parameterType="boardDTO">
+		UPDATE board SET
+		boardName = #{boardName}
+		WHERE boardId = #{boardId}
+	</update>
+	<delete id="deleteBoard" parameterType="boardDTO">
+		DELETE FROM board WHERE
+		boardId = #{boardId}
+	</delete>
 
-   <!-- BomAddDTO -->
-   <select id="selectBomAdd" resultType="bomAddDTO">
-      select * from bomAdd
-   </select>
-   <insert id="insertBomAdd" parameterType="bomAddDTO">
-      INSERT INTO bomAdd(bomId, itemId, quantity)
-      VALUES (#{bomId}, #{itemId}, #{quantity})
-   </insert>
-   <update id="updateBomAdd" parameterType="bomAddDTO">
-      UPDATE bomAdd SET itemId = #{itemId}, quantity = #{quantity}
-      WHERE bomId = #{bomId}
-   </update>
-   <delete id="deleteBomAdd" parameterType="bomAddDTO">
-      DELETE FROM bomAdd WHERE bomId = #{bomId}
-   </delete>
+	<!-- BomAddDTO -->
+	<select id="selectBomAdd" resultType="bomAddDTO">
+		select * from bomAdd
+	</select>
+	<insert id="insertBomAdd" parameterType="bomAddDTO">
+		INSERT INTO
+		bomAdd(bomId, itemId, quantity)
+		VALUES (#{bomId}, #{itemId},
+		#{quantity})
+	</insert>
+	<update id="updateBomAdd" parameterType="bomAddDTO">
+		UPDATE bomAdd SET itemId
+		= #{itemId}, quantity = #{quantity}
+		WHERE bomId = #{bomId}
+	</update>
+	<delete id="deleteBomAdd" parameterType="bomAddDTO">
+		DELETE FROM bomAdd WHERE
+		bomId = #{bomId}
+	</delete>
 
-   <!-- BOMDTO -->
-   <select id="selectBOM" resultType="bomDTO">
-      select * from bom
-   </select>
-   <insert id="insertBOM" parameterType="bomDTO">
-      INSERT INTO bom(bomId, bomName)
-      VALUES (#{bomId}, #{bomName})
-   </insert>
-   <update id="updateBOM" parameterType="bomDTO">
-      UPDATE bom SET bomName = #{bomName}
-      WHERE bomId = #{bomId}
-   </update>
-   <delete id="deleteBOM" parameterType="bomDTO">
-      DELETE FROM bom WHERE bomId = #{bomId}
-   </delete>
+	<!-- BOMDTO -->
+	<select id="selectBOM" resultType="bomDTO">
+		select * from bom
+	</select>
+	<insert id="insertBOM" parameterType="bomDTO">
+		INSERT INTO bom(bomId,
+		bomName)
+		VALUES (#{bomId}, #{bomName})
+	</insert>
+	<update id="updateBOM" parameterType="bomDTO">
+		UPDATE bom SET bomName =
+		#{bomName}
+		WHERE bomId = #{bomId}
+	</update>
+	<delete id="deleteBOM" parameterType="bomDTO">
+		DELETE FROM bom WHERE bomId
+		= #{bomId}
+	</delete>
 
-   <!-- ClientDTO -->
-   <select id="selectClient" resultType="clientDTO">
-      select * from client
-   </select>
-   <insert id="insertClient" parameterType="clientDTO">
-      INSERT INTO client(clientId, clientName, contact)
-      VALUES (#{clientId}, #{clientName}, #{contact})
-   </insert>
-   <update id="updateClient" parameterType="clientDTO">
-      UPDATE client SET clientName = #{clientName}, contact = #{contact}
-      WHERE clientId = #{clientId}
-   </update>
-   <delete id="deleteClient" parameterType="clientDTO">
-      DELETE FROM client WHERE clientId = #{clientId}
-   </delete>
+	<!-- ClientDTO -->
+	<select id="selectClient" resultType="clientDTO">
+		select * from client
+	</select>
+	<insert id="insertClient" parameterType="clientDTO">
+		INSERT INTO
+		client(clientId, clientName, contact)
+		VALUES (#{clientId},
+		#{clientName}, #{contact})
+	</insert>
+	<update id="updateClient" parameterType="clientDTO">
+		UPDATE client SET
+		clientName = #{clientName}, contact = #{contact}
+		WHERE clientId =
+		#{clientId}
+	</update>
+	<delete id="deleteClient" parameterType="clientDTO">
+		DELETE FROM client WHERE
+		clientId = #{clientId}
+	</delete>
 
-   <!-- ErrorDTO -->
-   <select id="selectError" resultType="errorDTO">
-      select * from error
-   </select>
-   <insert id="insertError" parameterType="errorDTO">
-      INSERT INTO error(errorId, errorMessage)
-      VALUES (#{errorId}, #{errorMessage})
-   </insert>
-   <update id="updateError" parameterType="errorDTO">
-      UPDATE error SET errorMessage = #{errorMessage}
-      WHERE errorId = #{errorId}
-   </update>
-   <delete id="deleteError" parameterType="errorDTO">
-      DELETE FROM error WHERE errorId = #{errorId}
-   </delete>
+	<!-- ErrorDTO -->
+	<select id="selectError" resultType="errorDTO">
+		select * from error
+	</select>
+	<insert id="insertError" parameterType="errorDTO">
+		INSERT INTO
+		error(errorId, errorMessage)
+		VALUES (#{errorId}, #{errorMessage})
+	</insert>
+	<update id="updateError" parameterType="errorDTO">
+		UPDATE error SET
+		errorMessage = #{errorMessage}
+		WHERE errorId = #{errorId}
+	</update>
+	<delete id="deleteError" parameterType="errorDTO">
+		DELETE FROM error WHERE
+		errorId = #{errorId}
+	</delete>
 
-   <!-- FaultyDTO -->
-   <select id="selectFaulty" resultType="faultyDTO">
-      select * from faulty
-   </select>
-   <insert id="insertFaulty" parameterType="faultyDTO">
-      INSERT INTO faulty(faultyId, description)
-      VALUES (#{faultyId}, #{description})
-   </insert>
-   <update id="updateFaulty" parameterType="faultyDTO">
-      UPDATE faulty SET description = #{description}
-      WHERE faultyId = #{faultyId}
-   </update>
-   <delete id="deleteFaulty" parameterType="faultyDTO">
-      DELETE FROM faulty WHERE faultyId = #{faultyId}
-   </delete>
+	<!-- FaultyDTO -->
+	<select id="selectFaulty" resultType="faultyDTO">
+		SELECT TO_DATE(TO_CHAR(w.work_endate, 'YYYY-MM') || '-01', 'YYYY-MM-DD') AS month, 
+       	NVL(SUM(TO_NUMBER(f.faulty_count)), 0) AS defect_rate
+		FROM work w
+		LEFT JOIN faulty f ON f.work_id = w.work_id
+		GROUP BY TO_DATE(TO_CHAR(w.work_endate, 'YYYY-MM') || '-01', 'YYYY-MM-DD')
+		ORDER BY month
+	</select>
 
-   <!-- InventoryDTO -->
-   <select id="selectInventory" resultType="inventoryDTO">
-      select * from inventory
-   </select>
-   <insert id="insertInventory" parameterType="inventoryDTO">
-      INSERT INTO inventory(inventoryId, stockLevel)
-      VALUES (#{inventoryId}, #{stockLevel})
-   </insert>
-   <update id="updateInventory" parameterType="inventoryDTO">
-      UPDATE inventory SET stockLevel = #{stockLevel}
-      WHERE inventoryId = #{inventoryId}
-   </update>
-   <delete id="deleteInventory" parameterType="inventoryDTO">
-      DELETE FROM inventory WHERE inventoryId = #{inventoryId}
-   </delete>
+	<insert id="insertFaulty" parameterType="faultyDTO">
+		INSERT INTO
+		faulty(faultyId, description)
+		VALUES (#{faultyId}, #{description})
+	</insert>
+	<update id="updateFaulty" parameterType="faultyDTO">
+		UPDATE faulty SET
+		description = #{description}
+		WHERE faultyId = #{faultyId}
+	</update>
+	<delete id="deleteFaulty" parameterType="faultyDTO">
+		DELETE FROM faulty WHERE
+		faultyId = #{faultyId}
+	</delete>
 
-   <!-- ItemDTO -->
-   <select id="selectItem" resultType="itemDTO">
-      select * from item
-   </select>
-   <insert id="insertItem" parameterType="itemDTO">
-      INSERT INTO item(itemId, itemName, price)
-      VALUES (#{itemId}, #{itemName}, #{price})
-   </insert>
-   <update id="updateItem" parameterType="itemDTO">
-      UPDATE item SET itemName = #{itemName}, price = #{price}
-      WHERE itemId = #{itemId}
-   </update>
-   <delete id="deleteItem" parameterType="itemDTO">
-      DELETE FROM item WHERE itemId = #{itemId}
-   </delete>
+	<!-- InventoryDTO -->
+	<select id="selectInventory" resultType="inventoryDTO">
+		select * from inventory
+	</select>
+	<insert id="insertInventory" parameterType="inventoryDTO">
+		INSERT INTO
+		inventory(inventoryId, stockLevel)
+		VALUES (#{inventoryId},
+		#{stockLevel})
+	</insert>
+	<update id="updateInventory" parameterType="inventoryDTO">
+		UPDATE inventory SET
+		stockLevel = #{stockLevel}
+		WHERE inventoryId = #{inventoryId}
+	</update>
+	<delete id="deleteInventory" parameterType="inventoryDTO">
+		DELETE FROM inventory
+		WHERE inventoryId = #{inventoryId}
+	</delete>
 
-   <!-- MaterialStockDTO -->
-   <select id="selectMaterialStock" resultType="materialStockDTO">
-      select * from materialStock
-   </select>
-   <insert id="insertMaterialStock" parameterType="materialStockDTO">
-      INSERT INTO materialStock(stockId, materialName, quantity)
-      VALUES (#{stockId}, #{materialName}, #{quantity})
-   </insert>
-   <update id="updateMaterialStock" parameterType="materialStockDTO">
-      UPDATE materialStock SET materialName = #{materialName}, quantity = #{quantity}
-      WHERE stockId = #{stockId}
-   </update>
-   <delete id="deleteMaterialStock" parameterType="materialStockDTO">
-      DELETE FROM materialStock WHERE stockId = #{stockId}
-   </delete>
+	<!-- ItemDTO -->
+	<select id="selectItem" resultType="itemDTO">
+		select * from item
+	</select>
+	<insert id="insertItem" parameterType="itemDTO">
+		INSERT INTO item(itemId,
+		itemName, price)
+		VALUES (#{itemId}, #{itemName}, #{price})
+	</insert>
+	<update id="updateItem" parameterType="itemDTO">
+		UPDATE item SET itemName =
+		#{itemName}, price = #{price}
+		WHERE itemId = #{itemId}
+	</update>
+	<delete id="deleteItem" parameterType="itemDTO">
+		DELETE FROM item WHERE
+		itemId = #{itemId}
+	</delete>
 
-   <!-- MyPageDTO -->
-   <select id="selectMyPage" resultType="myPageDTO">
-      select * from myPage
-   </select>
-   <insert id="insertMyPage" parameterType="myPageDTO">
-      INSERT INTO myPage(pageId, pageTitle)
-      VALUES (#{pageId}, #{pageTitle})
-   </insert>
-   <update id="updateMyPage" parameterType="myPageDTO">
-      UPDATE myPage SET pageTitle = #{pageTitle}
-      WHERE pageId = #{pageId}
-   </update>
-   <delete id="deleteMyPage" parameterType="myPageDTO">
-      DELETE FROM myPage WHERE pageId = #{pageId}
-   </delete>
+	<!-- MaterialStockDTO -->
+	<select id="selectMaterialStock" resultType="materialStockDTO">
+		select * from
+		materialStock
+	</select>
+	<insert id="insertMaterialStock"
+		parameterType="materialStockDTO">
+		INSERT INTO materialStock(stockId, materialName,
+		quantity)
+		VALUES (#{stockId}, #{materialName}, #{quantity})
+	</insert>
+	<update id="updateMaterialStock"
+		parameterType="materialStockDTO">
+		UPDATE materialStock SET materialName = #{materialName},
+		quantity =
+		#{quantity}
+		WHERE stockId = #{stockId}
+	</update>
+	<delete id="deleteMaterialStock"
+		parameterType="materialStockDTO">
+		DELETE FROM materialStock WHERE stockId = #{stockId}
+	</delete>
 
-   <!-- OrderInfoDTO -->
+	<!-- MyPageDTO -->
+	<select id="selectMyPage" resultType="myPageDTO">
+		SELECT *
+		FROM myPage
+		WHERE
+		user_id = #{userId}
+	</select>
+	<insert id="insertMyPage" parameterType="myPageDTO">
+		INSERT INTO
+		myPage(pageId, pageTitle)
+		VALUES (#{pageId}, #{pageTitle})
+	</insert>
+	<update id="updateMyPage" parameterType="myPageDTO">
+		UPDATE myPage SET
+		pageTitle = #{pageTitle}
+		WHERE pageId = #{pageId}
+	</update>
+	<delete id="deleteMyPage" parameterType="myPageDTO">
+		DELETE FROM myPage WHERE
+		pageId = #{pageId}
+	</delete>
+
+	<!-- OrderInfoDTO -->
 	<select id="selectOrderInfo" resultType="orderInfoDTO">
 		select * from order_Info
 	</select>
-	
-<!-- 	<select id="selectOrderInfoCount" resultType="orderInfoDTO" parameterType="int"> -->
-<!-- 		SELECT COUNT(*) FROM order_info -->
-<!-- 	</select> -->
-<!-- 	<insert id="insertOrderInfo" parameterType="orderInfoDTO"> -->
-<!-- 		INSERT INTO order_Info(orderId, productId, quantity) -->
-<!-- 		VALUES (#{orderId}, #{productId}, #{quantity}) -->
-<!-- 	</insert> -->
-<!-- 	<update id="updateOrderInfo" parameterType="orderInfoDTO"> -->
-<!-- 		UPDATE order_Info SET productId = #{productId}, quantity = #{quantity} -->
-<!-- 		WHERE orderId = #{orderId} -->
-<!-- 	</update> -->
-<!-- 	<delete id="deleteOrderInfo" parameterType="orderInfoDTO"> -->
-<!-- 		DELETE FROM order_Info WHERE order_Id = #{order_Id} -->
-<!-- 	</delete> -->
+
+	<!-- <select id="selectOrderInfoCount" resultType="orderInfoDTO" parameterType="int"> -->
+	<!-- SELECT COUNT(*) FROM order_info -->
+	<!-- </select> -->
+	<!-- <insert id="insertOrderInfo" parameterType="orderInfoDTO"> -->
+	<!-- INSERT INTO order_Info(orderId, productId, quantity) -->
+	<!-- VALUES (#{orderId}, #{productId}, #{quantity}) -->
+	<!-- </insert> -->
+	<!-- <update id="updateOrderInfo" parameterType="orderInfoDTO"> -->
+	<!-- UPDATE order_Info SET productId = #{productId}, quantity = #{quantity} -->
+	<!-- WHERE orderId = #{orderId} -->
+	<!-- </update> -->
+	<!-- <delete id="deleteOrderInfo" parameterType="orderInfoDTO"> -->
+	<!-- DELETE FROM order_Info WHERE order_Id = #{order_Id} -->
+	<!-- </delete> -->
 
 	<!-- ProductionOrderDTO -->
-	<select id="selectProductionOrder" resultType="productionOrderDTO">
+	<select id="selectProductionOrder"
+		resultType="productionOrderDTO">
 		select * from productionOrder
 	</select>
-	<insert id="insertProductionOrder" parameterType="productionOrderDTO">
-		INSERT INTO productionOrder(orderId, productId, quantity)
+	<insert id="insertProductionOrder"
+		parameterType="productionOrderDTO">
+		INSERT INTO productionOrder(orderId, productId,
+		quantity)
 		VALUES (#{orderId}, #{productId}, #{quantity})
 	</insert>
-	<update id="updateProductionOrder" parameterType="productionOrderDTO">
-		UPDATE productionOrder SET productId = #{productId}, quantity = #{quantity}
+	<update id="updateProductionOrder"
+		parameterType="productionOrderDTO">
+		UPDATE productionOrder SET productId = #{productId},
+		quantity = #{quantity}
 		WHERE orderId = #{orderId}
 	</update>
-	<delete id="deleteProductionOrder" parameterType="productionOrderDTO">
+	<delete id="deleteProductionOrder"
+		parameterType="productionOrderDTO">
 		DELETE FROM productionOrder WHERE orderId = #{orderId}
 	</delete>
 
 	<!-- ProductionPlanDTO -->
 	<select id="selectProductionPlan" resultType="productionPlanDTO">
-		select * from production_Plan order by plan_id desc
+		select * from
+		production_Plan order by plan_id desc
 	</select>
-	<insert id="insertProductionPlan" parameterType="productionPlanDTO">
-		INSERT INTO production_Plan(plan_id, plan_contents, plan_date, plan_end_date, plan_count, plan_name)
-		VALUES (#{plan_id}, #{plan_contents}, #{plan_date}, #{plan_end_date}, #{plan_count}, #{plan_name})
+	<insert id="insertProductionPlan"
+		parameterType="productionPlanDTO">
+		INSERT INTO production_Plan(plan_id, plan_contents,
+		plan_date, plan_end_date, plan_count, plan_name)
+		VALUES (#{plan_id},
+		#{plan_contents}, #{plan_date}, #{plan_end_date}, #{plan_count},
+		#{plan_name})
 	</insert>
-<!-- 	<update id="updateProductionPlan" parameterType="productionPlanDTO"> -->
-<!-- 		UPDATE productionPlan SET productId = #{productId}, startDate = #{startDate} -->
-<!-- 		WHERE planId = #{planId} -->
-<!-- 	</update> -->
-	<delete id="deleteProductionPlan" parameterType="productionPlanDTO">
+	<!-- <update id="updateProductionPlan" parameterType="productionPlanDTO"> -->
+	<!-- UPDATE productionPlan SET productId = #{productId}, startDate = #{startDate} -->
+	<!-- WHERE planId = #{planId} -->
+	<!-- </update> -->
+	<delete id="deleteProductionPlan"
+		parameterType="productionPlanDTO">
 		DELETE FROM production_Plan WHERE plan_id = #{plan_id}
 	</delete>
 
-   <!-- ProductionstatusDTO -->
-   <select id="selectProductionstatus" resultType="productionstatusDTO">
-      SELECT * FROM Work 
-      WHERE work_do = '작업 중'
-      Order by line_no
-   </select>
-<!--    <insert id="insertProductionstatus" parameterType="productionstatusDTO"> -->
-<!--       INSERT INTO productionPlan(planId, productId, startDate) -->
-<!--       VALUES (#{planId}, #{productId}, #{startDate}) -->
-<!--    </insert> -->
-<!--    <update id="updateProductionstatus" parameterType="productionstatusDTO"> -->
-<!--       UPDATE productionPlan SET productId = #{productId}, startDate = #{startDate} -->
-<!--       WHERE planId = #{planId} -->
-<!--    </update> -->
-<!--    <delete id="deleteProductionstatus" parameterType="productionstatusDTO"> -->
-<!--       DELETE FROM productionPlan WHERE planId = #{planId} -->
-<!--    </delete> -->
-      
-   <!-- RawMaterialStockDTO -->
-   <select id="selectRawMaterialStock" resultType="rawMaterialStockDTO">
-      select * from productionPlan
-   </select>
-   <insert id="insertRawMaterialStock" parameterType="rawMaterialStockDTO">
-      INSERT INTO productionPlan(planId, productId, startDate)
-      VALUES (#{planId}, #{productId}, #{startDate})
-   </insert>
-   <update id="updateRawMaterialStock" parameterType="rawMaterialStockDTO">
-      UPDATE productionPlan SET productId = #{productId}, startDate = #{startDate}
-      WHERE planId = #{planId}
-   </update>
-   <delete id="deleteRawMaterialStock" parameterType="rawMaterialStockDTO">
-      DELETE FROM productionPlan WHERE planId = #{planId}
-   </delete>
-      
-   <!-- ShipmentDTO -->
-   <select id="selectShipment" resultType="shipmentDTO">
-      select * from productionPlan
-   </select>
-   <insert id="insertShipment" parameterType="shipmentDTO">
-      INSERT INTO productionPlan(planId, productId, startDate)
-      VALUES (#{planId}, #{productId}, #{startDate})
-   </insert>
-   <update id="updateShipment" parameterType="shipmentDTO">
-      UPDATE productionPlan SET productId = #{productId}, startDate = #{startDate}
-      WHERE planId = #{planId}
-   </update>
-   <delete id="deleteShipment" parameterType="shipmentDTO">
-      DELETE FROM productionPlan WHERE planId = #{planId}
-   </delete>
-      
-      
-   <!-- StockDTO -->
-   <select id="selectStock" resultType="stockDTO">
-      SELECT * FROM STOCK
-   </select>
-	<!-- Read: 특정 재고 조회 -->
-    <select id="selectStockById" parameterType="String" resultType="stockDTO">
-        SELECT * FROM STOCK WHERE stock_name LIKE '%' || #{stock_name} || '%'
-    </select>
-    
-	<!-- Update: 재고 수정 -->
-    <update id="updateStock" parameterType="stockDTO">
-		UPDATE stock
-        SET
-            item_Code = #{item_Code},
-            stock_Name = #{stock_Name},
-            stock_Count = #{stock_Count},
-            stock_Location = #{stock_Location},
-            stock_Sort = #{stock_Sort}
-        WHERE stock_Id = #{stock_Id}
-    </update>
-    <update id="updateOneStock" parameterType="stockDTO">
-    	UPDATE stock
-    	SET
-    		stock_Count = #{stock_Count}
-    	WHERE stock_Id = #{stock_Id}
-    </update>
-	
-	<!--  Delete: 재고 삭제 -->
-    <delete id="deleteStock" parameterType="stockDTO">
-        DELETE FROM STOCK WHERE stock_Id = #{stock_Id}
-    </delete>
-    
+	<!-- ProductionstatusDTO -->
+	<select id="selectProductionstatus"
+		resultType="productionstatusDTO">
+		SELECT * FROM Work
+		WHERE work_do = '작업 중'
+		Order by line_no
+	</select>
+	<!-- <insert id="insertProductionstatus" parameterType="productionstatusDTO"> -->
+	<!-- INSERT INTO productionPlan(planId, productId, startDate) -->
+	<!-- VALUES (#{planId}, #{productId}, #{startDate}) -->
+	<!-- </insert> -->
+	<!-- <update id="updateProductionstatus" parameterType="productionstatusDTO"> -->
+	<!-- UPDATE productionPlan SET productId = #{productId}, startDate = #{startDate} -->
+	<!-- WHERE planId = #{planId} -->
+	<!-- </update> -->
+	<!-- <delete id="deleteProductionstatus" parameterType="productionstatusDTO"> -->
+	<!-- DELETE FROM productionPlan WHERE planId = #{planId} -->
+	<!-- </delete> -->
 
-   <!-- TodoDTO -->
-   <select id="selectTodo" resultType="todoDTO">
-      select * from productionPlan
-   </select>
-   <insert id="insertTodo" parameterType="todoDTO">
-      INSERT INTO productionPlan(planId, productId, startDate)
-      VALUES (#{planId}, #{productId}, #{startDate})
-   </insert>
-   <update id="updateTodo" parameterType="todoDTO">
-      UPDATE productionPlan SET productId = #{productId}, startDate = #{startDate}
-      WHERE planId = #{planId}
-   </update>
-   <delete id="deleteTodo" parameterType="todoDTO">
-      DELETE FROM productionPlan WHERE planId = #{planId}
-   </delete>   
-      
-   <!-- UserDTO -->
-   <select id="selectUser" resultType="userDTO">
-      select * from productionPlan
-   </select>
-   <insert id="insertUser" parameterType="userDTO">
-      INSERT INTO productionPlan(planId, productId, startDate)
-      VALUES (#{planId}, #{productId}, #{startDate})
-   </insert>
-   <update id="updateUser" parameterType="userDTO">
-      UPDATE productionPlan SET productId = #{productId}, startDate = #{startDate}
-      WHERE planId = #{planId}
-   </update>
-   <delete id="deleteUser" parameterType="userDTO">
-      DELETE FROM productionPlan WHERE planId = #{planId}
-   </delete>
-      
-   <!-- WorkDTO -->
-   <select id="selectWork" resultType="workDTO">
-      select * from Work
-   </select>
-   <insert id="insertWork" parameterType="workDTO">
-      INSERT INTO Work(work_id, work_write, work_endate, work_name, item_code, production_qty, user_id, work_do)
-      VALUES (#{work_id}, #{work_write}, #{work_endate}, #{work_name}, #{item_code}, #{production_qty}, #{user_id}, #{work_do})
-   </insert>
-<!--    <update id="updateWork" parameterType="workDTO"> -->
-<!--       UPDATE productionPlan SET productId = #{productId}, startDate = #{startDate} -->
-<!--       WHERE planId = #{planId} -->
-<!--    </update> -->
-<!--    <delete id="deleteWork" parameterType="workDTO"> -->
-<!--       DELETE FROM productionPlan WHERE planId = #{planId} -->
-<!--    </delete> -->
-      
+	<!-- RawMaterialStockDTO -->
+	<select id="selectRawMaterialStock"
+		resultType="rawMaterialStockDTO">
+		select * from productionPlan
+	</select>
+	<insert id="insertRawMaterialStock"
+		parameterType="rawMaterialStockDTO">
+		INSERT INTO productionPlan(planId, productId, startDate)
+		VALUES (#{planId}, #{productId}, #{startDate})
+	</insert>
+	<update id="updateRawMaterialStock"
+		parameterType="rawMaterialStockDTO">
+		UPDATE productionPlan SET productId = #{productId},
+		startDate = #{startDate}
+		WHERE planId = #{planId}
+	</update>
+	<delete id="deleteRawMaterialStock"
+		parameterType="rawMaterialStockDTO">
+		DELETE FROM productionPlan WHERE planId = #{planId}
+	</delete>
+
+	<!-- ShipmentDTO -->
+	<select id="selectShipment" resultType="shipmentDTO">
+		select * from
+		productionPlan
+	</select>
+	<insert id="insertShipment" parameterType="shipmentDTO">
+		INSERT INTO
+		productionPlan(planId, productId, startDate)
+		VALUES (#{planId},
+		#{productId}, #{startDate})
+	</insert>
+	<update id="updateShipment" parameterType="shipmentDTO">
+		UPDATE productionPlan
+		SET productId = #{productId}, startDate = #{startDate}
+		WHERE planId =
+		#{planId}
+	</update>
+	<delete id="deleteShipment" parameterType="shipmentDTO">
+		DELETE FROM
+		productionPlan WHERE planId = #{planId}
+	</delete>
+
+
+
+	<!-- stock_order -->
+	<insert id="StockOrderInsert" parameterType="stockorderDTO">
+		INSERT INTO
+		stock_order (order_num, order_supply, order_time, order_count,
+		order_name)
+		VALUES (order_num_seq.NEXTVAL, #{order_supply},
+		#{order_time}, #{order_count}, #{order_name})
+	</insert>
+
+	<!-- StockDTO -->
+	<select id="subselectStock" resultType="stockDTO">
+		SELECT * FROM stock WHERE
+		stock_sort = '재료'
+	</select>
+
+	<select id="ogselectStock" resultType="stockDTO">
+		SELECT * FROM stock WHERE
+		stock_sort = '완제품'
+	</select>
+
+	<select id="subselectStockById" parameterType="String"
+		resultType="stockDTO">
+		SELECT * FROM STOCK WHERE stock_name LIKE '%' ||
+		#{stock_name} || '%' and
+		stock_sort = '재료'
+	</select>
+
+	<select id="selectStock" resultType="stockDTO">
+		SELECT * FROM STOCK
+	</select>
+	<!-- Read: 특정 재고 조회 -->
+	<select id="selectStockById" parameterType="String"
+		resultType="stockDTO">
+		SELECT * FROM STOCK WHERE stock_name LIKE '%' ||
+		#{stock_name} || '%'
+	</select>
+
+	<!-- Update: 재고 수정 -->
+	<update id="updateStock" parameterType="stockDTO">
+		UPDATE stock
+		SET
+		item_Code
+		= #{item_Code},
+		stock_Name = #{stock_Name},
+		stock_Count =
+		#{stock_Count},
+		stock_Location = #{stock_Location},
+		stock_Sort =
+		#{stock_Sort}
+		WHERE stock_Id = #{stock_Id}
+	</update>
+	<update id="updateOneStock" parameterType="stockDTO">
+		UPDATE stock
+		SET
+		stock_Count = stock_Count + #{stock_Count}
+		WHERE stock_Id = #{stock_Id}
+	</update>
+
+	<!-- Delete: 재고 삭제 -->
+	<delete id="deleteStock" parameterType="stockDTO">
+		DELETE FROM STOCK WHERE
+		item_Code = #{item_Code}
+	</delete>
+
+
+
+	<!-- TodoDTO -->
+	<select id="selectTodo" resultType="todoDTO">
+		select * from productionPlan
+	</select>
+	<insert id="insertTodo" parameterType="todoDTO">
+		INSERT INTO
+		productionPlan(planId, productId, startDate)
+		VALUES (#{planId},
+		#{productId}, #{startDate})
+	</insert>
+	<update id="updateTodo" parameterType="todoDTO">
+		UPDATE productionPlan SET
+		productId = #{productId}, startDate = #{startDate}
+		WHERE planId =
+		#{planId}
+	</update>
+	<delete id="deleteTodo" parameterType="todoDTO">
+		DELETE FROM productionPlan
+		WHERE planId = #{planId}
+	</delete>
+
+	<!-- UserDTO -->
+	<select id="selectUser" resultType="userDTO">
+		select * from productionPlan
+	</select>
+	<insert id="insertUser" parameterType="userDTO">
+		INSERT INTO
+		productionPlan(planId, productId, startDate)
+		VALUES (#{planId},
+		#{productId}, #{startDate})
+	</insert>
+	<update id="updateUser" parameterType="userDTO">
+		UPDATE productionPlan SET
+		productId = #{productId}, startDate = #{startDate}
+		WHERE planId =
+		#{planId}
+	</update>
+	<delete id="deleteUser" parameterType="userDTO">
+		DELETE FROM productionPlan
+		WHERE planId = #{planId}
+	</delete>
+
+	<!-- WorkDTO -->
+	<select id="selectWork" resultType="workDTO">
+		select * from Work
+	</select>
+	<insert id="insertWork" parameterType="workDTO">
+		INSERT INTO Work(work_id,
+		work_write, work_endate, work_name, item_code,
+		production_qty, user_id,
+		work_do)
+		VALUES (#{work_id}, #{work_write}, #{work_endate},
+		#{work_name},
+		#{item_code}, #{production_qty}, #{user_id}, #{work_do})
+	</insert>
+	<!-- <update id="updateWork" parameterType="workDTO"> -->
+	<!-- UPDATE productionPlan SET productId = #{productId}, startDate = #{startDate} -->
+	<!-- WHERE planId = #{planId} -->
+	<!-- </update> -->
+	<!-- <delete id="deleteWork" parameterType="workDTO"> -->
+	<!-- DELETE FROM productionPlan WHERE planId = #{planId} -->
+	<!-- </delete> -->
+
 </mapper>

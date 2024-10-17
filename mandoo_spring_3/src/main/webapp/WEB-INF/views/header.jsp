@@ -20,13 +20,13 @@ span {
    <div class="category">
       <div class="menu-icon">
          <img class="menu-icon"
-            src="resources/image/menu.png">
+            src="${pageContext.request.contextPath}/resources/image/menu.png">
       </div>
 
       <div class="category-item logo-item">
          <a href="/mandoo/index" class="category-link"> <img
             class="logo-icon"
-            src="resources/image/logo.png">
+            src="${pageContext.request.contextPath}/resources/image/logo.png">
          </a>
       </div>
 

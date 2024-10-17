@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.co.mandoo.dto.StockDTO;
+import kr.co.mandoo.dto.StockOrderDTO;
 
 
 @Repository
@@ -25,11 +26,53 @@ public class StockDAOImpl implements StockDAO {
 		
 	}
 	
+	// sub 재고 
+	@Override
+	public List getsubStockList(){
+		
+		List list = sqlSession.selectList("mapper.dto.subselectStock");
+		
+		return list;
+		
+	}
+	
+	// og 재고 
+	@Override
+	public List getogStockList(){
+		
+		List list = sqlSession.selectList("mapper.dto.ogselectStock");
+		
+		return list;
+		
+	}
+	
 	// 재고 검색
 	@Override
 	public List getStockOneList(String stock){
 		
 		List list = sqlSession.selectList("mapper.dto.selectStockById" , stock);
+		System.out.println("DAO : " + list);
+		
+		return list;
+		
+	}
+	
+	// sub 재고 검색
+	@Override
+	public List getsubStockOneList(String stock){
+		
+		List list = sqlSession.selectList("mapper.dto.subselectStockById" , stock);
+		System.out.println("DAO : " + list);
+		
+		return list;
+		
+	}
+	
+	// og 재고 검색
+	@Override
+	public List getogStockOneList(String stock){
+		
+		List list = sqlSession.selectList("mapper.dto.ogselectStockById" , stock);
 		System.out.println("DAO : " + list);
 		
 		return list;
@@ -61,6 +104,7 @@ public class StockDAOImpl implements StockDAO {
 	public int deleteStock(StockDTO stockDTO) {
 		int result = -1;
 		result = sqlSession.delete("mapper.dto.deleteStock" , stockDTO);
+		System.out.println("DAO : " + result);
 		
 		return result;
 	}
@@ -71,6 +115,14 @@ public class StockDAOImpl implements StockDAO {
 		int result = -1;
 		result = sqlSession.update("mapper.dto.updateStock" , stockDTO);
 		
+		return result;
+	}
+	
+	// stock_order
+	@Override
+	public int stockorderInsert(StockOrderDTO dto) {
+		int result = -1;
+		result = sqlSession.insert("mapper.dto.StockOrderInsert", dto);
 		return result;
 	}
 	

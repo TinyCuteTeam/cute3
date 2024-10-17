@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.mandoo.Service.OrderInfoService;
@@ -13,45 +14,28 @@ import kr.co.mandoo.dto.OrderInfoDTO;
 @Controller
 public class OrderInfoController {
 
-	@Autowired
-	OrderInfoService orderInfoService;
+    @Autowired
+    OrderInfoService orderInfoService;
 
-	@RequestMapping("/OrderInfo")
-//	@ResponseBody
-	public String listOrderInfo(Model model) {
-		List<OrderInfoDTO> list = orderInfoService.listOrderInfo(); // 1번
-		System.out.println("list 출력" + list);
-		model.addAttribute("list", list); // 2번, jsp는 3번
+    @RequestMapping("/OrderInfo")
+    public String listOrderInfo(Model model, 
+                                 @RequestParam(value = "page", defaultValue = "1") int currentPage) {
+        List<OrderInfoDTO> list = orderInfoService.listOrderInfo(); // 전체 주문 목록 조회
 
-		System.out.println("list.size() :" + list.size());
+        // 페이징 처리 로직
+        int pageSize = 5; // 페이지당 주문 수
+        int totalItems = list.size(); // 전체 주문 수
+        int totalPages = (totalItems + pageSize - 1) / pageSize; // 전체 페이지 수
 
-		return "orderInfo";
-	}
-	
-	
-//	@RequestMapping("/OrderInfo2")
-//	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//		req.setCharacterEncoding("UTF-8");
-//		resp.setContentType("text/html; charset=UTF-8");
-//
-//		String pageParam = req.getParameter("page");
-//		int page = (pageParam != null) ? Integer.parseInt(pageParam) : 1;
-//		int pageSize = 5;
-//
-//		try {
-//			int totalOrders = orderInfoService.getTotalOrders();
-//			int totalPages = (int) Math.ceil((double) totalOrders / pageSize);
-//
-//			List<OrderInfoDTO> orders = orderInfoService.getOrdersByPage(page, pageSize);
-//
-//			req.setAttribute("orders", orders);
-//			req.setAttribute("currentPage", page);
-//			req.setAttribute("totalPages", totalPages);
-//
-//			req.getRequestDispatcher("/WEB-INF/발주확인.jsp").forward(req, resp);
-//		} catch (Exception e) {
-//			throw new ServletException(e);
-//		}
-//	}
+        // 현재 페이지에 해당하는 주문만 가져오기
+        int startIndex = (currentPage - 1) * pageSize;
+        int endIndex = Math.min(startIndex + pageSize, totalItems);
+        List<OrderInfoDTO> paginatedList = list.subList(startIndex, endIndex);
 
+        model.addAttribute("list", paginatedList);
+        model.addAttribute("currentPage", currentPage);
+        model.addAttribute("totalPages", totalPages);
+
+        return "orderInfo"; // JSP 페이지로 이동
+    }
 }

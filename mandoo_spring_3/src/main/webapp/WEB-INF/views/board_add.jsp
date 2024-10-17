@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mandoo</title>
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/CSS/style.css">
+	href="${pageContext.request.contextPath}/resources/CSS/style.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/CSS/사내게시판등록.css">
+	href="${pageContext.request.contextPath}/resources/CSS/사내게시판등록.css">
 </head>
 
 <body>
@@ -23,14 +23,14 @@
 	<div class="content">
 		<h1>게시판 생성</h1>
 		<form id="board-form"
-			action="${pageContext.request.contextPath}/boardAdd" method="post">
+			action="${pageContext.request.contextPath}/addPost" method="post">
 			<div class="form-group">
 				<label for="title">제목:</label> <input type="text" id="title"
-					name="title" required>
+					name="board_Title" required>
 			</div>
 			<div class="form-group">
 				<label for="content">내용:</label>
-				<textarea id="content" name="content" rows="10" required></textarea>
+				<textarea id="content" name="board_Contents" rows="10" required></textarea>
 			</div>
 			<button type="submit">게시하기</button>
 		</form>
