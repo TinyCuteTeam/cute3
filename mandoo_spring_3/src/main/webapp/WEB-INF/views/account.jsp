@@ -21,12 +21,11 @@
             <div class="main">
                 <!-- 헤더 행 -->
                 <div class="flex header srTh">
-                    <div>
-                        <input type="checkbox" class="chk" id="selectAll">
-                    </div>
                     <div>아이디</div>
                     <div>이름</div>
                     <div>이메일</div>
+                    <div>가입일</div>                   
+                    <div>권한</div>
                     <div>승인</div>
                     <div>거절</div>
                 </div>
@@ -34,12 +33,11 @@
                 <!-- 데이터 행 -->
                 <c:forEach var="account" items="${accounts}">
                     <div class="flex round">
-                        <div>
-                            <input type="checkbox" class="chk" name="selectedAccounts" value="${account.account_Id}">
-                        </div>
                         <div>${account.account_Id}</div>
                         <div>${account.account_Name}</div>
                         <div>${account.account_Email}</div>
+                        <div>2024.10.18</div>
+                        <div>작업자</div>
                         <div>
                             <!-- 승인 버튼 -->
                             <form method="post" action="${pageContext.request.contextPath}/account/approve">

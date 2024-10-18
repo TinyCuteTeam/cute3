@@ -4,11 +4,20 @@
 
 <mapper namespace="ShipmentMapper">
 
-    <select id="getAllShipments" resultType="ShipmentDTO">
-        SELECT * FROM order_info
-    </select>
+	<select id="getAllShipments" resultType="ShipmentDTO">
+		SELECT oi.ORDER_ID,
+		c.CLIENT_NAME as CLIENT_ID,
+		oi.ORDER_DATE,
+		oi.ORDER_ENDDATE,
+		oi.ORDER_BOX,
+		oi.ORDER_COUNT,
+		oi.ORDER_PRICE,
+		oi.PRODUCT_NAME
+		FROM ORDER_INFO oi
+		JOIN CLIENT c ON oi.CLIENT_ID = c.CLIENT_ID
+	</select>
 
-    <delete id="deleteShipment">
-        DELETE FROM order_info WHERE shipment_ID = #{shipment_Id}
-    </delete>
+	<delete id="deleteShipment">
+		DELETE FROM order_info WHERE shipment_ID = #{shipment_Id}
+	</delete>
 </mapper>
