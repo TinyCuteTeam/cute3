@@ -1,60 +1,49 @@
 package kr.co.mandoo.dto;
 
+import java.sql.Date;
+
 public class TodoDTO {
-	private int todoId;
-	private String userId;
-	private String date;
-	private String title;
-	private String contents;
-
-	public TodoDTO() {
+    private Integer todo_Id;
+    private String user_Id;
+    private Date todo_Date;
+    private String todo_Title;
+    private String todo_Contents;
+	public Integer getTodo_Id() {
+		return todo_Id;
 	}
-
-	public TodoDTO(int todoId, String userId, String date, String title, String contents) {
-		this.todoId = todoId;
-		this.userId = userId;
-		this.date = date;
-		this.title = title;
-		this.contents = contents;
+	public void setTodo_Id(Integer todo_Id) {
+		this.todo_Id = todo_Id;
 	}
-
-	public int getTodoId() {
-		return todoId;
+	public String getUser_Id() {
+		return user_Id;
 	}
-
-	public void setTodoId(int todoId) {
-		this.todoId = todoId;
+	public void setUser_Id(String user_Id) {
+		this.user_Id = user_Id;
 	}
-
-	public String getUserId() {
-		return userId;
+	public Date getTodo_Date() {
+		return todo_Date;
 	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setTodo_Date(Date todo_Date) {
+		this.todo_Date = todo_Date;
 	}
-
-	public String getDate() {
-		return date;
+	public String getTodo_Title() {
+		return todo_Title;
 	}
-
-	public void setDate(String date) {
-		this.date = date;
+	public void setTodo_Title(String todo_Title) {
+		this.todo_Title = todo_Title;
 	}
-
-	public String getTitle() {
-		return title;
+	public String getTodo_Contents() {
+		return todo_Contents;
 	}
-
-	public void setTitle(String title) {
-		this.title = title;
+	public void setTodo_Contents(String todo_Contents) {
+		this.todo_Contents = todo_Contents;
 	}
-
-	public String getContents() {
-		return contents;
+	@Override
+	public String toString() {
+		return "TodoDTO [todo_Id=" + todo_Id + ", user_Id=" + user_Id + ", todo_Date=" + todo_Date + ", todo_Title="
+				+ todo_Title + ", todo_Contents=" + todo_Contents + "]";
 	}
+    
+    
 
-	public void setContents(String contents) {
-		this.contents = contents;
 	}
-}

@@ -24,7 +24,7 @@
                 onsubmit="return confirmShipment();">
                 <div class="flex srTh">
                     <div>선택</div>
-                    <div>거래처 ID</div>
+                    <div>거래처명</div>
                     <div>상품명</div>
                     <div>수량</div>
                     <div>금액</div>
