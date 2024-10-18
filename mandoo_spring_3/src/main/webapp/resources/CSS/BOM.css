@@ -6,11 +6,16 @@
 	overflow: auto;
 	margin-left: 150px;
 	text-align: center;
-	width: 65%;
-	height: 750px;
+	width: 69%;
+	height: 810px;
 	padding-right: 272px;
 }
 
+
+.content{
+	left : 200px
+	
+}
 /*
 .content {
     max-height: 800px;

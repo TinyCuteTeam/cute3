@@ -142,21 +142,20 @@
 	</div>
 	<!-- 페이징 네비게이션 -->
 	<div class="pagination">
-		<c:if test="${currentPage > 1}">
-			<a
-				href="${pageContext.request.contextPath}/Item?page=${currentPage - 1}">이전</a>
-		</c:if>
+    <c:if test="${currentPage > 1}">
+        <a href="${pageContext.request.contextPath}/item?page=${currentPage - 1}">이전</a>
+    </c:if>
 
-		<c:forEach begin="1" end="${totalPages}" var="i">
-			<a href="${pageContext.request.contextPath}/Item?page=${i}"
-				class="${i == currentPage ? 'active' : ''}"> ${i} </a>
-		</c:forEach>
+    <c:forEach begin="1" end="${totalPages}" var="i">
+        <a href="${pageContext.request.contextPath}/item?page=${i}" class="${i == currentPage ? 'active' : ''}">
+            ${i}
+        </a>
+    </c:forEach>
 
-		<c:if test="${currentPage < totalPages}">
-			<a
-				href="${pageContext.request.contextPath}/Item?page=${currentPage + 1}">다음</a>
-		</c:if>
-	</div>
+    <c:if test="${currentPage < totalPages}">
+        <a href="${pageContext.request.contextPath}/item?page=${currentPage + 1}">다음</a>
+    </c:if>
+</div>
 
 	<!-- 모달 창 -->
 	<div id="popup" class="popup modalStyle">
