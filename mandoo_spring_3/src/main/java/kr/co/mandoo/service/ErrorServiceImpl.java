@@ -1,4 +1,4 @@
-package kr.co.mandoo.service;
+package kr.co.mandoo.Service;
 
 import java.util.List;
 

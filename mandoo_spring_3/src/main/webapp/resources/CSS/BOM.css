@@ -1,33 +1,23 @@
-﻿#bomForm {
-    margin-left: -50px;
-}
+﻿/* #bomForm { */
+/*     margin-left: -50px; */
+/* } */
 
 .content {
 	overflow: auto;
-	margin-left: 150px;
+/* 	margin-left: 150px; */
 	text-align: center;
 	width: 65%;
-	height: 750px;
+/* 	height: 750px; */
 	padding-right: 272px;
 }
 
-/*
-.content {
-    max-height: 800px;
-    overflow-y: auto;
-    text-align: center;
-    width: 84.4%;
-    overflow-x: hidden;
-}
-*/
-
 /* 품목추가 버튼 오른쪽에 붙이기  */
-.srPlus {
-    text-align: right;
-    height: 90px;
-    width: 1248px;
-    margin-left: 180px;
-}
+/* .srPlus { */
+/*     text-align: right; */
+/*     height: 90px; */
+/*     width: 1248px; */
+/*     margin-left: 180px; */
+/* } */
 
 /*BOM, 행추가 버튼*/
 .plus:hover {
@@ -75,11 +65,10 @@
 
 /* 김치만두, 고기만두 테이블에 적용되는 css */
 .sr_bom {
-/*        width: 100%; */
-    width: 1280px;
-    border-collapse: collapse;
-    text-align: center;
-    border: solid 1px #e6e6e6;
+	width: 100%;
+	border-collapse: collapse;
+	text-align: center;
+	border: solid 1px #e6e6e6;
 }
 
 /* 테이블헤드 색상, 크기 설정 */
@@ -89,18 +78,42 @@
 }
 
 .thwidth {
-    width: 150px;
+    width: 140px;
 }
 
 td {
     height: 50px;
 }
 
-.itemcode {
-    width: 200px;
+/* .meat { */
+/*     display: none; */
+/* } */
+
+.pagination {
+	display: inline-block;
+	position : absolute;
+	top : 820px;
+	left : 900px;
+	margin-top: 20px;
 }
 
-.meat {
-    display: none;
+.pagination a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	transition: background-color .3s;
+	border: 1px solid #ddd;
+	margin: 0 4px;
+	border-radius: 5px;
 }
 
+.pagination a.active {
+	background-color: #0085FF;
+	color: white;
+	border: 1px solid #0085FF;
+}
+
+.pagination a:hover:not(.active) {
+	background-color: #ddd;
+}

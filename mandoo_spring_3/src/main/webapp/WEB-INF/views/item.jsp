@@ -99,12 +99,12 @@
 		<!-- 품목코드표 테이블 -->
 		<table id="table" class="srTable" border="solid black 1px;">
 			<tr>
-				<th class="srTh">품목코드</th>
-				<th class="srTh">품목명</th>
+				<th class="srTh thwidth">품목코드</th>
+				<th class="srTh ">품목명</th>
 <!-- 				<th class="srTh">품목종류</th> -->
 <!-- 				<th class="srTh">이미지</th> -->
-				<th class="srTh">수정</th>
-				<th class="srTh">삭제</th>
+				<th class="srTh thwidth">수정</th>
+				<th class="srTh thwidth">삭제</th>
 			</tr>
 			<c:forEach var="item" items="${list}">
 				<tr>
@@ -142,21 +142,20 @@
 	</div>
 	<!-- 페이징 네비게이션 -->
 	<div class="pagination">
-		<c:if test="${currentPage > 1}">
-			<a
-				href="${pageContext.request.contextPath}/Item?page=${currentPage - 1}">이전</a>
-		</c:if>
+    <c:if test="${currentPage > 1}">
+        <a href="${pageContext.request.contextPath}/item?page=${currentPage - 1}">이전</a>
+    </c:if>
 
-		<c:forEach begin="1" end="${totalPages}" var="i">
-			<a href="${pageContext.request.contextPath}/Item?page=${i}"
-				class="${i == currentPage ? 'active' : ''}"> ${i} </a>
-		</c:forEach>
+    <c:forEach begin="1" end="${totalPages}" var="i">
+        <a href="${pageContext.request.contextPath}/item?page=${i}" class="${i == currentPage ? 'active' : ''}">
+            ${i}
+        </a>
+    </c:forEach>
 
-		<c:if test="${currentPage < totalPages}">
-			<a
-				href="${pageContext.request.contextPath}/Item?page=${currentPage + 1}">다음</a>
-		</c:if>
-	</div>
+    <c:if test="${currentPage < totalPages}">
+        <a href="${pageContext.request.contextPath}/item?page=${currentPage + 1}">다음</a>
+    </c:if>
+</div>
 
 	<!-- 모달 창 -->
 	<div id="popup" class="popup modalStyle">
@@ -168,15 +167,16 @@
 
 				<input type="hidden" name="action" id="action" value="add">
 
-				품목 코드: <br> 
+				* 품목 코드 : <br> 
 				<input type="text" id="itemCode" name="item_Code" placeholder="품목코드"><br> 
-				품 목 명: <br> 
+				* 품 목 명 : <br> 
 				<input type="text" id="itemName" name="item_Name" placeholder="품목명"><br>
-				종 류: <br> 
+				* 종   류 : 원재료, 완제품 <br> 
 				<input type="text" id="itemType" name="type" placeholder="종류"><br> 
 <!-- 				이미지추가: <br>  -->
 <!-- 				<input type="file" id="itemImage" name="itemImage" accept="image/*"><br> -->
-						
+				<br>	
+				<div class=required> * 표시는 필수 항목입니다. </div>
 				<button type="submit" id="saveItem">저장</button>
 
 			</form>
@@ -187,20 +187,21 @@
 	<div id="popup_update" class="popup modalStyle">
 		<div class="popup-content">
 			<span class="close-popup" id="updateClose">&times;</span>
-			<h2>품목 수정</h2>
+			<h2>품목 상세수정</h2>
 			<form id="item_editForm" method="post" action="itemUpdate">
 
 				<input type="hidden" name="action" id="actionEdit" value="update">
 
-<!-- 				품목 코드: <br>  -->
+				품목 코드: <br>
+				 ※ 품목코드는 수정할 수 없습니다 <br>  
+				
 				<input type="hidden" id="edit_itemCode" name="item_Code" placeholder="품목코드"><br> 
 				품 목 명: <br> 
 				<input type="text" id="edit_itemName" name="item_Name" placeholder="품목명"><br>
-				종 류: <br> 
+				종 류: 원재료, 완제품 <br> 
 				<input type="text" id="edit_itemType" name="type" placeholder="종류"><br> 
 <!-- 				이미지추가: <br>  -->
 <!-- 				<input type="file" id="edit_itemImage" name="itemImage" accept="image/*"><br> -->
-
 				<button type="submit" id="saveUpdate">저장</button>
 
 			</form>

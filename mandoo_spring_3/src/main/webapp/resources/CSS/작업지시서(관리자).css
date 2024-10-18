@@ -1,0 +1,146 @@
+.mho:hover {
+	padding: 5px 5px;
+	border-radius: 3px;
+	text-decoration: underline;
+	color: blue;
+}
+
+.mho {
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin-top: 10px;
+    width: 800px;
+    height: 50px;
+    line-height: 50px;
+}
+
+.flex > div {
+    flex: 1;
+    text-align: center;
+    line-height: 50px;
+}
+
+.round {
+    border: 1px solid black;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.over {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.mfont div {
+	font-size: 15px;
+}
+
+.mfont {
+	/* border: 1px solid red; */
+	margin-left: 370px;
+}
+
+.m_llist {
+	display: inline-block;
+	/* border: 1px solid red; */
+	margin-left: 370px;
+}
+
+.mho:link {
+	color: initial;
+}
+
+.mho:visited {
+	color: initial;
+}
+
+/* 검색창을 상단 중앙에 고정 */
+.search-container {
+	position: fixed; /* 위치를 고정 */
+	top: 730px; /* 페이지 상단에서 20px 떨어진 위치 */
+	left: 48%; /* 페이지 중앙에서 왼쪽으로 이동 */
+	transform: translateX(-50%); /* 페이지 중앙에 정확히 위치하도록 조정 */
+	display: flex; /* 검색창과 버튼을 수평으로 배치 */
+	align-items: center; /* 세로 중앙 정렬 */
+	background-color: white; /* 배경색 설정 */
+	padding: 10px; /* 여백 설정 */
+	border-radius: 5px; /* 모서리 둥글게 설정 */
+	margin-left: 180px;
+}
+
+#search-input {
+	width: 300px;
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #e6e6e6;
+	font-size: 16px;
+	margin-right: 10px;
+}
+
+#search-button, #reset-button {
+	padding: 10px 20px;
+	border-radius: 5px;
+	border: 0;
+	background-color: #e6e6e6;
+	color: black;
+	font-size: 16px;
+	cursor: pointer;
+	margin-right: 10px;
+}
+
+#add-button, #delete-button {
+	padding: 10px 15px;
+	border: none;
+	border-radius: 5px;
+	margin: 0 3px;
+	cursor: pointer;
+	background-color: #e6e6e6;
+}
+
+#add-button{
+	margin-left: 1050px;
+}
+
+#search-button:hover, #add-button:hover {
+	background-color: #81b3e9;
+}
+
+#reset-button:hover, #delete-button:hover {
+	background-color: #f38080;
+}
+
+/* 페이지네이션 버튼(mnum)의 위치를 조정 */
+
+.pagination {
+	display: inline-block;
+	margin-top: 20px;
+	margin-left: 20%;
+}
+
+.pagination a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	transition: background-color .3s;
+	border: 1px solid #ddd;
+	margin: 0 4px;
+	border-radius: 5px;
+}
+
+.pagination a.active {
+	background-color: #0085FF;
+	color: white;
+	border: 1px solid #0085FF;
+}
+
+.pagination a:hover:not(.active) {
+	background-color: #ddd;
+}

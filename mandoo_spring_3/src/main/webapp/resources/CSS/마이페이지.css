@@ -1,0 +1,70 @@
+﻿.pic {
+    width: 150px; /* 이미지 크기 확대 */
+    height: 180px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.grey {
+    background-color: #F0F0F0;
+    font-weight: bold;
+}
+
+table {  
+    border: 1px solid #ddd;
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px; /* 폰트 크기 확대 */
+}
+
+tr {       
+    border-bottom: 1px solid #ddd;
+}    
+
+td {
+    padding: 15px; /* 패딩 확대 */
+    text-align: center;
+}
+
+td.user-name {
+    font-size: 20px; /* 사용자 이름 폰트 크기 확대 */
+    font-weight: bold;
+    text-align: left;
+}
+
+.gwrap {
+    width: 90%; /* 가로폭 확대 */
+    max-width: 1200px; /* 최대 폭 설정 */
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* 그림자 확대 */
+}
+
+h1 {
+    text-align: center;
+    font-size: 32px; /* 제목 폰트 크기 확대 */
+    margin-bottom: 20px;
+}
+
+.g_pbtn {
+    background-color: #25c725;
+    color: white;
+    border: none;
+    padding: 12px 24px; /* 버튼 크기 확대 */
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.g_pbtn:hover {
+    background-color: #1f8e1f;
+}
+
+
+.gwrap {
+    margin-left: 150px;
+}

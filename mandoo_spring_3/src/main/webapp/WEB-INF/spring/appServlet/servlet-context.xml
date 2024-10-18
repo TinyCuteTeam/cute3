@@ -22,9 +22,7 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="kr.co.mandoo" />
-<!-- 	이 package 하위에 있는 class 들을 다 뒤져서 component들을 scan해라 
-	 @Controller, @Service, @Repository, @Component 가 붙어있으면 자동으로 bean으로 등록 
-	 @Inject, @Autowired, @Resource 의존 객체 주입-->
+	
 	
 	
 </beans:beans>

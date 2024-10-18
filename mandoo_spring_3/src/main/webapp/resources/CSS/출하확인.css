@@ -1,0 +1,102 @@
+﻿.flex {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    width: 1200px;
+    height: 60px;
+    line-height: 60px;
+    margin-left: 170px;
+    margin-top: 30px;
+}
+
+.flex>div {
+    flex: 1;
+    text-align: center;
+    line-height: 60px;
+}
+
+.round {
+    border: 1px solid black;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+span {
+    font-size: 10px;
+}
+
+
+
+blue {
+    color: blue;
+}
+
+.btn {
+    border: none;
+    background-color: #e6e6e6;
+    width: 80px;
+    height: 40px;
+    border-radius: 10px;
+    position: absolute;
+    right: -90px;
+    bottom: -50px;
+}
+
+.btn:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.chk {
+    position: relative;
+    left:0px;
+    width: 20px;
+}
+
+
+.main {
+    text-align: center;
+    margin-left: -10px; 
+}
+
+.main>h1 {  
+    margin-left: 200px;
+}
+
+
+.srTh {
+    background-color: #e6e6e6;
+    font-weight: bold;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+
+/* 페이징 네비게이션 스타일 */
+.pagination {
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 30%;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+    border-radius: 5px;
+}
+
+.pagination a.active {
+    background-color: #0085FF;
+    color: white;
+    border: 1px solid #0085FF;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}

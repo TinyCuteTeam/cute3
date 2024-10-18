@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+.mfont div {
+	font-weight: bold;
+	padding-right: 15px;
+}
+
+.flex {
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+	margin-top: 10px;
+	width: 800px;
+	height: 50px;
+	line-height: 50px;
+	margin-left: 370px;
+}
+
+.flex>div {
+	flex: 1;
+	text-align: center;
+	line-height: 50px;
+}
+
+.round {
+	border: 1px solid black;
+	border-radius: 15px;
+	margin-bottom: 30px;
+	margin-left: 360px;
+}
+
+.pagination {
+	display: inline-block;
+	margin-top: 20px;
+	text-align: center;
+	margin-left: 50%;
+}
+
+.srTh {
+	background-color: #e6e6e6;
+	font-weight: bold;
+	border-radius: 15px;
+	margin-bottom: 30px;
+	margin-top: 30px;
+	margin-left: 360px;
+}
+
+.pagination a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	transition: background-color .3s;
+	border: 1px solid #ddd;
+	margin: 0 4px;
+	border-radius: 5px;
+}
+
+.pagination a.active {
+	background-color: #0085FF;
+	color: white;
+	border: 1px solid #0085FF;
+}
+
+.pagination a:hover:not(.active) {
+	background-color: #ddd;
+}
+
+.mho {
+	text-decoration: underline;
+}
+
+.mho:hover {
+	padding: 5px 5px;
+	border-radius: 3px;
+	text-decoration: underline;
+}
+
+.flex-client {
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+}

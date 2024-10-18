@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mandoo.mapper.UserMapper"> <!-- 네임스페이스 설정 -->
+
+   <resultMap id="UserResultMap" type="UserDTO">
+      <id property="user_Id" column="user_Id" />
+      <result property="user_Pw" column="user_Pw" />
+      <result property="user_Access" column="user_Access" />
+      <result property="user_Name" column="user_Name" />
+      <result property="user_Email" column="user_Email" />
+   </resultMap>
+
+   <!-- 특정 사용자 조회 -->
+   <select id="selectUserById" parameterType="String" resultMap="UserResultMap">
+      SELECT * FROM users WHERE user_id = #{user_Id}
+   </select>
+
+   <!-- 모든 사용자 조회 -->
+   <select id="selectUser" resultMap="UserResultMap">
+      SELECT * FROM users
+   </select>
+
+   <!-- 사용자 추가 -->
+   <insert id="insertUser" parameterType="UserDTO">
+      INSERT INTO users (user_id, user_pw, user_access, user_name, user_email)
+      VALUES (#{user_Id}, #{user_Pw}, #{user_Access}, #{user_Name}, #{user_Email})
+   </insert>
+
+   <!-- 사용자 수정 -->
+   <update id="updateUser" parameterType="UserDTO">
+      UPDATE users
+      SET user_pw = #{user_Pw},
+          user_access = #{user_Access},
+          user_name = #{user_Name},
+          user_email = #{user_Email}
+      WHERE user_id = #{user_Id}
+   </update>
+
+   <!-- 사용자 삭제 -->
+   <delete id="deleteUser" parameterType="String">
+      DELETE FROM users WHERE user_id = #{user_Id}
+   </delete>
+
+</mapper>

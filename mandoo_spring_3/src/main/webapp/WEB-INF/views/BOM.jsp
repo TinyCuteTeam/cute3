@@ -103,18 +103,12 @@
             <select id="recipeSelect" name="bom_Id" onchange="this.form.submit()">
             	<option value="A00001" <c:if test="${param.bom_Id == 'A00001'}">selected</c:if>>A0001</option>
             	<option value="A00002" <c:if test="${param.bom_Id == 'A00002'}">selected</c:if>>A0002</option>
+            	<option value="A00003" <c:if test="${param.bom_Id == 'A00003'}">selected</c:if>>A0003</option>
 			</select>
             
-<%--                <c:forEach var="bomSelect" items="${list}"> --%>
-<%--                   <option value="${bomSelect.bom_Id}" --%>
-<%--                      ${param.bom_Id == bomSelect.bom_Id || (empty param.bom_Id && bomSelect.bom_Id == 'A0001') ? 'selected' : ''}> --%>
-<%--                       ${bomSelect.bom_Id} --%>
-<!--                   </option> -->
-<%--                </c:forEach> --%>
-
-            
             <!-- BOM추가 버튼 -->
-            <a href="/mandoo/BOMAdd">
+            <a href="WEB-INF/views/BOMadd.jsp">
+<!--             <a href="/mandoo/BOMAdd"> -->
             	<button type="button" class="mho plus" id="addNewBomBtn">
             	BOM 추가
            		</button>
@@ -161,8 +155,25 @@
             </c:forEach>
          </table>
       </form>
+      
+   </div> <!-- content 끝 -->
+   
+   <!-- 페이징 네비게이션 -->
+	<div class="pagination">
+    <c:if test="${currentPage > 1}">
+        <a href="${pageContext.request.contextPath}/item?page=${currentPage - 1}">이전</a>
+    </c:if>
 
-   </div>
+    <c:forEach begin="1" end="${totalPages}" var="i">
+        <a href="${pageContext.request.contextPath}/item?page=${i}" class="${i == currentPage ? 'active' : ''}">
+            ${i}
+        </a>
+    </c:forEach>
+
+    <c:if test="${currentPage < totalPages}">
+        <a href="${pageContext.request.contextPath}/item?page=${currentPage + 1}">다음</a>
+    </c:if>
+</div>
 
    <script src="resources/JS/BOM.js"></script>
 </body>

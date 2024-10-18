@@ -20,25 +20,25 @@ span {
    <div class="category">
       <div class="menu-icon">
          <img class="menu-icon"
-            src="resources/image/menu.png">
+            src="${pageContext.request.contextPath}/resources/image/menu.png">
       </div>
 
       <div class="category-item logo-item">
          <a href="/mandoo/index" class="category-link"> <img
             class="logo-icon"
-            src="resources/image/logo.png">
+            src="${pageContext.request.contextPath}/resources/image/logo.png">
          </a>
       </div>
 
       <c:choose>
          <c:when test="${sessionScope.user_access == 1}">
             <div class="category-item">
-               <a href="/mandoo/Item" class="category-link">기준관리</a>
+               <a href="/mandoo/item" class="category-link">기준관리</a>
                <div class="_category">
-                  <a href="/mandoo/Item" class="category-link">품목 코드 조회</a><br>
-                  <a href="/mandoo/BOM?bomId=A00001" class="category-link">BOM(레시피관리)</a><br>
+                  <a href="/mandoo/item" class="category-link">품목 코드 조회</a><br>
+                  <a href="/mandoo/bom?bom_Id=A00001" class="category-link">BOM(레시피관리)</a><br>
                   <a href="/mandoo/client" class="category-link">거래처 관리</a><br>
-                  <a href="/mandoo/Error" class="category-link">에러코드</a><br>
+                  <a href="/mandoo/error" class="category-link">에러코드</a><br>
                </div>
             </div>
 
@@ -46,7 +46,7 @@ span {
                <a href="/mandoo/OrderInfo" class="category-link">생산계획</a>
                <div class="_category">
                   <a href="/mandoo/OrderInfo" class="category-link">발주확인</a><br>
-                  <a href="/mandoo/ProductPlan" class="category-link">생산계획</a><br>
+                  <a href="/mandoo/ProductionPlan" class="category-link">생산계획</a><br>
                   <a href="/mandoo/Work" class="category-link">작업지시서 확인</a><br>
                </div>
             </div>
@@ -54,7 +54,7 @@ span {
             <div class="category-item">
                <a href="/mandoo/StockInventory" class="category-link">재고관리</a>
                <div class="_category">
-                  <a href="/mandoo/StockInventory" class="category-link">재고현황</a>
+                  <a href="/mandoo/Stock" class="category-link">재고현황</a>
                </div>
             </div>
 

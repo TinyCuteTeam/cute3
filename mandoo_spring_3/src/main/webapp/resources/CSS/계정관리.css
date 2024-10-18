@@ -1,0 +1,173 @@
+﻿/* Flex 컨테이너 기본 스타일 */
+.flex {
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    height: 80px;
+    align-items: center; /* 수직 중앙 정렬 */
+    box-sizing: border-box;
+}
+
+/* 헤더 스타일 */
+.flex.header {
+    font-weight: bold;
+}
+
+/* Flex 자식 요소 스타일 */
+.flex > div {
+    text-align: center;
+    overflow: hidden; /* 텍스트가 넘칠 경우 숨기기 */
+    text-overflow: ellipsis; /* 넘친 텍스트 생략 표시(...) */
+    white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+}
+
+/* 각 컬럼의 너비 설정 */
+.flex > div:nth-child(1) { /* 체크박스 */
+    flex: 0 0 5%;
+}
+
+.flex > div:nth-child(2) { /* 아이디 */
+    flex: 0 0 10%;
+}
+
+.flex > div:nth-child(3) { /* 이름 */
+    flex: 0 0 10%;
+}
+
+.flex > div:nth-child(4) { /* 이메일 */
+    flex: 0 0 20%;
+}
+
+.flex > div:nth-child(5) { /* 승인 */
+    flex: 0 0 20%;
+}
+
+.flex > div:nth-child(6) { /* 거절 */
+    flex: 0 0 20%;
+}
+
+/* 데이터 행 스타일 */
+.round {
+    border: 1px solid black;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+/* 폰트 크기 조정 */
+span {
+    font-size: 10px;
+}
+
+/* 버튼 스타일 */
+.btn1, .btn2 {
+    border: none;
+    background-color: #e6e6e6;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    margin-right: 5px; /* 버튼 간의 간격 조정 */
+    display: inline-block;
+}
+
+.btn1:hover {
+    background-color: #0085FF;
+    color: white;
+}
+
+.btn2:hover {
+    background-color: #ff5252;
+    color: white;
+}
+
+/* 체크박스 스타일 */
+.chk {
+    width: 20px;
+    height: 20px; /* 오타 수정됨 */
+}
+
+/* 콘텐츠 영역 스타일 */
+.content {
+    top: 170px;
+    overflow-y: auto;
+    max-height: 800px;
+    width: 1620px;
+}
+
+/* 콘텐츠 디스플레이 설정 */
+#content-display {
+    width: 1000px;
+    margin-left: 19%;
+}
+
+/* 메인 콘텐츠 마진 */
+.main {
+    margin-top: 70px;
+}
+
+/* 페이징 네비게이션 스타일 */
+.pagination {
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 30%;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+    border-radius: 5px;
+}
+
+.pagination a.active {
+    background-color: #0085FF;
+    color: white;
+    border: 1px solid #0085FF;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+/* 스크롤바 스타일 */
+.scroll {
+    margin: 20px 0;
+    max-height: 650px;
+    overflow-y: auto;
+    padding-right: 0;
+    box-sizing: border-box;
+}
+
+/* 스크롤바 전체 */
+.scroll::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* 스크롤바 트랙 */
+.scroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+
+/* 스크롤바 thumb */
+.scroll::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+/* 스크롤바 thumb hover */
+.scroll::-webkit-scrollbar-thumb:hover {
+    background: #007bff;
+}
+ 
+/* 헤더 스타일 추가 */
+.srTh {
+    background-color: #e6e6e6;
+    font-weight: bold;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    margin-top: 90px;
+}

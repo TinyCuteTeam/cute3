@@ -1,4 +1,4 @@
-package kr.co.mandoo.controller;
+package kr.co.mandoo.Controller;
 
 import java.util.List;
 
@@ -6,10 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import kr.co.mandoo.Service.BOMService;
 import kr.co.mandoo.dto.BOMDTO;
-import kr.co.mandoo.service.BOMService;
 
 @Controller
 public class BOMController {
@@ -44,4 +45,25 @@ public class BOMController {
 //		
 //		return "BOM";
 //	}
+	
+	@RequestMapping(value="/bomDelete", method=RequestMethod.POST)
+	public String deleteBOM(Model model, BOMDTO bomDTO) {
+		
+		int result = bomService.deleteBOM(bomDTO);
+		System.out.println("bom delete 실행");
+		
+		return "redirect:/bom";
+	}
+	
+	@RequestMapping(value="/bomInsert", method=RequestMethod.POST)
+	public String insertBOM(Model model, BOMDTO bomDTO) {
+		
+		int result = bomService.insertBOM(bomDTO);
+		System.out.println("bom insert 실행");
+		
+		return "redirect:/bom";
+	}
+	
+	
+	
 }

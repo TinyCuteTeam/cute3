@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ProductionOrderMapper">
+
+    <select id="getMonthlyProductionData" resultType="ProductionOrderDTO">
+        SELECT TO_CHAR(WORK_ENDATE, 'YYYY-MM') AS orderMonth, 
+               SUM(production_qty) AS productionQty
+        FROM work
+        GROUP BY TO_CHAR(WORK_ENDATE, 'YYYY-MM')
+        ORDER BY TO_CHAR(WORK_ENDATE, 'YYYY-MM')
+    </select>
+    
+</mapper>

@@ -3,7 +3,7 @@
 	margin-left: 150px;
 	text-align: center;
 	width: 65%;
-	height: 750px;
+/* 	height: 750px; */
 	padding-right: 272px;
 }
 
@@ -64,6 +64,10 @@ td {
 	height: 50px;
 }
 
+.thwidth {
+    width: 140px;
+}
+
 /* 재료이미지 */
 /* .ingre { */
 /* 	width: 50px; */
@@ -77,29 +81,35 @@ td {
 /* } */
 
 
-/* .pagination { */
-/* 	display: inline-block; */
-/* 	margin-top: 20px; */
-/* } */
+.pagination {
+	display: inline-block;
+	position : absolute;
+	top : 820px;
+	left : 900px;
+	margin-top: 20px;
+}
 
-/* .pagination a { */
-/* 	color: black; */
-/* 	float: left; */
-/* 	padding: 8px 16px; */
-/* 	text-decoration: none; */
-/* 	transition: background-color .3s; */
-/* 	border: 1px solid #ddd; */
-/* 	margin: 0 4px; */
-/* 	border-radius: 5px; */
-/* } */
+.pagination a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	transition: background-color .3s;
+	border: 1px solid #ddd;
+	margin: 0 4px;
+	border-radius: 5px;
+}
 
-/* .pagination a.active { */
-/* 	background-color: #0085FF; */
-/* 	color: white; */
-/* 	border: 1px solid #0085FF; */
-/* } */
+.pagination a.active {
+	background-color: #0085FF;
+	color: white;
+	border: 1px solid #0085FF;
+}
 
-/* .pagination a:hover:not(.active) { */
-/* 	background-color: #ddd; */
-/* } */
+.pagination a:hover:not(.active) {
+	background-color: #ddd;
+}
 
+.required{
+	color: blue;
+}

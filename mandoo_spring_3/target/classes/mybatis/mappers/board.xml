@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.mandoo.dao.BoardDAO">
+
+
+	<!-- 전체 게시글 목록 가져오기 -->
+	<select id="getAllPosts" resultType="BoardDTO">
+		SELECT b.*, u.USER_NAME
+		FROM board b
+		JOIN users u ON b.USER_ID = u.USER_ID
+		ORDER BY b.BORD_ID DESC
+	</select>
+
+
+	<!-- 총 게시글 수 가져오기 -->
+	<select id="getTotalPostsCount" resultType="int">
+		SELECT COUNT(*) FROM
+		board
+	</select>
+
+	<!-- 게시글 추가 -->
+	<insert id="insertPost">
+        <![CDATA[
+        INSERT INTO board (board_id, board_title, board_content, board_date, user_id)
+        VALUES (seq_board_id.NEXTVAL, #{boardTitle}, #{boardContent}, SYSDATE, #{userId})
+        ]]>
+	</insert>
+
+	<!-- 페이지별 게시글 목록 가져오기 -->
+	<select id="getPostsByPage" resultType="BoardDTO">
+        <![CDATA[
+        SELECT * FROM (
+            SELECT a.*, ROWNUM rnum
+            FROM (
+                SELECT * FROM board
+                ORDER BY board_date DESC
+            ) a
+            WHERE ROWNUM <= #{offset} + #{pageSize}
+        )
+        WHERE rnum > #{offset}
+        ]]>
+	</select>
+
+</mapper>
