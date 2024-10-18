@@ -8,6 +8,7 @@ public class StockDTO {
 	private int stock_Count;
 	private String stock_Location;
 	private String stock_Sort;
+	private int difference;
 	
 	public String getStock_Id() {
 		return stock_Id;
@@ -46,12 +47,20 @@ public class StockDTO {
 		this.stock_Sort = stock_Sort;
 	}
 	
+	public int getStock_difference() {
+		return difference;
+	}
+	public void setStock_difference(int stock_difference) {
+		this.difference = stock_difference;
+	}
+	
 	@Override
 	public String toString() {
 		return "StockDTO [stock_Id=" + stock_Id + ", item_Code=" + item_Code + ", stock_Name=" + stock_Name
 				+ ", stock_Count=" + stock_Count + ", stock_Location=" + stock_Location + ", stock_Sort=" + stock_Sort
-				+ "]";
+				+ ", stock_difference=" + difference + "]";
 	}
+	
 
 	
 	

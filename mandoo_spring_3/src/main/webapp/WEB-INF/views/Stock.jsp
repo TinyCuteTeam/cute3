@@ -20,12 +20,24 @@
 		<h1 id="head_title">재고 현황</h1>
 
 		<div class="mtab" style="background-color: white;">
+			<form method="get" action="stockSort">
+				<div style=" text-align : left;">
+				<select name="item_Code" class="selectBox">
+					<option value="" ${empty param.item_Code ? 'selected' : ''}>전체</option>
+					<option value="P" ${param.item_Code == 'P' ? 'selected' : ''}>완제품</option>
+					<option value="I" ${param.item_Code == 'I' ? 'selected' : ''}>재료</option>
+				</select> <input type="submit" value="정렬">
+				</div>
+			</form>
+
+
 			<form method="get" action="StockSelect">
-				<input type="text" name="search" value="${searchKeyword}"
-					placeholder="검색어 입력">
+				<div id="search-input" style="text-align : right;">
+				<input type="text" name="search" placeholder="검색어 입력">
 				<button type="submit" id="search-button">검색</button>
 				<button type="button" onclick="location.href='Stock'"
 					class="add-button">초기화</button>
+				</div>
 			</form>
 			<div id="open-add-popup"></div>
 		</div>
@@ -42,6 +54,7 @@
 						<th>수정</th>
 						<th>삭제</th>
 						<th>발주</th>
+						<th>증감량</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -69,6 +82,7 @@
 										class="btn" value="삭제">
 								</form>
 							</td>
+
 							<td>
 								<button type="button" class="stock-update-button btn"
 									data-id="${stock.stock_Id}" data-code="${stock.item_Code}"
@@ -76,6 +90,35 @@
 									data-location="${stock.stock_Location}"
 									data-sort="${stock.stock_Sort}">발주</button>
 							</td>
+							
+							<form method="get" action="StockSort(info)">
+							<c:if test="${stock.stock_difference > 0}">
+								<td style="color: blue; text-decoration: underline;"><a
+									href="StockSort(info)?stock_name=${stock.stock_Name}"
+									style="color: blue;"> ▲<c:out
+											value="${stock.stock_difference} BOX" />
+								</a></td>
+							</c:if>
+
+							<c:if test="${stock.stock_difference == 0}">
+								<td>
+									<h1>
+										<a href="StockSort(info)?stock_name=${stock.stock_Name}"> <c:out
+												value="-" />
+										</a>
+									</h1>
+								</td>
+							</c:if>
+
+							<c:if test="${stock.stock_difference < 0}">
+								<td style="color: red;"><a
+									href="StockSort(info)?stock_name=${stock.stock_Name}"
+									style="color: red; text-decoration: underline;"> ▼<c:out
+											value="${stock.stock_difference * -1} BOX" />
+								</a></td>
+							</c:if>
+							</form>
+
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -87,7 +130,7 @@
 			<c:choose>
 				<c:when test="${currentPage > 1}">
 					<a
-						href="${pageContext.request.contextPath}/Stock?page=${currentPage - 1}&search=${searchKeyword}"
+						href="${pageContext.request.contextPath}/stockSort?page=${currentPage - 1}&item_Code=${searchKeyword}"
 						class="prev-next">이전</a>
 				</c:when>
 				<c:otherwise>
@@ -98,7 +141,7 @@
 			<!-- 페이지 번호 링크 -->
 			<c:forEach var="i" begin="1" end="${totalPages}" step="1">
 				<a
-					href="${pageContext.request.contextPath}/Stock?page=${i}&search=${searchKeyword}"
+					href="${pageContext.request.contextPath}/stockSort?page=${i}&item_Code=${searchKeyword}"
 					class="${i == currentPage ? 'active' : ''}">${i}</a>
 			</c:forEach>
 
@@ -106,7 +149,7 @@
 			<c:choose>
 				<c:when test="${currentPage < totalPages}">
 					<a
-						href="${pageContext.request.contextPath}/Stockpage=${currentPage + 1}&search=${searchKeyword}"
+						href="${pageContext.request.contextPath}/stockSort?page=${currentPage + 1}&item_Code=${searchKeyword}"
 						class="prev-next">다음</a>
 				</c:when>
 				<c:otherwise>

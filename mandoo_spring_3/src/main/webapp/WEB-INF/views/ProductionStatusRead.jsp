@@ -71,7 +71,7 @@
     <!-- 사이드바 -->
     <div class="sidebar">
         <ul id="sidebar-content">
-            <li><a href="ProductionStatusRead" class="category-link">생산현황</a></li>
+            <li><a href="ProductionStatusRead" class="category-link title">생산현황</a></li>
         </ul>
     </div>
 

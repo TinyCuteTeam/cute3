@@ -102,7 +102,32 @@ public class StockServiceImpl implements StockService {
 		return result;
 	}
 	
+//	// stockorder change
+//	@Override
+//	public int stockOrderListOne(StockOrderDTO dto) {
+//		
+//		int list = stockDAO.stockOrderListOne(dto);
+//		System.out.println("Service : " + list);
+//		return list;
+//	}
 	
+	// selectStockSort input 정렬 눌러서 조회하는 메소드
+	@Override
+	public List selectSortService(String stock){
+		
+		List list = stockDAO.sortSelectList(stock);
+		System.out.println("Service : " + list);
+		return list;
+	}
+	
+	@Override
+	public List stockSortService(String stock_name) {
+		
+		List list = stockDAO.stockSort(stock_name);
+		System.out.println("stockSort로 보낼 service " + list);
+		
+		return list;
+	}
 	
 	
 }

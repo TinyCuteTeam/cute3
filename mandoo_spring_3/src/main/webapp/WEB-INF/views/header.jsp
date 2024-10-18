@@ -20,120 +20,117 @@ small {
 	position: absolute;
 	left: 90px;
 	top: 35px;
-	padding-bottom : 10px;
+	padding-bottom: 10px;
 }
 
 .user-info {
-margin-bottom : 100px;
-
+	margin-bottom: 100px;
 }
+
 </style>
 
 <body>
 	<div class="category">
 		<div class="menu-icon">
-			<img class="menu-icon"
-				src="${pageContext.request.contextPath}/resources/image/menu.png">
+			<img class="menu-icon" src="${pageContext.request.contextPath}/resources/image/menu.png">
 		</div>
 
 		<div class="category-item logo-item">
-			<a href="/mandoo/index" class="category-link"> <img
-				class="logo-icon"
-				src="${pageContext.request.contextPath}/resources/image/logo.png">
+			<a href="/mandoo/index" class="category-link"> 
+				<img class="logo-icon" src="${pageContext.request.contextPath}/resources/image/logo.png">
 			</a>
 		</div>
 
 		<c:choose>
 			<c:when test="${sessionScope.user_access == 1}">
-				<div class="category-item">
-					<a href="/mandoo/item" class="category-link">기준관리</a>
-					<div class="_category">
-						<a href="/mandoo/item" class="category-link">품목 코드 조회</a><br>
-						<a href="/mandoo/bom?bom_Id=A00001" class="category-link">BOM(레시피관리)</a><br>
-						<a href="/mandoo/client" class="category-link">거래처 관리</a><br>
-						<a href="/mandoo/error" class="category-link">에러코드</a><br>
-					</div>
-				</div>
+    <div class="category-item">
+        <a href="/mandoo/item" class="category-link ${fn:contains(pageContext.request.requestURI, '/item') || fn:contains(pageContext.request.requestURI, '/BOM') || fn:contains(pageContext.request.requestURI, '/client') || fn:contains(pageContext.request.requestURI, '/error') ? 'title' : ''}">기준관리</a>
+        <div class="_category">
+            <a href="/mandoo/item" class="category-link ${fn:contains(pageContext.request.requestURI, '/item') || fn:contains(pageContext.request.requestURI, '/bom') || fn:contains(pageContext.request.requestURI, '/client') ? 'title' : ''}">품목 코드 조회</a><br>
+            <a href="/mandoo/bom?bom_Id=A00001" class="category-link ${fn:contains(pageContext.request.requestURI, '/BOM') ? 'title' : ''}">BOM(레시피관리)</a><br>
+            <a href="/mandoo/client" class="category-link ${fn:contains(pageContext.request.requestURI, '/client') ? 'title' : ''}">거래처 관리</a><br>
+            <a href="/mandoo/error" class="category-link ${fn:contains(pageContext.request.requestURI, '/error') ? 'title' : ''}">에러코드</a><br>
+        </div>
+    </div>
 
-				<div class="category-item">
-					<a href="/mandoo/OrderInfo" class="category-link">생산계획</a>
-					<div class="_category">
-						<a href="/mandoo/OrderInfo" class="category-link">발주확인</a><br>
-						<a href="/mandoo/ProductionPlan" class="category-link">생산계획</a><br>
-						<a href="/mandoo/Work" class="category-link">작업지시서 확인</a><br>
-					</div>
-				</div>
+    <div class="category-item">
+        <a href="/mandoo/OrderInfo" class="category-link ${fn:contains(pageContext.request.requestURI, '/orderInfo') || fn:contains(pageContext.request.requestURI, '/ProductionPlan') || fn:contains(pageContext.request.requestURI, '/Work') ? 'title' : ''}">생산계획</a>
+        <div class="_category">
+            <a href="/mandoo/OrderInfo" class="category-link ${fn:contains(pageContext.request.requestURI, '/orderInfo') ? 'title' : ''}">발주확인</a><br>
+            <a href="/mandoo/ProductionPlan" class="category-link ${fn:contains(pageContext.request.requestURI, '/ProductionPlan') ? 'title' : ''}">생산계획</a><br>
+            <a href="/mandoo/Work" class="category-link ${fn:contains(pageContext.request.requestURI, '/Work') ? 'title' : ''}">작업지시서 확인</a><br>
+        </div>
+    </div>
 
-				<div class="category-item">
-					<a href="/mandoo/StockInventory" class="category-link">재고관리</a>
-					<div class="_category">
-						<a href="/mandoo/Stock" class="category-link">재고현황</a>
-					</div>
-				</div>
+    <div class="category-item">
+        <a href="/mandoo/Stock" class="category-link ${fn:contains(pageContext.request.requestURI, '/Stock') ? 'title' : ''}">재고관리</a>
+        <div class="_category">
+            <a href="/mandoo/Stock" class="category-link ${fn:contains(pageContext.request.requestURI, '/Stock') ? 'title' : ''}">재고현황</a>
+        </div>
+    </div>
 
-				<div class="category-item">
-					<a href="/mandoo/ProductionStatusRead" class="category-link">공정관리</a>
-					<div class="_category">
-						<a href="/mandoo/ProductionStatusRead" class="category-link">생산현황</a>
-					</div>
-				</div>
+    <div class="category-item">
+        <a href="/mandoo/ProductionStatusRead" class="category-link ${fn:contains(pageContext.request.requestURI, '/ProductionStatusRead') ? 'title' : ''}">공정관리</a>
+        <div class="_category">
+            <a href="/mandoo/ProductionStatusRead" class="category-link ${fn:contains(pageContext.request.requestURI, '/ProductionStatusRead') ? 'title' : ''}">생산현황</a>
+        </div>
+    </div>
 
-				<div class="category-item">
-					<a href="/mandoo/FaultyRead" class="category-link">품질관리</a>
-					<div class="_category">
-						<a href="/mandoo/FaultyRead" class="category-link">불량률파악보고서</a><br>
-					</div>
-				</div>
+    <div class="category-item">
+        <a href="/mandoo/FaultyRead" class="category-link ${fn:contains(pageContext.request.requestURI, '/Faulty') ? 'title' : ''}">품질관리</a>
+        <div class="_category">
+            <a href="/mandoo/FaultyRead" class="category-link ${fn:contains(pageContext.request.requestURI, '/Faulty') ? 'title' : ''}">불량률파악보고서</a><br>
+        </div>
+    </div>
 
-				<div class="category-item">
-					<a href="/mandoo/productionOrder/monthly" class="category-link">실적
-						및 출하</a>
-					<div class="_category">
-						<a href="/mandoo/productionOrder/monthly" class="category-link">실적마감</a><br>
-						<a href="/mandoo/shipment" class="category-link">출하확인</a><br>
-					</div>
-				</div>
+    <div class="category-item">
+        <a href="/mandoo/productionOrder/monthly" class="category-link ${fn:contains(pageContext.request.requestURI, 'monthlyProduction') || fn:contains(pageContext.request.requestURI, '/shipment') ? 'title' : ''}">실적 및 출하</a>
+        <div class="_category">
+            <a href="/mandoo/productionOrder/monthly" class="category-link ${fn:contains(pageContext.request.requestURI, 'monthlyProduction') ? 'title' : ''}">실적마감</a><br>
+            <a href="/mandoo/shipment" class="category-link ${fn:contains(pageContext.request.requestURI, '/shipment') ? 'title' : ''}">출하확인</a><br>
+        </div>
+    </div>
 
-				<div class="category-item">
-					<a href="/mandoo/mypage"> <img class="mypage-icon"
-						src="resources/image/mypage.png">
-					</a>
-					<div class="_category">
-						<a href="/mandoo/mypage" class="category-link">마이페이지</a><br>
-						<a href="/mandoo/account" class="category-link">계정관리</a><br>
-						<a href="/mandoo/boardList" class="category-link">사내게시판</a><br>
-						<a href="/mandoo/todo" class="category-link">일정관리</a><br>
-					</div>
-				</div>
-
-			</c:when>
+    <div class="category-item">
+        <a href="/mandoo/mypage"> 
+            <img class="mypage-icon" src="resources/image/mypage.png">
+        </a>
+        <div class="_category">
+            <a href="/mandoo/mypage" class="category-link ${fn:contains(pageContext.request.requestURI, '/mypage') ? 'title' : ''}">마이페이지</a><br>
+            <a href="/mandoo/account" class="category-link ${fn:contains(pageContext.request.requestURI, '/account') ? 'title' : ''}">계정관리</a><br>
+            <a href="/mandoo/boardList" class="category-link ${fn:contains(pageContext.request.requestURI, '/boardList') ? 'title' : ''}">사내게시판</a><br>
+            <a href="/mandoo/todo" class="category-link ${fn:contains(pageContext.request.requestURI, '/todo') ? 'title' : ''}">일정관리</a><br>
+        </div>
+    </div>
+</c:when>
 
 			<c:otherwise>
 				<div class="category-item">
-					<a href="/mandoo/Work" class="category-link">작업지시서 확인</a>
+					<a href="/mandoo/Work" class="category-link ${fn:contains(pageContext.request.requestURI, '/Work') ? 'title' : ''}">작업지시서 확인</a>
 				</div>
 
 				<div class="category-item">
-					<a href="/mandoo/StockInventory" class="category-link">재고관리</a>
+					<a href="/mandoo/StockInventory" class="category-link ${fn:contains(pageContext.request.requestURI, '/StockInventory') ? 'title' : ''}">재고관리</a>
 				</div>
 
 				<div class="category-item">
-					<a href="/mandoo/ProductionStatusRead" class="category-link">생산현황</a>
+					<a href="/mandoo/ProductionStatusRead" class="category-link ${fn:contains(pageContext.request.requestURI, '/ProductionStatusRead') ? 'title' : ''}">생산현황</a>
 				</div>
 
 				<div class="category-item">
-					<a href="/mandoo/FaultyRead" class="category-link">불량률파악보고서</a>
+					<a href="/mandoo/FaultyRead" class="category-link ${fn:contains(pageContext.request.requestURI, '/FaultyRead') ? 'title' : ''}">불량률파악보고서</a>
 				</div>
 
 				<div class="category-item">
-					<a href="/mandoo/boardList" class="category-link">사내게시판</a>
+					<a href="/mandoo/boardList" class="category-link ${fn:contains(pageContext.request.requestURI, '/boardList') ? 'title' : ''}">사내게시판</a>
 				</div>
 
 				<div class="category-item">
-					<a href="/mandoo/mypage" class="category-link">마이페이지</a>
+					<a href="/mandoo/mypage" class="category-link ${fn:contains(pageContext.request.requestURI, '/mypage') ? 'title' : ''}">마이페이지</a>
 				</div>
+
 				<div class="category-item">
-					<a href="/mandoo/todo" class="category-link">일정관리</a>
+					<a href="/mandoo/todo" class="category-link ${fn:contains(pageContext.request.requestURI, '/todo') ? 'title' : ''}">일정관리</a>
 				</div>
 			</c:otherwise>
 		</c:choose>
@@ -151,11 +148,8 @@ margin-bottom : 100px;
 				</c:otherwise>
 			</c:choose>
 			
-				<span>|</span> <span class="user-name"><%=((UserDTO) session.getAttribute("user")).getUser_Name()%>님</span>
-				<a href = "/mandoo/login"><small>로그아웃</small></a>
-			
-
+			<span>|</span> <span class="user-name"><%=((UserDTO) session.getAttribute("user")).getUser_Name()%>님</span>
+			<a href="/mandoo/login"><small>로그아웃</small></a>
 		</div>
-
 	</div>
 </body>

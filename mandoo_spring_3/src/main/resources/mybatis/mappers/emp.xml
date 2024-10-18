@@ -358,15 +358,6 @@
 
 
 
-	<!-- stock_order -->
-	<insert id="StockOrderInsert" parameterType="stockorderDTO">
-		INSERT INTO
-		stock_order (order_num, order_supply, order_time, order_count,
-		order_name)
-		VALUES (order_num_seq.NEXTVAL, #{order_supply},
-		#{order_time}, #{order_count}, #{order_name})
-	</insert>
-
 	<!-- StockDTO -->
 	<select id="subselectStock" resultType="stockDTO">
 		SELECT * FROM stock WHERE
@@ -385,15 +376,185 @@
 		stock_sort = '재료'
 	</select>
 
-	<select id="selectStock" resultType="stockDTO">
-		SELECT * FROM STOCK
+	<select id="ogselectStockById" parameterType="String"
+		resultType="stockDTO">
+		SELECT * FROM STOCK WHERE stock_name LIKE '%' ||
+		#{stock_name} || '%' and
+		stock_sort = '완제품'
 	</select>
+
+	<select id="selectStock" resultType="stockDTO">
+		WITH OctoberOrders AS (
+		SELECT
+		SUM(order_count) AS order_count,
+		order_name
+		FROM
+		stock_order
+		WHERE
+		TO_CHAR(order_time, 'YYYY-MM') = '2024-10'
+		GROUP BY order_name
+		),
+		SeptemberOrders AS (
+		SELECT
+		SUM(order_count) AS order_count,
+		order_name
+		FROM
+		stock_order
+		WHERE
+		TO_CHAR(order_time, 'YYYY-MM') = '2024-09'
+		GROUP BY
+		order_name
+		)
+		SELECT
+		s.STOCK_ID,
+		s.ITEM_CODE,
+		s.STOCK_NAME,
+		s.STOCK_COUNT,
+		s.STOCK_LOCATION,
+		s.STOCK_SORT,
+		COALESCE(o.order_count, 0) -
+		COALESCE(se.order_count, 0) AS difference
+		FROM
+		STOCK s
+		LEFT JOIN
+		OctoberOrders o ON s.STOCK_NAME = o.order_name
+		LEFT JOIN
+		SeptemberOrders se ON s.STOCK_NAME = se.order_name
+		WHERE
+		s.STOCK_NAME IS
+		NOT NULL
+		order by stock_id
+	</select>
+
+	<!-- selectSort input 정렬로 보내는 -->
+	<select id="selectStockSort" resultType="stockDTO">
+		WITH OctoberOrders AS (
+		SELECT
+		SUM(order_count) AS order_count,
+		order_name
+		FROM
+		stock_order
+		WHERE
+		TO_CHAR(order_time, 'YYYY-MM') = '2024-10'
+		GROUP BY order_name
+		),
+		SeptemberOrders AS (
+		SELECT
+		SUM(order_count) AS order_count,
+		order_name
+		FROM
+		stock_order
+		WHERE
+		TO_CHAR(order_time, 'YYYY-MM') = '2024-09'
+		GROUP BY order_name
+		)
+		SELECT
+		s.STOCK_ID,
+		s.ITEM_CODE,
+		s.STOCK_NAME,
+		s.STOCK_COUNT,
+		s.STOCK_LOCATION,
+		s.STOCK_SORT,
+		COALESCE(o.order_count, 0) - COALESCE(se.order_count, 0) AS difference
+		FROM
+		STOCK s
+		LEFT JOIN
+		OctoberOrders o ON s.STOCK_NAME = o.order_name
+		LEFT JOIN
+		SeptemberOrders se ON s.STOCK_NAME = se.order_name
+		WHERE
+		s.STOCK_NAME IS NOT NULL
+		AND (#{item_code} IS NULL OR s.ITEM_CODE LIKE '%' || #{item_code} || '%')
+		ORDER BY
+		s.STOCK_ID
+
+	</select>
+
+
 	<!-- Read: 특정 재고 조회 -->
 	<select id="selectStockById" parameterType="String"
 		resultType="stockDTO">
-		SELECT * FROM STOCK WHERE stock_name LIKE '%' ||
+		WITH OctoberOrders AS (
+		SELECT
+		SUM(order_count) AS
+		order_count,
+		order_name
+		FROM
+		stock_order
+		WHERE
+		TO_CHAR(order_time,
+		'YYYY-MM') = '2024-10'
+		GROUP BY order_name
+		),
+		SeptemberOrders AS (
+		SELECT
+		SUM(order_count) AS order_count,
+		order_name
+		FROM
+		stock_order
+		WHERE
+		TO_CHAR(order_time, 'YYYY-MM') = '2024-09'
+		GROUP BY order_name
+		)
+		SELECT
+		s.STOCK_ID,
+		s.ITEM_CODE,
+		s.STOCK_NAME,
+		s.STOCK_COUNT,
+		s.STOCK_LOCATION,
+		s.STOCK_SORT,
+		COALESCE(o.order_count, 0) - COALESCE(se.order_count, 0)
+		AS difference
+		FROM
+		STOCK s
+		LEFT JOIN
+		OctoberOrders o ON s.STOCK_NAME =
+		o.order_name
+		LEFT JOIN
+		SeptemberOrders se ON s.STOCK_NAME =
+		se.order_name
+		WHERE
+		s.STOCK_NAME IS NOT NULL and s.stock_name LIKE '%'
+		||
 		#{stock_name} || '%'
+		order by stock_id
 	</select>
+
+	<!-- stock_order -->
+	<select id="StockOrderSelect" parameterType="string" resultType="stockorderDTO">
+	SELECT 
+	    MIN(order_num) AS order_num, 
+	    order_supply, 
+	    TRUNC(order_time, 'MM') AS order_time, 
+	    SUM(order_count) AS order_count, 
+	    order_name 
+	FROM 
+	    stock_order 
+	WHERE 
+	    order_name = #{stock_Name}
+	    AND (order_time BETWEEN TRUNC(ADD_MONTHS(SYSDATE, -1), 'MM') AND LAST_DAY(ADD_MONTHS(SYSDATE, -1)) OR
+         order_time BETWEEN TRUNC(SYSDATE, 'MM') AND LAST_DAY(SYSDATE))
+	GROUP BY 
+	    order_supply, 
+	    TRUNC(order_time, 'MM'), 
+	    order_name 
+	ORDER BY 
+	    order_time
+
+
+	</select>
+	
+	<insert id="StockOrderInsert" parameterType="stockorderDTO">
+		INSERT INTO
+		stock_order (order_num, order_supply, order_time, order_count,
+		order_name)
+		VALUES (order_num_seq.NEXTVAL, #{order_supply},
+		#{order_time}, #{order_count}, #{order_name})
+	</insert>
+
+
+
+
 
 	<!-- Update: 재고 수정 -->
 	<update id="updateStock" parameterType="stockDTO">
@@ -409,6 +570,7 @@
 		#{stock_Sort}
 		WHERE stock_Id = #{stock_Id}
 	</update>
+
 	<update id="updateOneStock" parameterType="stockDTO">
 		UPDATE stock
 		SET
@@ -421,7 +583,6 @@
 		DELETE FROM STOCK WHERE
 		item_Code = #{item_Code}
 	</delete>
-
 	<!-- UserDTO -->
 	<select id="selectUser" resultType="userDTO">
 		select * from productionPlan

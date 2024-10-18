@@ -126,5 +126,36 @@ public class StockDAOImpl implements StockDAO {
 		return result;
 	}
 	
+//	// stock_order 증감률 
+//	@Override
+//	public int stockOrderListOne(StockOrderDTO dto) {
+//		
+//		
+//		int list = sqlSession.selectOne("mapper.dto.selectStock" , dto);
+//		System.out.println("DAO : " + list);
+//		
+//		return list;
+//	}
+	
+	// select option 정렬 하는 DAO
+	@Override
+	public List sortSelectList(String stock){
+		
+		List list = sqlSession.selectList("mapper.dto.selectStockSort" , stock);
+		System.out.println("DAO : " + list);
+		
+		return list;
+		
+	}
+	
+	@Override
+	public List<StockOrderDTO> stockSort(String stock_name){
+		 List<StockOrderDTO> list = sqlSession.selectList("mapper.dto.StockOrderSelect", stock_name);
+		 System.out.println("stockSort로 보낼 DAO " + list);
+		
+		return list;
+	}
+	
+	
 
 }
