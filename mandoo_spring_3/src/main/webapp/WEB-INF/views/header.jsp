@@ -93,7 +93,7 @@ small {
 
     <div class="category-item">
         <a href="/mandoo/mypage"> 
-            <img class="mypage-icon" src="resources/image/mypage.png">
+            <img class="mypage-icon" src="${pageContext.request.contextPath}/resources/image/mypage.png">
         </a>
         <div class="_category">
             <a href="/mandoo/mypage" class="category-link ${fn:contains(pageContext.request.requestURI, '/mypage') ? 'title' : ''}">마이페이지</a><br>
