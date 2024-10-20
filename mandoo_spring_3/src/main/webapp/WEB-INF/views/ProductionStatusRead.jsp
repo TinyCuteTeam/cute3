@@ -63,6 +63,47 @@
             font-size: 18px;
             margin-bottom: 10px;
         }
+
+        /* 모달 창 스타일 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4); /* 배경 반투명 */
+            padding-top: 60px;
+        }
+
+        /* 모달 창 내부 스타일 */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* 닫기 버튼 */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -80,7 +121,6 @@
         <div class="main-container">
             <!-- 왼쪽 차트 영역 -->
             <div class="chart-grid">
-                <!-- 6개의 라인 차트 출력 -->
                 <c:forEach var="status" items="${list}">
                     <c:if test="${status != null && !empty status.work_do}">
                         <div class="chart-item">
@@ -98,8 +138,8 @@
                     <div class="work-item flex round">
                         <div>${status.line_no}번라인작업</div> <!-- 라인 번호 -->
                         <div>
-                            <a target="_blank" class="mho"
-                               href="${pageContext.request.contextPath}/HTML/작업지시서.jsp?workId=${status.work_id}">
+                            <a href="#" class="mho"
+                               onclick="openModal('${pageContext.request.contextPath}/ProductionStatusRead/detail?work_Id=${status.work_id}');">
                                 ${status.work_id} <!-- 작업 ID -->
                             </a>
                         </div>
@@ -114,58 +154,85 @@
                     </div>
                 </c:forEach>
             </div>
-
-            <script>
-                // 도넛 차트를 생성하는 함수
-                function createDoughnutChart(canvasId, completedQty, totalQty, line_no) {
-                    let ctx = document.getElementById(canvasId).getContext('2d');
-                    let percentage = (completedQty / totalQty) * 100;
-
-                    if (totalQty === 0) {
-                        completedQty = 0;
-                        totalQty = 1;
-                        percentage = 0;
-                    }
-
-                    new Chart(ctx, {
-                        type: 'doughnut',
-                        data: {
-                            labels: ['생산 완료', '남은 작업'],
-                            datasets: [{
-                                data: [completedQty, totalQty - completedQty],
-                                backgroundColor: ['#007bff', '#e0e0e0'],
-                                borderColor: ['#007bff', '#e0e0e0'],
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            plugins: {
-                                tooltip: {
-                                    callbacks: {
-                                        label: function (tooltipItem) {
-                                            return tooltipItem.label + ': ' + tooltipItem.raw + '개 (' + Math.round(percentage) + '%)';
-                                        }
-                                    }
-                                }
-                            },
-                            cutout: '70%',
-                            rotation: -90,
-                        }
-                    });
-
-                    document.getElementById('percentage-text-' + line_no).innerText = Math.round(percentage) + '%';
-                }
-
-                // 6개의 차트 생성
-                <c:forEach var="status" items="${list}">
-                    <c:if test="${status != null && !empty status.work_do}">
-                        createDoughnutChart('chart-line-${status.line_no}', ${status.production_Completed_Qty}, ${status.production_qty}, ${status.line_no});
-                    </c:if>
-                </c:forEach>
-            </script>
         </div>
     </div>
+
+    <!-- 모달 창 -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <iframe id="popupContent" src="" style="width: 100%; height: 600px;" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <!-- JavaScript로 모달 창 열기/닫기 -->
+    <script>
+        // 모달 열기
+        function openModal(url) {
+            document.getElementById("popupContent").src = url;
+            document.getElementById("myModal").style.display = "block";
+        }
+
+        // 모달 닫기
+        document.querySelector(".close").onclick = function () {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        // 모달 바깥 클릭 시 닫기
+        window.onclick = function (event) {
+            if (event.target == document.getElementById("myModal")) {
+                document.getElementById("myModal").style.display = "none";
+            }
+        }
+
+        // 도넛 차트를 생성하는 함수
+        function createDoughnutChart(canvasId, completedQty, totalQty, line_no) {
+            let ctx = document.getElementById(canvasId).getContext('2d');
+            let percentage = (completedQty / totalQty) * 100;
+
+            if (totalQty === 0) {
+                completedQty = 0;
+                totalQty = 1;
+                percentage = 0;
+            }
+
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['생산 완료', '남은 작업'],
+                    datasets: [{
+                        data: [completedQty, totalQty - completedQty],
+                        backgroundColor: ['#007bff', '#e0e0e0'],
+                        borderColor: ['#007bff', '#e0e0e0'],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function (tooltipItem) {
+                                    return tooltipItem.label + ': ' + tooltipItem.raw + '개 (' + Math.round(percentage) + '%)';
+                                }
+                            }
+                        }
+                    },
+                    cutout: '70%',
+                    rotation: -90,
+                }
+            });
+
+            document.getElementById('percentage-text-' + line_no).innerText = Math.round(percentage) + '%';
+        }
+
+        // 6개의 차트 생성
+        <c:forEach var="status" items="${list}">
+            <c:if test="${status != null && !empty status.work_do}">
+                createDoughnutChart('chart-line-${status.line_no}', ${status.production_Completed_Qty}, ${status.production_qty}, ${status.line_no});
+            </c:if>
+        </c:forEach>
+    </script>
 </body>
 
 </html>

@@ -1,53 +1,59 @@
-﻿.m_workmain{
-    overflow-x: hidden;
-    display: inline-block;
+﻿/* 메인 작업지시서 테이블 영역 */
+.m_workmain {
+    overflow-x: auto; /* 테이블이 창보다 커지면 수평 스크롤을 표시 */
+    display: block;
     text-align: center;
+    margin: 0 auto; /* 가운데 정렬 */
 }
 
-.mwork, .m_bom{
+/* 작업지시서 테이블 */
+.mwork, .m_bom {
     border: 2px solid black;
     border-collapse: collapse;
     text-align: center;
-    height: 100px;
-    width: 500px;
+    width: 100%; /* 테이블이 부모의 너비에 맞게 확장 */
+    max-width: 1000px; /* 테이블의 최대 너비를 제한 */
 }
 
-.m_title{
+/* 테이블 제목 스타일 */
+.m_title {
     font-size: 30px;
     background-color: #e6e6e6;
 }
 
-.now{
+/* 현재 상태 테이블 */
+.now {
     border: 2px solid black;
     border-collapse: collapse;
-    position: absolute;
-    top: 150px;
-    left: 850px;
+    position: relative;
+    margin: 20px auto; /* 중앙에 위치 */
     text-align: center;
 }
 
-.now tr td{
+.now tr td {
     height: 30.5px;
 }
 
-.rollback{
+/* 롤백 버튼 */
+.rollback {
     width: 50px;
     height: 50px;
-    position: absolute;
-    top: 650px;
-    left: 300px;
+    position: relative;
+    margin-top: 20px;
 }
 
-.work{
+/* 작업 상태 선택 */
+.work {
     text-align: center;
     width: 150px;
     border: 0;
-    background-color: #00ff0000;
+    background-color: transparent; /* 투명한 배경 */
 }
 
-
+/* 컨텐츠 영역 */
 .content {
     overflow-x: hidden;
-    margin-left: 400px;
-}   margin-left: 400px;
+    margin: 0 auto;
+    width: 90%; /* 컨텐츠가 중앙에 맞춰지고 넓이를 90%로 제한 */
+    max-width: 1000px; /* 최대 너비를 1000px로 제한 */
 }

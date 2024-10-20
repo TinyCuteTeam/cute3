@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.co.mandoo.dto.ProductionstatusDTO;
+import kr.co.mandoo.dto.WorkDTO;
 
 @Repository
 public class ProductionStatusDAOImpl implements ProductionStatusDAO {
@@ -23,6 +24,11 @@ public class ProductionStatusDAOImpl implements ProductionStatusDAO {
 		
 		return list;
 		
+	}
+	@Override
+	public WorkDTO StatusOne(String WordId){
+		WorkDTO dto = sqlSession.selectOne("mapper.dto.selectProductionstatusOne",WordId);
+		return dto;
 	}
 
 }
