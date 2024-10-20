@@ -134,6 +134,11 @@
 		ORDER BY month
 	</select>
 	
+		<select id="selectFaultyChart" resultType="faultyDTO">
+	select * from faulty f, error e 
+	where f.error_id = e.error_id
+	</select>
+	
 
 	<insert id="insertFaulty" parameterType="faultyDTO">
 		INSERT INTO

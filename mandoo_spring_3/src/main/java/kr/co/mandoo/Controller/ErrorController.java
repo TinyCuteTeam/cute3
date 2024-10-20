@@ -82,4 +82,6 @@ public class ErrorController {
 		
 		return "redirect:/error";
 	}
+
+	
 }

@@ -77,9 +77,10 @@ small {
     </div>
 
     <div class="category-item">
-        <a href="/mandoo/FaultyRead" class="category-link ${fn:contains(pageContext.request.requestURI, '/Faulty') ? 'title' : ''}">품질관리</a>
+        <a href="/mandoo/FaultyRead" class="category-link ${fn:contains(pageContext.request.requestURI, '/Faulty') || fn:contains(pageContext.request.requestURI, '/chart') ? 'title' : ''}">품질관리</a>
         <div class="_category">
             <a href="/mandoo/FaultyRead" class="category-link ${fn:contains(pageContext.request.requestURI, '/Faulty') ? 'title' : ''}">불량률파악보고서</a><br>
+            <a href="/mandoo/error/chart" class="category-link ${fn:contains(pageContext.request.requestURI, '/chart') ? 'title' : ''}">에러수량</a><br>
         </div>
     </div>
 
