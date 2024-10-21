@@ -240,11 +240,11 @@
 
 
 	<script
-		src="${pageContext.request.contextPath}/WEB-INF/resources//JS/실적마감.js"></script>
+		src="${pageContext.request.contextPath}/resources/JS/실적마감.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/WEB-INF/resources//JS/script.js"></script>
+		src="${pageContext.request.contextPath}/resources/JS/script.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/WEB-INF/resources//JS/Todo.js"></script>
+		src="${pageContext.request.contextPath}/resources/JS/Todo.js"></script>
 <script>
                 // 도넛 차트를 생성하는 함수
                 function createDoughnutChart(canvasId, completedQty, totalQty, line_no) {

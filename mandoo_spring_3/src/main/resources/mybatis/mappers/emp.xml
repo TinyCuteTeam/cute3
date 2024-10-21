@@ -219,7 +219,7 @@
 		SELECT *
 		FROM myPage
 		WHERE
-		user_id = #{userId}
+		mypage_name = #{user_id}
 	</select>
 	<insert id="insertMyPage" parameterType="myPageDTO">
 		INSERT INTO

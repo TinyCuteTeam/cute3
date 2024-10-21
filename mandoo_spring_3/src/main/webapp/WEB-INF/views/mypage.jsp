@@ -70,14 +70,13 @@
 							<!-- 수정 -->
 						</tr>
 					</table>
-					<button></button>
 				</div>
 			</div>
 		</div>
 	</div>
 
 	<script
-		src="${pageContext.request.contextPath}/webapp/resources/JS/마이페이지.js"></script>
+		src="${pageContext.request.contextPath}/resources/JS/마이페이지.js"></script>
 </body>
 
 </html>

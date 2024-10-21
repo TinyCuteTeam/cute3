@@ -29,7 +29,7 @@ public class MypageController {
         }
 
         // user_id를 가져와서 myPageService 호출
-        MyPageDTO mypage = myPageService.myPageRead(user.getUser_Id());
+        MyPageDTO mypage = myPageService.myPageRead(user.getUser_Name());
         System.out.println(mypage);
         model.addAttribute("mypage", mypage);
 

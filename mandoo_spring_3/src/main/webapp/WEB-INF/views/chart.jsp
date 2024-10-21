@@ -10,7 +10,7 @@
     <link rel="stylesheet"
         href="${pageContext.request.contextPath}/resources/CSS/style.css">
     <link rel="stylesheet"
-        href="${pageContext.request.contextPath}/resources/CSS/불량률파악보고서.css">
+        href="${pageContext.request.contextPath}/resources/CSS/chartError.css">
 </head>
 
 <body>

@@ -10,6 +10,6 @@
 			<li><a href="/mandoo/account" class="category-link ${fn:contains(pageContext.request.requestURI, '/account') ? 'title' : ''}">계정관리</a></li>
 		</c:if>
 		<li><a href="/mandoo/boardList" class="category-link ${fn:contains(pageContext.request.requestURI, '/board') ? 'title' : ''}">사내게시판</a></li>
-		<li><a href="/mandoo/todo" class="category-link ${fn:contains(pageContext.request.requestURI, '/todo') ? 'title' : ''}">일정관리</a></li>
+		<li><a href="/mandoo/todo" class="category-link ${fn:contains(pageContext.request.requestURI, '/Todo') ? 'title' : ''}">일정관리</a></li>
 	</ul>
 </div>

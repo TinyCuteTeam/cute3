@@ -4,7 +4,7 @@
 
 <div class="sidebar">
 	<ul id="sidebar-content">
-		<li><a href="불량률파악보고서.jsp" class="category-link ${fn:contains(pageContext.request.requestURI, 'Faulty') ? 'title' : ''}">불량률파악보고서</a></li>
-		<li><a href="불량률파악보고서.jsp" class="category-link ${fn:contains(pageContext.request.requestURI, 'chart') ? 'title' : ''}">에러수량</a></li>
+		<li><a href="/mandoo/FaultyRead" class="category-link ${fn:contains(pageContext.request.requestURI, 'Faulty') ? 'title' : ''}">불량률파악보고서</a></li>
+		<li><a href="/mandoo/error/chart" class="category-link ${fn:contains(pageContext.request.requestURI, 'chart') ? 'title' : ''}">에러수량</a></li>
 	</ul>
 </div>

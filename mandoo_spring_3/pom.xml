@@ -184,7 +184,7 @@
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
-			<version>4.2.11.RELEASE</version> <!-- 버전은 필요에 따라 변경 가능 -->
+			<version>4.2.11.RELEASE</version>
 		</dependency>
 
 

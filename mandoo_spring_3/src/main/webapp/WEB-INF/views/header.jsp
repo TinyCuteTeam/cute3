@@ -19,12 +19,19 @@ small {
 	font-size: 15px;
 	position: absolute;
 	left: 90px;
-	top: 35px;
+	top: 25px;
 	padding-bottom: 10px;
 }
 
+big {
+	font-size: 18px;
+	position: absolute;
+	left: 65px;
+	top: -15px;
+	padding-bottom: 10px;
+}
 .user-info {
-	margin-bottom: 100px;
+	padding-bottom : 10px;
 }
 
 </style>
@@ -137,6 +144,7 @@ small {
 		</c:choose>
 
 		<div class="category-item user-info">
+		<big>
 			<c:choose>
 				<c:when test="${sessionScope.user_access == 1}">
 					<span class="user-role">관리자</span>
@@ -149,7 +157,7 @@ small {
 				</c:otherwise>
 			</c:choose>
 			
-			<span>|</span> <span class="user-name"><%=((UserDTO) session.getAttribute("user")).getUser_Name()%>님</span>
+			<span>|</span> <span class="user-name"><%=((UserDTO) session.getAttribute("user")).getUser_Name()%>님</span></big>
 			<a href="/mandoo/login"><small>로그아웃</small></a>
 		</div>
 	</div>
