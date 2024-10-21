@@ -102,10 +102,10 @@
     <table border="1" class="errortable" id="errorTable">
         <tr>
             <th class="thwidth">에러코드</th>
-            <th class="thwidth">이름</th>
+            <th class="namewidth">이름</th>
             <th class="errorexplain">내용</th>
-            <th class="thwidth">수정</th>
-            <th class="thwidth">삭제</th>
+            <th class="btnwidth">수정</th>
+            <th class="btnwidth">삭제</th>
         </tr>
         <c:forEach var="error" items="${list}">
             <tr>
@@ -194,7 +194,7 @@
 				<input type="hidden" name="action" id="actionEdit" value="add">
 				
 				<label for="error_editId">에러 코드:</label><br> 
-				 ※ 에러코드는 수정할 수 없습니다 <br>  
+				<div class=required> ※ 에러코드는 수정할 수 없습니다 </div> 
 				<input type="hidden" name="error_Id" id="error_editId"  placeholder="에러 코드" required><br> 
 		
 				<label for="error_editName">에러 이름:</label><br> 

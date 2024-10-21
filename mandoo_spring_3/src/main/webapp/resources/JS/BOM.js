@@ -1,89 +1,46 @@
 document.addEventListener('DOMContentLoaded', function() {
- 	const bomForm = document.getElementById('bomForm');
-    const bomIdField = document.getElementById('bomId');
-    const table = document.getElementById('table');
+ 	//const bomForm = document.getElementById('bomForm');
+    //const bomIdField = document.getElementById('bomId');
+    //const table = document.getElementById('table');
+
+    // 수정 모달창 열기 update  
+    const popup_update = document.getElementById('popup_update'); 		//모달창 - 수정
+    const bom_editForm = document.getElementById('bom_editForm'); 	//수정모달  
+    const updateClose = document.getElementById('updateClose'); 		//수정 모달창닫기
+    
+    
+    document.querySelectorAll('.bomEditBtn').forEach(button => {
+    button.addEventListener('click', function() {
+        // 데이터 속성에서 값 가져오기
+        const edit_bom_Count = this.dataset.bomCount; // 수량
+        const edit_bom_Unit = this.dataset.bomUnit;   // 단위
+        const edit_item_Code = this.dataset.itemCode; // 품목 코드
+        const edit_item_Name = this.dataset.itemName; // 품목명
         
-            // 행 추가 버튼 클릭 시 빈 행 추가
-        document.getElementById('addRowBtn').addEventListener('click', function() {
-            const newRow = table.insertRow();
-            
-                 //여기 한번 더 확인 질문 
-            newRow.innerHTML = `
-                <td>
-                    <select name="itemCode">
-                        <c:forEach var="item" items="${itemList}">
-                            <option value="${item.itemCode}" data-itemname="${item.itemName}">${item.itemName}</option>
-                        </c:forEach>
-                    </select>
-                </td>
-                <td><input type="text" name="bomName"></td>
-                <td><input type="number" name="bomCount"></td>
-                <td><input type="text" name="bomUnit"></td>
-                <td><button type="button" class="editBtn">수정</button></td>
-                <td><button type="button" class="delBtn editBtn">삭제</button></td>
-            `;
+        
+        // 모달창에 값 설정
+        document.getElementById('item_Code').value = edit_item_Code; // 품목 코드
+        document.getElementById('item_Name').value = edit_item_Name; // 품목명
+        document.getElementById('bom_Count').value = edit_bom_Count;  // 수량
+        document.getElementById('bom_Unit').value = edit_bom_Unit;    // 단위
 
-            // 새로 추가된 행에 이벤트 리스너 추가
-            newRow.querySelector('.editBtn').addEventListener('click', function() {
-                // 수정 버튼 클릭 시 로직 추가
-            });
-
-            newRow.querySelector('.delBtn').addEventListener('click', function() {
-                newRow.remove();
-            });
-        });
-            
-            
-            
-    //모달 
-    const modal = document.getElementById('addEditModal');
-    const closeBtn = document.querySelector('.close');
-    
-
-    closeBtn.addEventListener('click', function() {
-        modal.style.display = 'none';
+        popup_update.style.display = 'flex'; // 수정 모달 열기
+        document.getElementById('actionEdit').value = 'bomUpdate';
     });
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = 'none';
-        }
-    }
-
-    document.querySelectorAll('.editBtn').forEach(button => {
-        button.addEventListener('click', function() {
-            const bomId = this.getAttribute('data-bomid');
-            const itemCode = this.getAttribute('data-itemcode');
-            const bomCount = this.getAttribute('data-bomcount');
-            const bomUnit = this.getAttribute('data-bomunit');
-            const bomEtc = this.getAttribute('data-bometc');
-
-            document.getElementById('bomId').value = bomId;
-            document.getElementById('itemCode').value = itemCode;
-            document.getElementById('bomCount').value = bomCount;
-            document.getElementById('bomUnit').value = bomUnit;
-            document.getElementById('bomEtc').value = bomEtc;
-            document.getElementById('actionType').value = 'update';
-            document.getElementById('modalTitle').innerText = 'BOM 수정';
-
-            // 선택된 itemCode를 select 태그에서 선택 상태로 설정
-            const optionToSelect = document.querySelector(`#itemCode option[value="${itemCode}"]`);
-            if (optionToSelect) {
-                optionToSelect.selected = true;
-            }
-
-            modal.style.display = 'block';
-        });
-    });
-
-    document.getElementById('addBtn').addEventListener('click', function() {
-        bomForm.reset();
-        document.getElementById('actionType').value = 'add';
-        document.getElementById('modalTitle').innerText = 'BOM 추가';
-
-        modal.style.display = 'block';
-    });
+});
     
+   
     
+    // 수정 모달창 저장 버튼 클릭 시
+	const bomSubmit = document.querySelector('#bomSubmit');
+	bomSubmit.addEventListener('click', function() {
+    bom_editForm.submit();
+	});
+	
+      // 수정 모달창 닫기
+	updateClose.addEventListener('click', function () {
+    	popup_update.style.display = 'none'; // 수정 모달을 숨김
+	});
+
     
 });

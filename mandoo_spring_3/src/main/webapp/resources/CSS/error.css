@@ -65,6 +65,12 @@ th {
     width: 140px;
 }
 
+.btnwidth {
+	width: 70px;
+}
+.namewidth {
+	width: 200px;
+}
 tr {
     height: 50px;
 }
@@ -88,8 +94,8 @@ tr {
 .pagination {
 	display: inline-block;
 	position : absolute;
-	top : 820px;
-	left : 900px;
+	top : 670px;
+	left : 470px;
 	margin-top: 20px;
 }
 

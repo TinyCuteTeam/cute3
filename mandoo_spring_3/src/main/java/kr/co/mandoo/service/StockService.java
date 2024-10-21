@@ -23,6 +23,9 @@ public interface StockService {
 	
 	// stockorder
 	public int insertStockOrder(StockOrderDTO dto);
+//	public int stockOrderListOne(StockOrderDTO dto);
+	public List selectSortService(String stock);
+	public List stockSortService(String stock_name);
 
 
 }

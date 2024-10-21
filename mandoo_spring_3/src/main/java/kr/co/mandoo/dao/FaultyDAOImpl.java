@@ -25,6 +25,16 @@ public class FaultyDAOImpl implements FaultyDAO {
 		return list;
 		
 	}
+	@Override
+	public List<FaultyDTO> faultyselectChart(){
+		
+		List<FaultyDTO> list = sqlSession.selectList("mapper.dto.selectFaultyChart");
+		System.out.println("DAO에서 list 출력 : " + list);
+		
+		
+		return list;
+		
+	}
 
 
 }

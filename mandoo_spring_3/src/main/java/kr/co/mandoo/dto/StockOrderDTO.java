@@ -10,6 +10,9 @@ public class StockOrderDTO {
 	private int order_count;
 	private String order_name;
 	
+	// 증감률 추가
+    private double growthRate;
+	
 	
 	public int getOrder_num() {
 		return order_num;
@@ -40,6 +43,13 @@ public class StockOrderDTO {
 	}
 	public void setOrder_name(String order_name) {
 		this.order_name = order_name;
+	}
+	
+	public double getGrowthRate() {
+		return growthRate;
+	}
+	public void setGrowthRate(double growthRate) {
+		this.growthRate = growthRate;
 	}
 	
 	@Override

@@ -4,13 +4,11 @@
 <html lang="kor">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mandoo</title>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/CSS/style.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/CSS/BOM관리_제품추가.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mandoo</title>
+    <link rel="stylesheet" href="resources/CSS/style.css">
+    <link rel="stylesheet" href="resources/CSS/BOM관리_제품추가.css">
 </head>
 
 <body>

@@ -57,6 +57,12 @@ public class FaultyDTO {
 	public void setFaulty_count(String faulty_count) {
 		this.faulty_count = faulty_count;
 	}
+	@Override
+	public String toString() {
+		return "FaultyDTO [faulty_id=" + faulty_id + ", item_code=" + item_code + ", error_id=" + error_id
+				+ ", work_id=" + work_id + ", faulty_count=" + faulty_count + ", month=" + month + ", defect_rate="
+				+ defect_rate + "]";
+	}
     
   
 }

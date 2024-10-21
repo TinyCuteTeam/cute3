@@ -1,7 +1,7 @@
 package kr.co.mandoo.dto;
 
 public class BOMDTO {
-	private String bom_Id;
+	private String bom_Id; //완제품명
 	private String item_Code;
 	private String item_Name; // 아이템 이름 추가
 	private int bom_Count;

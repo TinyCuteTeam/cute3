@@ -5,5 +5,5 @@ import java.util.List;
 public interface FaultyService {
 	
 	public List faultySelectService();
-
+	public List faultySelectServiceChart();
 }

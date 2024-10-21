@@ -27,6 +27,10 @@ public interface StockDAO {
 	
 	// stockorder
 	public int stockorderInsert(StockOrderDTO dto);
+//	public int stockOrderListOne(StockOrderDTO dto);
+	public List sortSelectList(String stock);
+	public List<StockOrderDTO> stockSort(String stock_name);
+
 	
 
 }

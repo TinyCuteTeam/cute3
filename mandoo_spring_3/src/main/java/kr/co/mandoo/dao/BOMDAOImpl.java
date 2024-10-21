@@ -35,11 +35,11 @@ public class BOMDAOImpl implements BOMDAO {
 		return result;
 	}
 
-	@Override
+		@Override
 	public int insertBOM(BOMDTO bomDTO) {
 		int result = -1;
 		result = sqlSession.delete("mapper.dto.insertBOM", bomDTO);
-				
+					
 		return result;
 	}
 
@@ -50,8 +50,5 @@ public class BOMDAOImpl implements BOMDAO {
 				
 		return result;
 	}
-
-	
-	
 	
 }

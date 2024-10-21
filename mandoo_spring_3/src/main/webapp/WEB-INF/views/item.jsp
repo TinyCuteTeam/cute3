@@ -100,9 +100,7 @@
 		<table id="table" class="srTable" border="solid black 1px;">
 			<tr>
 				<th class="srTh thwidth">품목코드</th>
-				<th class="srTh ">품목명</th>
-<!-- 				<th class="srTh">품목종류</th> -->
-<!-- 				<th class="srTh">이미지</th> -->
+				<th class="srTh">품목명</th>
 				<th class="srTh thwidth">수정</th>
 				<th class="srTh thwidth">삭제</th>
 			</tr>
@@ -193,7 +191,7 @@
 				<input type="hidden" name="action" id="actionEdit" value="update">
 
 				품목 코드: <br>
-				 ※ 품목코드는 수정할 수 없습니다 <br>  
+				<div class=required>  ※ 품목코드는 수정할 수 없습니다 </div>
 				
 				<input type="hidden" id="edit_itemCode" name="item_Code" placeholder="품목코드"><br> 
 				품 목 명: <br> 
