@@ -20,36 +20,33 @@
 
         <div class="main">
             <h1>출하 목록</h1>
-            <form method="post" action="${pageContext.request.contextPath}/shipment"
-                onsubmit="return confirmShipment();">
-                <div class="flex srTh">
-                    <div>선택</div>
-                    <div>거래처명</div>
-                    <div>상품명</div>
-                    <div>수량</div>
-                    <div>금액</div>
-                    <div>주문일</div>
-                </div>
+            
+            <div class="flex srTh">
+                <div>거래처명</div>
+                <div>상품명</div>
+                <div>수량</div>
+                <div>금액</div>
+                <div>주문일</div>
+                <div>출고</div>
+            </div>
 
-                <c:forEach var="shipment" items="${pagedShipments}">
-                    <div class="flex round">
-                        <div>
-                            <input type="checkbox" name="shipmentIds" value="${shipment.shipment_Id}" />
-                        </div>
-                        <div>
-                            <a href="/mandoo/client">${shipment.client_Id}</a>
-                        </div>
-                        <div>${shipment.product_Name}</div>
-                        <div>${shipment.order_Count}</div>
-                        <div>${shipment.order_Price}</div>
-                        <div>${shipment.order_Enddate}</div>
+            <c:forEach var="shipment" items="${pagedShipments}">
+                <div class="flex round">
+                    <div>
+                        <a href="/mandoo/client">${shipment.client_Id}</a>
                     </div>
-                </c:forEach>
-
-                <div>
-                    <button type="submit" class="btn">출고</button>
+                    <div>${shipment.product_Name}</div>
+                    <div>${shipment.order_Count}</div>
+                    <div>${shipment.order_Price}</div>
+                    <div>${shipment.order_Enddate}</div>
+                    <div>
+                        <form method="post" action="/mandoo/shipments">
+                            <input type="hidden" name="shipmentId" value="${shipment.order_Id}" />
+                            <button type="submit" class="btn">출고</button>
+                        </form>
+                    </div>
                 </div>
-            </form>
+            </c:forEach>
 
             <!-- 페이징 영역 -->
             <div class="pagination">
@@ -75,18 +72,6 @@
         </div>
     </div>
 
-    <script>
-        function confirmShipment() {
-            const checkedBoxes = document.querySelectorAll('input[name="shipmentIds"]:checked');
-            if (checkedBoxes.length === 0) {
-                alert('출고할 항목을 선택하세요.');
-                return false;
-            }
-            return confirm('선택한 항목을 출고하시겠습니까?');
-        }
-    </script>
-
-    <script src="${pageContext.request.contextPath}/resources/JS/출하확인.js"></script>
 </body>
 
 </html>

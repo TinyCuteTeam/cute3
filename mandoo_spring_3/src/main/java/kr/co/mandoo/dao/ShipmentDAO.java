@@ -20,9 +20,11 @@ public class ShipmentDAO {
     }
 
     // 여러 출하 정보 삭제
-    public void deleteShipments(String[] shipmentIds) throws Exception {
-        for (String shipmentId : shipmentIds) {
+    public void deleteShipments(String shipmentId) throws Exception {
+
+        	System.out.println("출고 DAO 실행");
+        	System.out.println(shipmentId);
             sqlSession.delete("ShipmentMapper.deleteShipment", shipmentId);
-        }
+        
     }
 }

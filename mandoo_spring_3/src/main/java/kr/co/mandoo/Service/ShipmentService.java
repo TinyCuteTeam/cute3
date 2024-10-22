@@ -20,7 +20,10 @@ public class ShipmentService {
     }
 
     // 여러 출하 정보 삭제
-    public void deleteShipments(String[] shipmentIds) throws Exception {
-        shipmentDAO.deleteShipments(shipmentIds);
+    public void deleteShipments(String shipmentIds) throws Exception {
+
+		System.out.println("출고 서비스 실행");
+		System.out.println(shipmentIds);
+    	shipmentDAO.deleteShipments(shipmentIds);
     }
 }

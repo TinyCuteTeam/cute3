@@ -37,9 +37,9 @@ blue {
     width: 80px;
     height: 40px;
     border-radius: 10px;
-    position: absolute;
+/*     position: absolute;
     right: -90px;
-    bottom: -50px;
+    bottom: -50px; */
 }
 
 .btn:hover {

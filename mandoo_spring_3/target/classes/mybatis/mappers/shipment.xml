@@ -17,7 +17,7 @@
 		JOIN CLIENT c ON oi.CLIENT_ID = c.CLIENT_ID
 	</select>
 
-	<delete id="deleteShipment">
-		DELETE FROM order_info WHERE shipment_ID = #{shipment_Id}
+	<delete id="deleteShipment" parameterType="String">
+		DELETE FROM order_info WHERE order_id = #{shipmentId}
 	</delete>
 </mapper>
