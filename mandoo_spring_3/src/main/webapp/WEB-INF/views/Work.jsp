@@ -128,6 +128,10 @@
                             <c:if test="${work.work_do == '작업 대기'}">
                                 <button class="start-button" data-work-id="${work.work_id}">작업시작</button>
                             </c:if>
+                            
+                         <c:if test="${work.work_do != '작업 대기'}">
+                               작업완료
+                            </c:if>
                         </div>
                     </div>
                 </c:forEach>
