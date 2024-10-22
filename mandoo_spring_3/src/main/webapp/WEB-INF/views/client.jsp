@@ -20,9 +20,10 @@
 	width: 100%;
 	height: 100%;
 	overflow: auto;
-	background-color: rgb(0, 0, 0);
+/* 	background-color: rgb(0, 0, 0); */
 	background-color: rgba(0, 0, 0, 0.4);
 	padding-top: 60px;
+	text-align:left;
 }
 
 .modal-content {
@@ -150,29 +151,31 @@
 						<form method="post" action="insertClient">
 							<input type="hidden" name="action" value="add">
 							<div>
-								거래처 코드: <br> <input type="text" name="client_Id">
+								* 거래처 코드: <br> <input type="text" name="client_Id">
 							</div>
 							<div>
-								거래처: <br> <input type="text" name="client_Name">
+								* 거래처: <br> <input type="text" name="client_Name">
 							</div>
 							<div>
-								대표명: <br> <input type="text" name="client_Boss">
+								* 대표명: <br> <input type="text" name="client_Boss">
 							</div>
 							<div>
-								연락처: <br> <input type="text" name="client_Tel">
+								* 연락처: <br> <input type="text" name="client_Tel">
 							</div>
 							<div>
-								주소: <br> <input type="text" name="client_Address">
+								* 주소: <br> <input type="text" name="client_Address">
 							</div>
 							<div>
-								이메일: <br> <input type="text" name="client_Email">
+								* 이메일: <br> <input type="text" name="client_Email">
 							</div>
 							<div>
-								담당자: <br> <input type="text" name="client_Boss">
+								* 담당자: <br> <input type="text" name="client_Boss">
 							</div>
 							<div>
-								사업자등록증: <br> <input type="text" name="client_Number">
+								* 사업자등록증: <br> <input type="text" name="client_Number">
 							</div>
+							<div class=required> * 표시는 필수 항목입니다. </div>
+						
 							<div>
 								<button type="submit">등록</button>
 							</div>

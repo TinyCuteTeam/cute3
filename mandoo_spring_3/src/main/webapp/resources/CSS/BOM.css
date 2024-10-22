@@ -1,25 +1,21 @@
-﻿#bomForm {
-    margin-left: -50px;
-}
+﻿/* #bomForm { */
+/*     margin-left: -50px; */
+/* } */
 
 .content {
-	overflow: auto;
+	overflow-y: auto;
+/* 	overflow: auto; */
 	margin-left: 150px;
 	text-align: center;
-	width: 69%;
-	height: 810px;
+	width: 65%;
+	height: 750px;
 	padding-right: 272px;
 }
 
-
-.content{
-	left : 200px
-	
-}
 /*
 .content {
     max-height: 800px;
-    overflow-y: auto;
+    
     text-align: center;
     width: 84.4%;
     overflow-x: hidden;
@@ -28,10 +24,15 @@
 
 /* 품목추가 버튼 오른쪽에 붙이기  */
 .srPlus {
-    text-align: right;
+    display: flex; /* Flexbox 사용 */
+    align-items: center; /* 수직 정렬 */
+    justify-content: flex-end; /* 오른쪽 정렬 */
     height: 90px;
-    width: 1248px;
     margin-left: 180px;
+}
+
+.selectForm {
+    margin-right: 10px; /* 버튼과의 간격 조정 */
 }
 
 /*BOM, 행추가 버튼*/
@@ -70,7 +71,7 @@
 
 /* select, 제품추가, 제품삭제 */
 #recipeSelect {
-    width: 100px;
+    width: 160px;
     height: 50px;
     margin: 20px;
     font-weight: bold;
@@ -105,7 +106,107 @@ td {
     width: 200px;
 }
 
-.meat {
-    display: none;
+/* .meat { */
+/*     display: none; */
+/* } */
+
+/* 모달 배경 */
+.popup {
+	display: none; /* 기본적으로 숨김 */
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.4); /* 배경을 반투명하게 */
+	padding-top: 60px;
 }
 
+/* 모달 콘텐츠 */
+.popup-content {
+	background-color: #fefefe;
+	margin: 5% auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%;
+	max-width: 500px;
+	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
+	border-radius: 10px; /* 모서리 둥글게 */
+	text-align:left;
+}
+
+/* 입력 필드 스타일 */
+.modalStyle input[type="text"], .modalStyle textarea {
+	width: 100%;
+	padding: 10px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+/* 저장 버튼 스타일 */
+.modalStyle button {
+	width: 100%;
+	background-color: #e6e6e6;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.modalStyle button:hover {
+	background-color: #0085FF;
+	color: white;
+}
+
+/* 모달 닫기 버튼 */
+.close-popup {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close-popup:hover, .close-popup:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+.pagination {
+   display: inline-block;
+   margin-top: 20px;
+}
+
+.pagination a {
+   color: black;
+   float: left;
+   padding: 8px 16px;
+   text-decoration: none;
+   transition: background-color .3s;
+   border: 1px solid #ddd;
+   margin: 0 4px;
+   border-radius: 5px;
+}
+
+.pagination a.active {
+   background-color: #0085FF;
+   color: white;
+   border: 1px solid #0085FF;
+}
+
+.pagination a:hover:not(.active) {
+   background-color: #ddd;
+}
+
+.required{
+	color:blue;
+}
+
+#addNewBomBtn {
+	display: inline-block;
+}

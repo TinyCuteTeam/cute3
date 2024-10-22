@@ -7,109 +7,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mandoo</title>
-<link rel="stylesheet" href="resources/CSS/style.css<%@ page contentType="text/html; charset=UTF-8" language="java"%>
-<!DOCTYPE html>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<html lang="kor">
-
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mandoo</title>
 <link rel="stylesheet" href="resources/CSS/style.css">
-<link rel="stylesheet" href="resources/CSS/error.css">
-</head>
-
-<body>
-	<!-- 메인 -->
-	<jsp:include page="/WEB-INF/views/header.jsp" />
-	<!-- 사이드바 -->
-	<jsp:include page="/WEB-INF/views/sidebar_기준관리.jsp" />
-	<!-- 내용페이지  -->
-	<div class="content">
-
-		<h1>에러코드</h1>
-
-		<!-- 버튼 -->
-		<div class="errorfloat">
-			<button class="plus errorAdd" id="addButton">에러추가</button>
-		</div>
-
-		<!-- 표 -->
-		<form id="errorForm" method="post" action="delete">
-		<input type="hidden" id='errorId' name="error_Id" value="">
-		
-		<div>
-    <table border="1" class="errortable" id="errorTable">
-        <tr>
-            <th class="thwidth">에러코드</th>
-            <th class="thwidth">이름</th>
-            <th class="errorexplain">내용</th>
-            <th class="thwidth">수정</th>
-            <th class="thwidth">삭제</th>
-        </tr>
-        <c:forEach var="error" items="${list}">
-            <tr>
-                <td>${error.error_Id}</td>
-                <td>${error.error_Name}</td>
-                <td>${error.error_Contents}</td>
-                <td>
-                    <form method="post" action="update" class="updateForm">
-                        <input type="hidden" name="error_Id" value="${error.error_Id}">
-                        <input type="hidden" name="error_Name" value="${error.error_Name}">
-                        <input type="hidden" name="error_Contents" value="${error.error_Contents}">
-                        <button type="button" class="editBtn erroreditButton" 
-    					data-error-id="${error.error_Id}" 
-    					data-error-name="${error.error_Name}" 
-    					data-error-contents="${error.error_Contents}">수정</button>
-                    </form>
-                </td>
-                <td>
-                    <form method="post" action="delete" class="deleteForm">
-                        <input type="hidden" name="error_Id" value="${error.error_Id}">
-                        <button type="submit" class="editBtn errordelButton">삭제</button>
-                    </form>
-                </td>
-            </tr>
-        </c:forEach>
-    </table>
-</div>
-
-		</form>
-		
-		<!-- 페이징 -->
-		<div class="pagination">
-			<!-- 이전 페이지로 이동 -->
-			<c:if test="${currentPage > 1}">
-				<a href="/mandoo/error?page=${currentPage - 1}">&laquo; 이전</a>
-			</c:if>
-
-			<!-- 페이지 번호 표시 -->
-			<c:forEach var="i" begin="1" end="${totalPages}">
-				<a href="/mandoo/error?page=${i}" class="${i == currentPage ? 'active' : ''}">${i}</a>
-			</c:forEach>
-
-			<!-- 다음 페이지로 이동 -->
-			<c:if test="${currentPage < totalPages}">
-				<a href="/mandoo/error?page=${currentPage + 1}">다음 &raquo;</a>
-			</c:if>
-		</div>
-
-	</div>
-
-	<!-- 모달 창 -->
-	<div id="popup" class="popup modalStyle">
-		<div class="popup-content">
-			<span class="close-popup" id="close-popup">&times;</span> 
-			<h2>에러 코드 등록</h2>
-			<form id="errorForm" method="post" action="insert">
-				<input type="hidden" name="action" id="action" value="add">
-				
-				<label for="error_Id">에러 코드:</label><br> 
-				<input type="text" name="error_Id" id="error_Id"  placeholder="에러 코드" required><br> 
-		
-				<label for="error_Name">에러 
-">
 <link rel="stylesheet" href="resources/CSS/error.css">
 <style>
 /* 모달 배경 */
@@ -204,10 +102,10 @@
     <table border="1" class="errortable" id="errorTable">
         <tr>
             <th class="thwidth">에러코드</th>
-            <th class="thwidth">이름</th>
+            <th class="namewidth">이름</th>
             <th class="errorexplain">내용</th>
-            <th class="thwidth">수정</th>
-            <th class="thwidth">삭제</th>
+            <th class="btnwidth">수정</th>
+            <th class="btnwidth">삭제</th>
         </tr>
         <c:forEach var="error" items="${list}">
             <tr>
@@ -225,24 +123,20 @@
     					data-error-contents="${error.error_Contents}">수정</button>
                     </form>
                 </td>
+                
                 <td>
                     <form method="post" action="delete" class="deleteForm">
                         <input type="hidden" name="error_Id" value="${error.error_Id}">
                         <button type="submit" class="editBtn errordelButton">삭제</button>
                     </form>
                 </td>
+                
             </tr>
         </c:forEach>
     </table>
-</div>
-		
-			
-			
-			
-			
-			
-			
+</div>	
 		</form>
+		
 		<!-- 페이징 -->
 		<!--       페이징 하려면 전달인자 필요  -->
 		<!--       어디서부터 어디까지 잘라야한다 -->
@@ -272,17 +166,17 @@
 			
 				<input type="hidden" name="action" id="action" value="add">
 				
-				<label for="error_Id">에러 코드:</label><br> 
+				<label for="error_Id">* 에러 코드:</label><br> 
 				<input type="text" name="error_Id" id="error_Id"  placeholder="에러 코드" required><br> 
 		
-				<label for="error_Name">에러 이름:</label><br> 
+				<label for="error_Name">* 에러 이름:</label><br> 
 				<input type="text" name="error_Name" id="error_Name" placeholder="에러 이름" required><br>
 				
-				<label for="error_Contents">에러 내용:</label><br>
+				<label for="error_Contents">* 에러 내용:</label><br>
 				<textarea name="error_Contents" id="error_Contents" value="error_Contents" 
 					placeholder="에러 내용" required></textarea>
 				<br> <br>
-				
+				<div class=required> * 표시는 필수 항목입니다. </div>
 				<button type="submit">저장</button>
 				
 			</form>
@@ -294,12 +188,13 @@
 	<div id="popup_update" class="popup modalStyle">
 		<div class="popup-content">
 			<span class="close-popup" id="updateClose">&times;</span> 
-			<h2>에러 코드 수정</h2>
+			<h2>에러 상세 수정</h2>
 			<form id="error_editForm" method="post" action="update">
 			
 				<input type="hidden" name="action" id="actionEdit" value="add">
 				
-<!-- 				<label for="error_editId">에러 코드:</label><br>  -->
+				<label for="error_editId">에러 코드:</label><br> 
+				<div class=required> ※ 에러코드는 수정할 수 없습니다 </div> 
 				<input type="hidden" name="error_Id" id="error_editId"  placeholder="에러 코드" required><br> 
 		
 				<label for="error_editName">에러 이름:</label><br> 

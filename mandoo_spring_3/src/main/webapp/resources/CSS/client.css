@@ -97,7 +97,7 @@ input[type="text"] {
 .flex.round {
    display: flex;
    justify-content: space-between;
-   align-items: center; /* Center align items vertically */
+/*    align-items: center;  */
    padding: 10px;
    width: 95%; /* Adjust width as needed */
    height: auto;
@@ -108,31 +108,7 @@ input[type="text"] {
    margin-bottom: 10px; /* Reduced margin for better spacing */
 }
 
-.pagination {
-   display: inline-block;
-   margin-top: 20px;
-}
 
-.pagination a {
-   color: black;
-   float: left;
-   padding: 8px 16px;
-   text-decoration: none;
-   transition: background-color .3s;
-   border: 1px solid #ddd;
-   margin: 0 4px;
-   border-radius: 5px;
-}
-
-.pagination a.active {
-   background-color: #0085FF;
-   color: white;
-   border: 1px solid #0085FF;
-}
-
-.pagination a:hover:not(.active) {
-   background-color: #ddd;
-}
 
 /* 모달 스타일 */
 .modal {
@@ -223,3 +199,7 @@ input[type="text"] {
 .pagination a:hover:not(.active) {
    background-color: #ddd;
 } 
+
+.required{
+	color:blue;
+}

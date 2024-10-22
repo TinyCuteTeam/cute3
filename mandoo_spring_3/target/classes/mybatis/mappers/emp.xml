@@ -84,61 +84,82 @@
 		bomId = #{bomId}
 	</delete>
 
-   <!-- BOMDTO -->
-   <select id="selectBOM" resultType="bomDTO">
-      select * from bom
-   </select>
-   <select id="selectBOMById" parameterType="bomDTO" resultType="bomDTO">
-    SELECT * FROM BOM WHERE bom_Id = #{bom_Id}
-   </select>
+	<!-- BOMDTO -->
+	<select id="selectBOM" resultType="bomDTO">
+		select * from bom
+	</select>
+	<select id="selectBOMById" parameterType="bomDTO"
+		resultType="bomDTO">
+		SELECT * FROM BOM WHERE bom_Id = #{bom_Id}
+	</select>
+	<select id="selectGroupbyBOMId" resultType="string">
+		<!-- SELECT DISTINCT bom_Id, bom_Name -->
+		<!-- FROM bom; -->
+		SELECT bom_Id FROM bom GROUP BY bom_Id
+	</select>
+	<update id="updateBOM" parameterType="bomDTO">
+		UPDATE bom SET bom_Count = #{bom_Count}, bom_Unit = #{bom_Unit}
+		WHERE bom_Id = #{bom_Id} AND item_Code = #{item_Code}
+	</update>
+	<insert id="insertBOM" parameterType="bomDTO">
+		INSERT INTO bom(bom_Id, item_Code, bom_Count, bom_Unit, item_Name)
+		VALUES (#{bom_Id}, #{item_Code}, #{bom_Count}, #{bom_Unit}, #{item_Name})
+	</insert>
 
-   <!-- ClientDTO -->
-   <select id="selectClient" resultType="clientDTO">
-      select * from client
-   </select>
-   <insert id="insertClient" parameterType="clientDTO">
-      INSERT INTO client(client_Id, client_Name, client_Boss,client_Tel, client_Address, client_Email, client_Number)
-      VALUES (#{client_Id}, #{client_Name}, #{client_Boss}, #{client_Tel}, #{client_Address}, #{client_Email}, #{client_Number})
-   </insert>
-   <update id="updateClient" parameterType="clientDTO">
-      UPDATE client SET clientName = #{clientName}, contact = #{contact}
-      WHERE clientId = #{clientId}
-   </update>
-   <delete id="deleteClient" parameterType="clientDTO">
-      DELETE FROM client WHERE clientId = #{clientId}
-   </delete>
+	<!-- ClientDTO -->
+	<select id="selectClient" resultType="clientDTO">
+		select * from client
+	</select>
+	<insert id="insertClient" parameterType="clientDTO">
+		INSERT INTO client(client_Id, client_Name, client_Boss,client_Tel,
+		client_Address, client_Email, client_Number)
+		VALUES (#{client_Id}, #{client_Name}, #{client_Boss}, #{client_Tel},
+		#{client_Address}, #{client_Email}, #{client_Number})
+	</insert>
+	<update id="updateClient" parameterType="clientDTO">
+		UPDATE client SET clientName = #{clientName}, contact = #{contact}
+		WHERE clientId = #{clientId}
+	</update>
+	<delete id="deleteClient" parameterType="clientDTO">
+		DELETE FROM client WHERE clientId = #{clientId}
+	</delete>
 
-	   <!-- ErrorDTO -->
-   <select id="selectError" resultType="errorDTO">
-      select * from error
-   </select>
-   <insert id="insertError" parameterType="errorDTO">
-      INSERT INTO error(error_Id, error_Name, error_Contents)
-      VALUES (#{error_Id}, #{error_Name}, #{error_Contents})
-   </insert>
-   <update id="updateError" parameterType="errorDTO">
-      UPDATE error SET error_Name = #{error_Name}, error_Contents = #{error_Contents} 
-      WHERE error_Id = #{error_Id}
-   </update>
-   <delete id="deleteError" parameterType="errorDTO">
-      DELETE FROM error WHERE error_Id = #{error_Id}
-   </delete>
+	<!-- ErrorDTO -->
+	<select id="selectError" resultType="errorDTO">
+		select * from error
+	</select>
+	<insert id="insertError" parameterType="errorDTO">
+		INSERT INTO error(error_Id, error_Name, error_Contents)
+		VALUES (#{error_Id}, #{error_Name}, #{error_Contents})
+	</insert>
+	<update id="updateError" parameterType="errorDTO">
+		UPDATE error SET error_Name = #{error_Name}, error_Contents =
+		#{error_Contents}
+		WHERE error_Id = #{error_Id}
+	</update>
+	<delete id="deleteError" parameterType="errorDTO">
+		DELETE FROM error WHERE error_Id = #{error_Id}
+	</delete>
 
 	<!-- FaultyDTO -->
 	<select id="selectFaulty" resultType="faultyDTO">
-		SELECT TO_DATE(TO_CHAR(w.work_endate, 'YYYY-MM') || '-01', 'YYYY-MM-DD') AS month, 
-       	NVL(SUM(TO_NUMBER(f.faulty_count)), 0) AS defect_rate
+		SELECT
+		TO_DATE(TO_CHAR(w.work_endate, 'YYYY-MM') || '-01', 'YYYY-MM-DD') AS
+		month,
+		NVL(SUM(TO_NUMBER(f.faulty_count)), 0) AS defect_rate
 		FROM work w
-		LEFT JOIN faulty f ON f.work_id = w.work_id
-		GROUP BY TO_DATE(TO_CHAR(w.work_endate, 'YYYY-MM') || '-01', 'YYYY-MM-DD')
+		LEFT JOIN faulty f ON f.work_id =
+		w.work_id
+		GROUP BY TO_DATE(TO_CHAR(w.work_endate, 'YYYY-MM') || '-01',
+		'YYYY-MM-DD')
 		ORDER BY month
 	</select>
-	
-		<select id="selectFaultyChart" resultType="faultyDTO">
-	select * from faulty f, error e 
-	where f.error_id = e.error_id
+
+	<select id="selectFaultyChart" resultType="faultyDTO">
+		select * from faulty f, error e
+		where f.error_id = e.error_id
 	</select>
-	
+
 
 	<insert id="insertFaulty" parameterType="faultyDTO">
 		INSERT INTO
@@ -175,21 +196,21 @@
 		WHERE inventoryId = #{inventoryId}
 	</delete>
 
-	   <!-- ItemDTO -->
-   <select id="selectItem" resultType="itemDTO">
-      select * from item
-   </select>
-   <insert id="insertItem" parameterType="itemDTO">
-      INSERT INTO item(item_Code, item_Name, type)
-      VALUES (#{item_Code}, #{item_Name},#{type})
-   </insert>
-   <update id="updateItem" parameterType="itemDTO">
-      UPDATE item SET item_Name = #{item_Name}, type = #{type}
-      WHERE item_Code = #{item_Code}
-   </update>
-   <delete id="deleteItem" parameterType="itemDTO">
-      DELETE FROM item WHERE item_Code = #{item_Code}
-   </delete>
+	<!-- ItemDTO -->
+	<select id="selectItem" resultType="itemDTO">
+		select * from item
+	</select>
+	<insert id="insertItem" parameterType="itemDTO">
+		INSERT INTO item(item_Code, item_Name, type)
+		VALUES (#{item_Code}, #{item_Name},#{type})
+	</insert>
+	<update id="updateItem" parameterType="itemDTO">
+		UPDATE item SET item_Name = #{item_Name}, type = #{type}
+		WHERE item_Code = #{item_Code}
+	</update>
+	<delete id="deleteItem" parameterType="itemDTO">
+		DELETE FROM item WHERE item_Code = #{item_Code}
+	</delete>
 
 	<!-- MaterialStockDTO -->
 	<select id="selectMaterialStock" resultType="materialStockDTO">
@@ -307,10 +328,11 @@
 		WHERE work_do = '작업 중'
 		Order by line_no
 	</select>
-	
-	   <select id="selectProductionstatusOne" resultType="WorkDTO" parameterType="String">
-      select * from Work where work_id = #{work_id}
-   </select>
+
+	<select id="selectProductionstatusOne" resultType="WorkDTO"
+		parameterType="String">
+		select * from Work where work_id = #{work_id}
+	</select>
 	<!-- <insert id="insertProductionstatus" parameterType="productionstatusDTO"> -->
 	<!-- INSERT INTO productionPlan(planId, productId, startDate) -->
 	<!-- VALUES (#{planId}, #{productId}, #{startDate}) -->
@@ -456,7 +478,8 @@
 		stock_order
 		WHERE
 		TO_CHAR(order_time, 'YYYY-MM') = '2024-09'
-		GROUP BY order_name
+		GROUP BY
+		order_name
 		)
 		SELECT
 		s.STOCK_ID,
@@ -465,7 +488,8 @@
 		s.STOCK_COUNT,
 		s.STOCK_LOCATION,
 		s.STOCK_SORT,
-		COALESCE(o.order_count, 0) - COALESCE(se.order_count, 0) AS difference
+		COALESCE(o.order_count, 0) -
+		COALESCE(se.order_count, 0) AS difference
 		FROM
 		STOCK s
 		LEFT JOIN
@@ -473,8 +497,10 @@
 		LEFT JOIN
 		SeptemberOrders se ON s.STOCK_NAME = se.order_name
 		WHERE
-		s.STOCK_NAME IS NOT NULL
-		AND (#{item_code} IS NULL OR s.ITEM_CODE LIKE '%' || #{item_code} || '%')
+		s.STOCK_NAME IS
+		NOT NULL
+		AND (#{item_code} IS NULL OR s.ITEM_CODE LIKE '%' ||
+		#{item_code} || '%')
 		ORDER BY
 		s.STOCK_ID
 
@@ -531,29 +557,31 @@
 	</select>
 
 	<!-- stock_order -->
-	<select id="StockOrderSelect" parameterType="string" resultType="stockorderDTO">
-	SELECT 
-	    MIN(order_num) AS order_num, 
-	    order_supply, 
-	    TRUNC(order_time, 'MM') AS order_time, 
-	    SUM(order_count) AS order_count, 
-	    order_name 
-	FROM 
-	    stock_order 
-	WHERE 
-	    order_name = #{stock_Name}
-	    AND (order_time BETWEEN TRUNC(ADD_MONTHS(SYSDATE, -1), 'MM') AND LAST_DAY(ADD_MONTHS(SYSDATE, -1)) OR
-         order_time BETWEEN TRUNC(SYSDATE, 'MM') AND LAST_DAY(SYSDATE))
-	GROUP BY 
-	    order_supply, 
-	    TRUNC(order_time, 'MM'), 
-	    order_name 
-	ORDER BY 
-	    order_time
+	<select id="StockOrderSelect" parameterType="string"
+		resultType="stockorderDTO">
+		SELECT
+		MIN(order_num) AS order_num,
+		order_supply,
+		TRUNC(order_time, 'MM') AS order_time,
+		SUM(order_count) AS order_count,
+		order_name
+		FROM
+		stock_order
+		WHERE
+		order_name = #{stock_Name}
+		AND (order_time BETWEEN TRUNC(ADD_MONTHS(SYSDATE, -1), 'MM') AND
+		LAST_DAY(ADD_MONTHS(SYSDATE, -1)) OR
+		order_time BETWEEN TRUNC(SYSDATE, 'MM') AND LAST_DAY(SYSDATE))
+		GROUP BY
+		order_supply,
+		TRUNC(order_time, 'MM'),
+		order_name
+		ORDER BY
+		order_time
 
 
 	</select>
-	
+
 	<insert id="StockOrderInsert" parameterType="stockorderDTO">
 		INSERT INTO
 		stock_order (order_num, order_supply, order_time, order_count,

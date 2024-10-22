@@ -21,8 +21,36 @@ public class BOMServiceImpl implements BOMService {
 		return list;
 	}
 
+
 	@Override
-	public List<BOMDTO> getBOMById(String bom_Id) {
+	public List<BOMDTO> selectBOMById(String bom_Id) {
 		return bomDAO.selectBOMById(bom_Id);
+	}
+
+	@Override
+	public int deleteBOM(BOMDTO bomDTO) {
+		int result = -1;
+		result = bomDAO.deleteBOM(bomDTO);
+		return result;
+	}
+
+	@Override
+	public int insertBOM(BOMDTO bomDTO) {
+		int result = -1;
+		result = bomDAO.insertBOM(bomDTO);
+		return result;
+	}
+
+	@Override
+	public int updateBOM(BOMDTO bomDTO) {
+		int result = -1;
+		result = bomDAO.updateBOM(bomDTO);
+		return result;
+	}
+
+
+	@Override
+	public List<String> selectGroupbyBOMId() {
+		return bomDAO.selectGroupbyBOMId();
 	}
 }

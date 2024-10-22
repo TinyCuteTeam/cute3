@@ -3,7 +3,7 @@
 	margin-left: 150px;
 	text-align: center;
 	width: 65%;
-	height: 750px;
+/* 	height: 750px; */
 	padding-right: 272px;
 }
 
@@ -64,6 +64,10 @@ td {
 	height: 50px;
 }
 
+.thwidth {
+    width: 140px;
+}
+
 /* 재료이미지 */
 /* .ingre { */
 /* 	width: 50px; */
@@ -106,3 +110,6 @@ td {
 	background-color: #ddd;
 }
 
+.required{
+	color: blue;
+}

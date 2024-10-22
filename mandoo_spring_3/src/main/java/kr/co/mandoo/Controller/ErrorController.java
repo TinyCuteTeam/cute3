@@ -21,7 +21,7 @@ public class ErrorController {
 	@RequestMapping("/error")
 	public String listError(Model model, 
                             @RequestParam(defaultValue = "1") int page,  // 현재 페이지 번호
-                            @RequestParam(defaultValue = "5") int pageSize) {  // 페이지 당 항목 수
+                            @RequestParam(defaultValue = "8") int pageSize) {  // 페이지 당 항목 수
 
 		List<ErrorDTO> list = errorService.listError();
 		System.out.println("list: " + list);

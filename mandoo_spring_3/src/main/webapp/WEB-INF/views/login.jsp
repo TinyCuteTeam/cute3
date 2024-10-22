@@ -132,7 +132,7 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus
 			<label for="user_id">아이디</label> 
 			<input type="text" name="user_id" id="user_id" value = "admin1414" required><br> <label for="user_pw">
 			비밀번호</label>
-			<input type="password" name="user_pw" id="user_pw" value = "admin1414"required><br>
+			<input type="password" name="user_pw" id="user_pw" value = "admin1414"  required><br>
 
 			<button type="submit">로그인</button>
 		</form>
