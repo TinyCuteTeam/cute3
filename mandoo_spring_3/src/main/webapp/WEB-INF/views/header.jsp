@@ -118,7 +118,7 @@ big {
 				</div>
 
 				<div class="category-item">
-					<a href="/mandoo/StockInventory" class="category-link ${fn:contains(pageContext.request.requestURI, '/StockInventory') ? 'title' : ''}">재고관리</a>
+					<a href="/mandoo/Stock" class="category-link ${fn:contains(pageContext.request.requestURI, '/StockInventory') ? 'title' : ''}">재고관리</a>
 				</div>
 
 				<div class="category-item">

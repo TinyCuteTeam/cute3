@@ -26,7 +26,7 @@
 					<option value="" ${empty param.item_Code ? 'selected' : ''}>전체</option>
 					<option value="P" ${param.item_Code == 'P' ? 'selected' : ''}>완제품</option>
 					<option value="I" ${param.item_Code == 'I' ? 'selected' : ''}>재료</option>
-				</select> <input type="submit" value="정렬">
+				</select> <input type="submit" value="정렬" class="selectB">
 				</div>
 			</form>
 
