@@ -18,28 +18,39 @@ public class BOMController {
     @Autowired
     BOMService bomService;
 	
-	@RequestMapping("/bom")
-	public String listBOM(Model model, @RequestParam(required = false) String bom_Id) {
-		List<BOMDTO> bomList;
-		List<String> bomIds;
-	
-		// bom_Id가 선택된 경우 해당 BOM 목록을 가져옴
-	    if (bom_Id != null && !bom_Id.isEmpty()) {
-	        bomList = bomService.selectBOMById(bom_Id); // 특정 bom_Id에 대한 리스트를 가져옴
-	    } else {
-	        bomList = bomService.listBOM(); // 모든 BOM 목록 가져오기
-	    }
-		
-	    // BOM ID 목록 가져오기
-	    bomIds = bomService.selectGroupbyBOMId();
-	    
-		System.out.println("bom list: " + bomList);
-		
-	    model.addAttribute("list", bomList);
-	    model.addAttribute("bomIds", bomIds); // BOM ID 목록 추가
-	    
-	    return "BOM";
-	}
+    @RequestMapping("/bom")
+    public String listBOM(Model model, 
+                          @RequestParam(required = false) String bom_Id,
+                          @RequestParam(defaultValue = "1") int page,  // 페이지 번호 (기본값 1)
+                          @RequestParam(defaultValue = "8") int pageSize) {  // 페이지당 항목 수 (기본값 8)
+        List<BOMDTO> bomList;
+        List<String> bomIds;
+
+        // bom_Id가 선택된 경우 해당 BOM 목록을 가져옴
+        if (bom_Id != null && !bom_Id.isEmpty()) {
+            bomList = bomService.selectBOMById(bom_Id); // 특정 bom_Id에 대한 리스트를 가져옴
+        } else {
+            bomList = bomService.listBOM(); // 모든 BOM 목록 가져오기
+        }
+
+        // 전체 항목 수와 페이지 수 계산
+        int totalItems = bomList.size();
+        int totalPages = (totalItems + pageSize - 1) / pageSize;  // 전체 페이지 수 계산
+
+        // 현재 페이지에 해당하는 데이터만 잘라서 서브리스트로 전송
+        int startIndex = (page - 1) * pageSize;
+        int endIndex = Math.min(startIndex + pageSize, totalItems);
+        List<BOMDTO> paginatedList = bomList.subList(startIndex, endIndex);
+
+        // 모델에 데이터를 추가
+        model.addAttribute("list", paginatedList);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", totalPages);
+        model.addAttribute("bom_Id", bom_Id);
+        model.addAttribute("bomIds", bomService.selectGroupbyBOMId()); // BOM ID 목록 추가
+
+        return "BOM";
+    }
 	
     @RequestMapping(value="/bomDelete", method=RequestMethod.POST)
 	public String deleteBOM(Model model, BOMDTO bomDTO) {

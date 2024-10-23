@@ -1,4 +1,4 @@
-﻿<%@ page contentType="text/html; charset=UTF-8" language="java"%>
+﻿﻿<%@ page contentType="text/html; charset=UTF-8" language="java"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="ko">
@@ -143,10 +143,11 @@
     <!-- 페이지 번호 표시 -->
     <div class="pagination">
         <c:forEach begin="1" end="${totalPages}" var="pageNum">
-            <a href="bom?page=${pageNum}&bom_Id=${bom_Id}" 
-               style="${currentPage == pageNum ? 'font-weight:bold' : ''}">
-                ${pageNum}
-            </a>
+<a href="bom?page=${pageNum}&bom_Id=${bom_Id}" 
+   class="${currentPage == pageNum ? 'active' : ''}">
+    ${pageNum}
+</a>
+
         </c:forEach>
     </div>
     
