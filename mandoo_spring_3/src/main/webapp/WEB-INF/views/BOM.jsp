@@ -100,7 +100,7 @@
 				<input type="text" name="item_Name" id="item_Name" placeholder="품목명" required><br>
 				
 				* 수량:<br> 
-				<input type="text" name="bom_Count" id="bom_Count" placeholder="수량" required><br>
+				<input type="number" name="bom_Count" id="bom_Count" placeholder="수량" required><br>
 				
 				* 단위:<br> 
 				<input type="text" name="bom_Unit" id="bom_Unit" placeholder="단위" required><br>

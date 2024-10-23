@@ -9,6 +9,23 @@
     <title>Mandoo</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/CSS/style.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/CSS/출하확인.css">
+    
+    <script>
+        // 모든 출고 버튼에 대한 확인창 처리
+        document.addEventListener("DOMContentLoaded", function() {
+            const shipmentForms = document.querySelectorAll("form");
+
+            shipmentForms.forEach(form => {
+                form.addEventListener("submit", function(event) {
+                    const confirmAction = confirm("출고하시겠습니까?");
+                    if (!confirmAction) {
+                        // 사용자가 취소를 누르면 폼 제출을 막음
+                        event.preventDefault();
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 
 <body>

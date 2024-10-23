@@ -1,6 +1,5 @@
 package kr.co.mandoo.filter;
 
-
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -28,10 +27,8 @@ public class SessionCheckFilter implements Filter {
 
         String uri = req.getRequestURI();
 
-        // 정적 리소스에 대한 요청인지 확인
-        boolean isStaticResource = uri.startsWith(req.getContextPath() + "/image/")
-                || uri.startsWith(req.getContextPath() + "/css/")
-                || uri.startsWith(req.getContextPath() + "/js/");
+        // /resources 경로의 모든 정적 리소스에 대해 필터링 제외
+        boolean isStaticResource = uri.startsWith(req.getContextPath() + "/resources/");
 
         boolean isLoginPage = uri.endsWith("/login.jsp") || uri.endsWith("login")
                 || uri.contains("register.jsp") || uri.contains("register");
@@ -40,7 +37,7 @@ public class SessionCheckFilter implements Filter {
         if (!isStaticResource) {
             if (session == null || session.getAttribute("user") == null) {
                 if (!isLoginPage) {
-                    // Redirect to /mandoo/login instead of login.jsp
+                    // 로그인 페이지로 리디렉션
                     res.sendRedirect(req.getContextPath() + "/login");
                     return;
                 }

@@ -10,6 +10,17 @@
 	href="${pageContext.request.contextPath}/resources/CSS/style.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/CSS/마이페이지.css">
+	
+	<style>
+	.editBtn {
+    background-color:rgba(0, 0, 0, 0);
+    border: none;
+    text-decoration: underline;
+	text-decoration-thickness: 1px;
+    cursor: pointer;
+}
+	
+	</style>
 </head>
 
 <body>
@@ -21,7 +32,7 @@
 	<div class="content">
 		<div id="content-display">
 			<div class="gwrap">
-				<h1>마이페이지</h1>
+				<div style="text-align:right;"><h1>마이페이지</h1> <button class="editBtn" >수정</button></div>
 				<div class="g_top">
 					<table>
 						<tr>
@@ -36,9 +47,6 @@
 							<!-- 수정 -->
 						</tr>
 						<tr>
-							<td class="grey">학력</td>
-							<td>${mypage.mypage_Intel}</td>
-							<!-- 수정 -->
 							<td class="grey">내선번호</td>
 							<td>${mypage.mypage_Phone}</td>
 							<!-- 수정 -->
@@ -59,16 +67,7 @@
 							<td>${mypage.mypage_Mainnum}</td>
 							<!-- 수정 -->
 						</tr>
-						<tr>
-							<td class="grey">주소</td>
-							<td colspan="3">${mypage.mypage_Address}</td>
-							<!-- 수정 -->
-						</tr>
-						<tr>
-							<td class="grey">생년월일</td>
-							<td>${mypage.mypage_Birth}</td>
-							<!-- 수정 -->
-						</tr>
+					
 					</table>
 				</div>
 			</div>

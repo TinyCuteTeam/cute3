@@ -101,6 +101,7 @@
 			<tr>
 				<th class="srTh thwidth">품목코드</th>
 				<th class="srTh">품목명</th>
+				<th class="srTh">종류</th>
 				<th class="srTh thwidth">수정</th>
 				<th class="srTh thwidth">삭제</th>
 			</tr>
@@ -108,6 +109,7 @@
 				<tr>
 					<td>${item.item_Code}</td>
 					<td>${item.item_Name}</td>
+					<td>${item.type}</td>
 <%-- 					<td>${item.type}</td> --%>
 <!-- 					이미지 나오는 부분 -->
 <!-- 					<td><img class="ingre" -->
@@ -130,9 +132,8 @@
 							
 							
 					<td><form method="post" action="itemDelete">
-							<!-- 							<input type="hidden" name="action" value="delete">  -->
 							<input type="hidden" name="item_Code" value="${item.item_Code}">
-							<button type="submit" class="editButton">삭제</button>
+							<button type="submit" class="editButton1">삭제</button>
 						</form></td>
 				</tr>
 			</c:forEach>

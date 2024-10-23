@@ -644,7 +644,7 @@
 
 	<!-- WorkDTO -->
 	<select id="selectWork" resultType="workDTO">
-		select * from Work
+		select * from Work order by work_id desc
 	</select>
 	<insert id="insertWork" parameterType="workDTO">
 		INSERT INTO Work(work_id,

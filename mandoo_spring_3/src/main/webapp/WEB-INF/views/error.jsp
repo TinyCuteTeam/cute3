@@ -96,47 +96,49 @@
 
 		<!-- 표 -->
 		<form id="errorForm" method="post" action="delete">
-		<input type="hidden" id='errorId' name="error_Id" value="">
-		
-		<div>
-    <table border="1" class="errortable" id="errorTable">
-        <tr>
-            <th class="thwidth">에러코드</th>
-            <th class="namewidth">이름</th>
-            <th class="errorexplain">내용</th>
-            <th class="btnwidth">수정</th>
-            <th class="btnwidth">삭제</th>
-        </tr>
-        <c:forEach var="error" items="${list}">
-            <tr>
-                <td>${error.error_Id}</td>
-                <td>${error.error_Name}</td>
-                <td>${error.error_Contents}</td>
-                <td>
-                    <form method="post" action="update" class="updateForm">
-                        <input type="hidden" name="error_Id" value="${error.error_Id}">
-                        <input type="hidden" name="error_Name" value="${error.error_Name}">
-                        <input type="hidden" name="error_Contents" value="${error.error_Contents}">
-                        <button type="button" class="editBtn erroreditButton" 
-    					data-error-id="${error.error_Id}" 
-    					data-error-name="${error.error_Name}" 
-    					data-error-contents="${error.error_Contents}">수정</button>
-                    </form>
-                </td>
-                
-                <td>
-                    <form method="post" action="delete" class="deleteForm">
-                        <input type="hidden" name="error_Id" value="${error.error_Id}">
-                        <button type="submit" class="editBtn errordelButton">삭제</button>
-                    </form>
-                </td>
-                
-            </tr>
-        </c:forEach>
-    </table>
-</div>	
+			<input type="hidden" id='errorId' name="error_Id" value="">
+
+			<div>
+				<table border="1" class="errortable" id="errorTable">
+					<tr>
+						<th class="thwidth">에러코드</th>
+						<th class="namewidth">이름</th>
+						<th class="errorexplain">내용</th>
+						<th class="btnwidth">수정</th>
+						<th class="btnwidth">삭제</th>
+					</tr>
+					<c:forEach var="error" items="${list}">
+						<tr>
+							<td>${error.error_Id}</td>
+							<td>${error.error_Name}</td>
+							<td>${error.error_Contents}</td>
+							<td>
+								<form method="post" action="update" class="updateForm">
+									<input type="hidden" name="error_Id" value="${error.error_Id}">
+									<input type="hidden" name="error_Name"
+										value="${error.error_Name}"> <input type="hidden"
+										name="error_Contents" value="${error.error_Contents}">
+									<button type="button" class="editBtn erroreditButton"
+										data-error-id="${error.error_Id}"
+										data-error-name="${error.error_Name}"
+										data-error-contents="${error.error_Contents}">수정</button>
+								</form>
+							</td>
+
+							<td>
+								<form method="post" action="delete" class="deleteForm">
+									<input type="hidden" name="error_Id" value="${error.error_Id}">
+									<button type="button" class="editBtn errordelButton">삭제</button>
+								</form>
+
+							</td>
+
+						</tr>
+					</c:forEach>
+				</table>
+			</div>
 		</form>
-		
+
 		<!-- 페이징 -->
 		<!--       페이징 하려면 전달인자 필요  -->
 		<!--       어디서부터 어디까지 잘라야한다 -->
@@ -160,58 +162,58 @@
 	<!-- 모달 창 -->
 	<div id="popup" class="popup modalStyle">
 		<div class="popup-content">
-			<span class="close-popup" id="close-popup">&times;</span> 
+			<span class="close-popup" id="close-popup">&times;</span>
 			<h2>에러 코드 등록</h2>
 			<form id="errorForm" method="post" action="insert">
-			
+
 				<input type="hidden" name="action" id="action" value="add">
-				
-				<label for="error_Id">* 에러 코드:</label><br> 
-				<input type="text" name="error_Id" id="error_Id"  placeholder="에러 코드" required><br> 
-		
-				<label for="error_Name">* 에러 이름:</label><br> 
-				<input type="text" name="error_Name" id="error_Name" placeholder="에러 이름" required><br>
-				
+
+				<label for="error_Id">* 에러 코드:</label><br> <input type="text"
+					name="error_Id" id="error_Id" placeholder="에러 코드" required><br>
+
+				<label for="error_Name">* 에러 이름:</label><br> <input type="text"
+					name="error_Name" id="error_Name" placeholder="에러 이름" required><br>
+
 				<label for="error_Contents">* 에러 내용:</label><br>
-				<textarea name="error_Contents" id="error_Contents" value="error_Contents" 
-					placeholder="에러 내용" required></textarea>
+				<textarea name="error_Contents" id="error_Contents"
+					value="error_Contents" placeholder="에러 내용" required></textarea>
 				<br> <br>
-				<div class=required> * 표시는 필수 항목입니다. </div>
+				<div class=required>* 표시는 필수 항목입니다.</div>
 				<button type="submit">저장</button>
-				
+
 			</form>
 		</div>
-		
+
 	</div>
 
-<!-- 수정용 모달창 -->
+	<!-- 수정용 모달창 -->
 	<div id="popup_update" class="popup modalStyle">
 		<div class="popup-content">
-			<span class="close-popup" id="updateClose">&times;</span> 
+			<span class="close-popup" id="updateClose">&times;</span>
 			<h2>에러 상세 수정</h2>
 			<form id="error_editForm" method="post" action="update">
-			
+
 				<input type="hidden" name="action" id="actionEdit" value="add">
-				
-				<label for="error_editId">에러 코드:</label><br> 
-				<div class=required> ※ 에러코드는 수정할 수 없습니다 </div> 
-				<input type="hidden" name="error_Id" id="error_editId"  placeholder="에러 코드" required><br> 
-		
-				<label for="error_editName">에러 이름:</label><br> 
-				<input type="text" name="error_Name" id="error_editName" placeholder="에러 이름" required><br>
-				
+
+				<label for="error_editId">에러 코드:</label><br>
+				<div class=required>※ 에러코드는 수정할 수 없습니다</div>
+				<input type="hidden" name="error_Id" id="error_editId"
+					placeholder="에러 코드" required><br> <label
+					for="error_editName">에러 이름:</label><br> <input type="text"
+					name="error_Name" id="error_editName" placeholder="에러 이름" required><br>
+
 				<label for="error_editContents">에러 내용:</label><br>
-				<textarea name="error_Contents" id="error_editContents" value="error_Contents" 
-					placeholder="에러 내용" required></textarea>
+				<textarea name="error_Contents" id="error_editContents"
+					value="error_Contents" placeholder="에러 내용" required></textarea>
 				<br> <br>
-				
+
 				<button type="submit" id="errorSubmit">저장</button>
-				
+
 			</form>
 		</div>
-		
+
 	</div>
-	
+
 	<script src="resources/JS/error.js"></script>
 </body>
 

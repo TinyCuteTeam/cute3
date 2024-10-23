@@ -32,7 +32,7 @@ a {
 }
 
 ._category {
-	width: 100%;
+	width: 101%;
 	height: 250px;
 	opacity: 0;
 	/* 초기 상태에서 투명하게 설정 */

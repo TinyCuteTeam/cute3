@@ -53,7 +53,7 @@ big {
     <div class="category-item">
         <a href="/mandoo/item" class="category-link ${fn:contains(pageContext.request.requestURI, '/item') || fn:contains(pageContext.request.requestURI, '/BOM') || fn:contains(pageContext.request.requestURI, '/client') || fn:contains(pageContext.request.requestURI, '/error') ? 'title' : ''}">기준관리</a>
         <div class="_category">
-            <a href="/mandoo/item" class="category-link ${fn:contains(pageContext.request.requestURI, '/item') || fn:contains(pageContext.request.requestURI, '/bom') || fn:contains(pageContext.request.requestURI, '/client') ? 'title' : ''}">품목 코드 조회</a><br>
+            <a href="/mandoo/item" class="category-link ${fn:contains(pageContext.request.requestURI, '/item') ? 'title' : ''}">품목 코드 조회</a><br>
             <a href="/mandoo/bom?bom_Id=A00001" class="category-link ${fn:contains(pageContext.request.requestURI, '/BOM') ? 'title' : ''}">BOM(레시피관리)</a><br>
             <a href="/mandoo/client" class="category-link ${fn:contains(pageContext.request.requestURI, '/client') ? 'title' : ''}">거래처 관리</a><br>
             <a href="/mandoo/error" class="category-link ${fn:contains(pageContext.request.requestURI, '/error') ? 'title' : ''}">에러코드</a><br>

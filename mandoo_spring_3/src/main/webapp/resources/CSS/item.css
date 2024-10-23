@@ -32,7 +32,7 @@
 }
 
 /*    수정, 삭제버튼 css */
-.editButton {
+.editButton, .editButton1 {
 	border: 0px;
     background-color:rgba(0, 0, 0, 0);
 	width: 40px;
