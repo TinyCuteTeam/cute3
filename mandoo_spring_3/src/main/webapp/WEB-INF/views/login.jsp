@@ -130,9 +130,9 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus
 		<!-- required :  폼 데이터가 서버로 제출되기 전 반드시 채워져 있어야 하는 입력 필드 -->
 		<form action="${pageContext.request.contextPath}/login" method="post">
 			<label for="user_id">아이디</label> 
-			<input type="text" name="user_id" id="user_id"  required><br> <label for="user_pw">
+			<input type="text" name="user_id" id="user_id" value = "admin1414" required><br> <label for="user_pw">
 			비밀번호</label>
-			<input type="password" name="user_pw" id="user_pw"   required><br>
+			<input type="password" name="user_pw" id="user_pw" value = "admin1414" required><br>
 
 			<button type="submit">로그인</button>
 		</form>
@@ -155,7 +155,7 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus
         <h2>회원가입</h2>
         <form action="${pageContext.request.contextPath}/account/register" method="post" onsubmit="return validateForm();">
             <label for="register_user_id">아이디:</label>
-            <input type="text" name="account_Id" id="register_user_id" required><br>
+            <input type="text" name="account_Id" id="register_user_id" value required><br>
             <small id="passwordHelp" style="color: blue; margin-bottom: 5px; display: block;">아이디는 영어, 숫자만 가능합니다</small><br>
 
             <label for="register_user_pw">비밀번호:</label>

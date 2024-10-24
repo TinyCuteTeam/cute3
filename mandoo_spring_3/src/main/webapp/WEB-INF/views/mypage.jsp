@@ -53,7 +53,7 @@
 						</tr>
 						<tr>
 							<td class="grey">이메일</td>
-							<td>${mypage.mypage_Phone}</td>
+							<td>empno@gmail.com</td>
 							<!-- 수정 -->
 							<td class="grey">휴대폰번호</td>
 							<td>${mypage.mypage_Phone}</td>

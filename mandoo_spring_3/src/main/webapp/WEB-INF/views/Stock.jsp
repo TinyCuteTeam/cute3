@@ -206,7 +206,7 @@
 				<form id="stock-update-form" method="post" action="updateOne">
 					<input type="hidden" name="action" value="updateQuantity">
 					<input type="hidden" id="stock-update-item-id" name="stock_Id">
-					<select name="order_supply">
+					<select name="order_supply" class = "selectBox">
 						<option name="order_supply" value="A식자재 마트">A식자재 마트</option>
 						<option name="order_supply" value="B식자재 마트">B식자재 마트</option>
 						<option name="order_supply" value="C식자재 마트">C식자재 마트</option>
